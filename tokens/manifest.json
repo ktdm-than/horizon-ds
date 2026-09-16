@@ -1,0 +1,40 @@
+{
+  "name": "Design Tokens",
+  "collections": {
+    "core": {
+      "modes": {
+        "default": [
+          "core.default.tokens.json"
+        ]
+      }
+    },
+    "semantic": {
+      "modes": {
+        "light": [
+          "semantic.light.tokens.json"
+        ],
+        "dark": [
+          "semantic.dark.tokens.json"
+        ]
+      }
+    },
+    "typography": {
+      "modes": {
+        "english": [
+          "typography.english.tokens.json"
+        ],
+        "burmese": [
+          "typography.burmese.tokens.json"
+        ]
+      }
+    }
+  },
+  "styles": {
+    "typography": [
+      "typography.styles.tokens.json"
+    ],
+    "effects": [
+      "effects.styles.tokens.json"
+    ]
+  }
+}
