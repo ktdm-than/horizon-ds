@@ -6,7 +6,7 @@ const STYLES = [T + 'typography.styles.tokens.json', T + 'effects.styles.tokens.
 
 // Figma writes font weight as a style NAME. CSS needs a number.
 const WEIGHTS = { Thin:100, ExtraLight:200, Light:300, Regular:400, Medium:500,
-                  SemiBold:600, Bold:700, ExtraBold:800, Black:900 };
+                  "Semi Bold":600, Bold:700, ExtraBold:800, Black:900 };
 
 // Runs BEFORE any transform, so the shorthand sees the fixed values.
 StyleDictionary.registerPreprocessor({
