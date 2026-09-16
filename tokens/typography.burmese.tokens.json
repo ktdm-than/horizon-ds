@@ -71,7 +71,7 @@
       "unit": "px"
     }
   },
-  "fontsize-jumbo": {
+  "fontsize-4xl": {
     "$type": "dimension",
     "$value": {
       "value": 44,
@@ -134,7 +134,7 @@
       "unit": "px"
     }
   },
-  "lineheight-jumbo": {
+  "lineheight-4xl": {
     "$type": "dimension",
     "$value": {
       "value": 72,
@@ -154,10 +154,6 @@
     "$value": "semibold"
   },
   "fontweight-bold": {
-    "$type": "fontWeight",
-    "$value": "bold"
-  },
-  "fontweight-heading": {
     "$type": "fontWeight",
     "$value": "bold"
   }

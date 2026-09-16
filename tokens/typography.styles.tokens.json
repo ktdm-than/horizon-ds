@@ -4,8 +4,8 @@
     "$value": {
       "fontFamily": "{fontfamily-heading}",
       "fontWeight": "Semi Bold",
-      "fontSize": "{fontsize-jumbo}",
-      "lineHeight": "{lineheight-jumbo}",
+      "fontSize": "{fontsize-4xl}",
+      "lineHeight": "{lineheight-4xl}",
       "letterSpacing": {
         "value": 0,
         "unit": "px"
