@@ -156,5 +156,19 @@
   "fontweight-bold": {
     "$type": "fontWeight",
     "$value": "bold"
+  },
+  "fontsize-jumbo": {
+    "$type": "dimension",
+    "$value": {
+      "value": 60,
+      "unit": "px"
+    }
+  },
+  "lineheight-jumbo": {
+    "$type": "dimension",
+    "$value": {
+      "value": 64,
+      "unit": "px"
+    }
   }
 }
