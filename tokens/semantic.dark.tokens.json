@@ -15,10 +15,6 @@
     "$type": "color",
     "$value": "{color-neutral-100}"
   },
-  "color-bg-overlay": {
-    "$type": "color",
-    "$value": "{color-neutral-200a}"
-  },
   "color-bg-disabled": {
     "$type": "color",
     "$value": "{color-neutral-200}"
@@ -237,11 +233,11 @@
   },
   "color-text-inversesecondary": {
     "$type": "color",
-    "$value": "{color-neutral-50}"
+    "$value": "{color-neutral-200}"
   },
   "color-text-disabledondark": {
     "$type": "color",
-    "$value": "{color-neutral-200}"
+    "$value": "{color-neutral-400}"
   },
   "color-text-brand": {
     "$type": "color",
@@ -289,11 +285,11 @@
   },
   "color-icon-inversesecondary": {
     "$type": "color",
-    "$value": "{color-neutral-50}"
+    "$value": "{color-neutral-200}"
   },
   "color-icon-disabledondark": {
     "$type": "color",
-    "$value": "{color-neutral-200}"
+    "$value": "{color-neutral-400}"
   },
   "color-icon-brand": {
     "$type": "color",
@@ -474,5 +470,13 @@
   "color-border-accent-pink-bold": {
     "$type": "color",
     "$value": "{color-pink-400}"
+  },
+  "color-overlay-subtle": {
+    "$type": "color",
+    "$value": "{color-neutral-200a}"
+  },
+  "color-overlay-intense": {
+    "$type": "color",
+    "$value": "{color-neutral-400a}"
   }
 }

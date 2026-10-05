@@ -1,0 +1,33 @@
+{
+  "overlaygradient": {
+    "$type": "gradient",
+    "$value": [
+      {
+        "color": "{color-gradient-0}",
+        "position": 0
+      },
+      {
+        "color": "{color-gradient-100}",
+        "position": 1
+      }
+    ],
+    "$description": "Media content overlay",
+    "$extensions": {
+      "figma": {
+        "gradientType": "linear",
+        "gradientTransform": [
+          [
+            6.123234262925839e-17,
+            1,
+            0
+          ],
+          [
+            -1,
+            6.123234262925839e-17,
+            1
+          ]
+        ]
+      }
+    }
+  }
+}

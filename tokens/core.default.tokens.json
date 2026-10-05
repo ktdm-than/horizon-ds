@@ -1193,6 +1193,29 @@
       ]
     }
   },
+  "color-gradient-100": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [
+        0.9960784316062927,
+        0.9960784316062927,
+        0.9960784316062927
+      ],
+      "alpha": 0
+    }
+  },
+  "color-gradient-0": {
+    "$type": "color",
+    "$value": {
+      "colorSpace": "srgb",
+      "components": [
+        0.10196078568696976,
+        0.11372549086809158,
+        0.125490203499794
+      ]
+    }
+  },
   "spacing-none": {
     "$type": "dimension",
     "$value": {
@@ -1312,21 +1335,21 @@
       "unit": "px"
     }
   },
-  "borderwidth-thin": {
-    "$type": "dimension",
-    "$value": {
-      "value": 0.5,
-      "unit": "px"
-    }
-  },
-  "borderwidth-medium": {
+  "borderwidth-sm": {
     "$type": "dimension",
     "$value": {
       "value": 1,
       "unit": "px"
     }
   },
-  "borderwidth-thick": {
+  "borderwidth-md": {
+    "$type": "dimension",
+    "$value": {
+      "value": 1.5,
+      "unit": "px"
+    }
+  },
+  "borderwidth-lg": {
     "$type": "dimension",
     "$value": {
       "value": 2,
@@ -1336,27 +1359,6 @@
   "elevation-color": {
     "$type": "color",
     "$value": "{color-neutral-300a}"
-  },
-  "elevation-level1": {
-    "$type": "dimension",
-    "$value": {
-      "value": 2,
-      "unit": "px"
-    }
-  },
-  "elevation-level2": {
-    "$type": "dimension",
-    "$value": {
-      "value": 4,
-      "unit": "px"
-    }
-  },
-  "elevation-level3": {
-    "$type": "dimension",
-    "$value": {
-      "value": 8,
-      "unit": "px"
-    }
   },
   "elevation-blur-level1": {
     "$type": "dimension",
@@ -1376,6 +1378,34 @@
     "$type": "dimension",
     "$value": {
       "value": 20,
+      "unit": "px"
+    }
+  },
+  "elevation-x-level1": {
+    "$type": "dimension",
+    "$value": {
+      "value": 0,
+      "unit": "px"
+    }
+  },
+  "elevation-y-level1": {
+    "$type": "dimension",
+    "$value": {
+      "value": 2,
+      "unit": "px"
+    }
+  },
+  "elevation-y-level2": {
+    "$type": "dimension",
+    "$value": {
+      "value": 4,
+      "unit": "px"
+    }
+  },
+  "elevation-y-level3": {
+    "$type": "dimension",
+    "$value": {
+      "value": 8,
       "unit": "px"
     }
   }
