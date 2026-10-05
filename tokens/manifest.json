@@ -35,6 +35,9 @@
     ],
     "effects": [
       "effects.styles.tokens.json"
+    ],
+    "color": [
+      "color.styles.tokens.json"
     ]
   }
 }

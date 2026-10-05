@@ -245,5 +245,18 @@
         "unit": "px"
       }
     }
+  },
+  "list-item": {
+    "$type": "typography",
+    "$value": {
+      "fontFamily": "{fontfamily-body}",
+      "fontWeight": "Medium",
+      "fontSize": "{fontsize-sm}",
+      "lineHeight": "{lineheight-sm}",
+      "letterSpacing": {
+        "value": 0,
+        "unit": "px"
+      }
+    }
   }
 }
