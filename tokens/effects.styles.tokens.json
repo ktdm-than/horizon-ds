@@ -4,11 +4,8 @@
     "$value": [
       {
         "color": "{elevation-color}",
-        "offsetX": {
-          "value": 0,
-          "unit": "px"
-        },
-        "offsetY": "{elevation-level1}",
+        "offsetX": "{elevation-x-level1}",
+        "offsetY": "{elevation-y-level1}",
         "blur": "{elevation-blur-level1}",
         "spread": {
           "value": 0,
@@ -22,11 +19,8 @@
     "$value": [
       {
         "color": "{elevation-color}",
-        "offsetX": {
-          "value": 0,
-          "unit": "px"
-        },
-        "offsetY": "{elevation-level2}",
+        "offsetX": "{elevation-x-level1}",
+        "offsetY": "{elevation-y-level2}",
         "blur": "{elevation-blur-level2}",
         "spread": {
           "value": 0,
@@ -40,11 +34,8 @@
     "$value": [
       {
         "color": "{elevation-color}",
-        "offsetX": {
-          "value": 0,
-          "unit": "px"
-        },
-        "offsetY": "{elevation-level3}",
+        "offsetX": "{elevation-x-level1}",
+        "offsetY": "{elevation-y-level3}",
         "blur": "{elevation-blur-level3}",
         "spread": {
           "value": 0,
