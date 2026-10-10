@@ -48,7 +48,10 @@
 .hds-card-layout[data-orientation='verticle'] {
   flex-direction: column;
 }
-/* Horizontal: image and CardData split the row equally (Figma: 249 / 249 inside 510 with a 12 gap). */
+/* Horizontal: Figma sets CardImage to fill and CardData to a fixed 249px width.
+   UNBOUND (design gap D4): that 249 is a raw value, so it is not hardcoded. Until design
+   binds it, image and CardData share the row equally; inside the 510px Card this
+   coincides with Figma (249 / 249), at other widths it does not. */
 .hds-card-layout[data-orientation='horizontal'] > .hds-card-image,
 .hds-card-layout__data {
   flex: 1 1 0;
@@ -117,30 +120,43 @@
 
 /* ---------- IconBtn (163:74) ---------- */
 .hds-iconbtn {
+  /* UNBOUND (design gap D5): Figma size is 32x32, radius 16, glyph Inter Regular 14px.
+     No size token is bound, so the size is derived from the bound tokens instead:
+     the bound vertical padding (spacing/sm) on both sides plus the glyph's line box
+     (lineheight/xs). With the English typography mode that is 8 + 16 + 8 = 32.
+     Width and height use the same expression, so the button is always square. */
+  --hds-iconbtn-size: calc(var(--spacing-sm) * 2 + var(--lineheight-xs));
+  box-sizing: border-box;
   display: inline-flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: var(--spacing-none);
+  inline-size: var(--hds-iconbtn-size);
+  block-size: var(--hds-iconbtn-size);
   padding: var(--spacing-sm) var(--spacing-base);
   border: 0;
   margin: 0;
   background: var(--color-bg-base);
+  border-radius: var(--borderradius-circle);
   cursor: pointer;
-  /* UNBOUND: Figma size is 32x32 with a 16px radius. Translated geometrically
-     (square, radius = half its size) rather than with a guessed token. */
-  aspect-ratio: 1 / 1;
-  border-radius: 50%;
+  /* <button> does not inherit font. Set it explicitly: body/body3 is the 400-weight
+     14px composite, and the line box is pinned to lineheight/xs so it matches the size above. */
+  font: var(--body-body3);
+  line-height: var(--lineheight-xs);
 }
+/* The pinned state, real hover on the button, and hover on its parent CardImage
+   (Figma 163:58 / 163:60 give the IconBtn elevation/level1) all agree. */
 .hds-iconbtn[data-state='hover'],
-.hds-iconbtn:hover {
+.hds-iconbtn:hover,
+.hds-card-image[data-state='hover'] .hds-iconbtn,
+.hds-card-image:hover .hds-iconbtn {
   box-shadow: var(--elevation-level1);
 }
 .hds-iconbtn__icon {
   /* Figma binds the base token color/red-600; no semantic token exists for it (reported). */
   color: var(--color-red-600);
-  /* UNBOUND: glyph is Inter Regular 14px, line-height normal; font is inherited here. */
-  line-height: normal;
+  font: inherit;
   white-space: nowrap;
 }
 
