@@ -17,8 +17,7 @@ export function CardLayout({ orientation = 'horizontal', showContentSlot = true,
   // Figma: the verticle variant hides the IconBtn on its CardImage instance.
   const img = CardImage({ ratio: '1:1', showIconBtn: !vertical, ...image });
   const slot = showContentSlot ? `<div class="hds-card-layout__slot" data-slot="ContentSlot">${children}</div>` : '';
-  const body = vertical
-    ? `${CardText(text)}${slot}`
-    : `<div class="hds-card-layout__data">${CardText(text)}${slot}</div>`;
+  // Horizontal wraps text + slot in the CardData frame (172:253); verticle stacks them directly.
+  const body = vertical ? `${CardText(text)}${slot}` : `<div class="hds-card-layout__data">${CardText(text)}${slot}</div>`;
   return `<div class="hds-card-layout" data-orientation="${vertical ? 'verticle' : 'horizontal'}">${img}${body}</div>`;
 }

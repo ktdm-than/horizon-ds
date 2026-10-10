@@ -23,8 +23,9 @@ export const ContainerIdle = { name: 'CardContainer / state=idle', render: () =>
 export const ContainerHover = { name: 'CardContainer / state=hover', render: () => frame(424, CardContainer({ state: 'hover', children: slotFill })) };
 
 // ---- CardLayout 166:221 · orientation × showContentSlot ----
-export const LayoutHorizontal = { name: 'CardLayout / orientation=horizontal', render: () => frame(453, CardLayout({ orientation: 'horizontal' })) };
-export const LayoutVerticle = { name: 'CardLayout / orientation=verticle', render: () => frame(302, CardLayout({ orientation: 'verticle' })) };
+const contentFill = '<div style="height:48px"></div>';
+export const LayoutHorizontal = { name: 'CardLayout / orientation=horizontal', render: () => frame(453, CardLayout({ orientation: 'horizontal', children: contentFill })) };
+export const LayoutVerticle = { name: 'CardLayout / orientation=verticle', render: () => frame(302, CardLayout({ orientation: 'verticle', children: contentFill })) };
 export const LayoutHorizontalNoSlot = { name: 'CardLayout / horizontal, showContentSlot=false', render: () => frame(453, CardLayout({ orientation: 'horizontal', showContentSlot: false })) };
 export const LayoutVerticleNoSlot = { name: 'CardLayout / verticle, showContentSlot=false', render: () => frame(302, CardLayout({ orientation: 'verticle', showContentSlot: false })) };
 

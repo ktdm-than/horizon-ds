@@ -22,7 +22,7 @@
   padding: var(--spacing-md);
   overflow: clip;
   background: var(--color-bg-surfaceprimary);
-  /* UNBOUND: no corner radius or border set in Figma, so none is applied. */
+  /* The Figma description mentions borders and corner radius, but none are set (D7). */
 }
 .hds-card-container[data-state='hover'],
 .hds-card-container:hover {
@@ -32,7 +32,7 @@
   flex: 1 1 auto;
   min-width: 0;
   background: var(--color-bg-surfaceprimary);
-  /* UNBOUND: slot default size 400x104 in the component set; it sizes to content here. */
+  /* UNBOUND: the slot's default 400×104 is a raw size; it sizes to its content here. */
 }
 
 /* ---------- CardLayout (166:221) ---------- */
@@ -48,31 +48,28 @@
 .hds-card-layout[data-orientation='verticle'] {
   flex-direction: column;
 }
-/* Horizontal: Figma sets CardImage to fill and CardData to a fixed 249px width.
-   UNBOUND (design gap D4): that 249 is a raw value, so it is not hardcoded. Until design
-   binds it, image and CardData share the row equally; inside the 510px Card this
-   coincides with Figma (249 / 249), at other widths it does not. */
+.hds-card-layout[data-orientation='verticle'] > * {
+  align-self: stretch;
+}
+/* Horizontal: Figma sets CardImage to fill and CardData to a fixed 249px.
+   UNBOUND (D4): 249 is a raw width. Until design binds it, image and CardData share
+   the row equally, which coincides with Figma inside the 510px Card. */
 .hds-card-layout[data-orientation='horizontal'] > .hds-card-image,
 .hds-card-layout__data {
   flex: 1 1 0;
   min-width: 0;
 }
-.hds-card-layout[data-orientation='verticle'] > * {
-  align-self: stretch;
-}
-/* CardData frame */
+/* CardData frame (172:253) */
 .hds-card-layout__data {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: stretch;
   gap: var(--spacing-2xl);
-}
-.hds-card-layout__data > * {
-  align-self: stretch;
+  padding: var(--spacing-none);
 }
 .hds-card-layout__slot {
-  /* UNBOUND: ContentSlot is a fixed 48px tall in Figma; here it sizes to its content. */
   min-width: 0;
+  /* UNBOUND (D3): ContentSlot is a fixed 48px tall in Figma; it sizes to its content here. */
 }
 
 /* ---------- CardImage (163:56) ---------- */
@@ -87,7 +84,7 @@
   overflow: clip;
   background: var(--color-bg-surfacesecondary);
   aspect-ratio: 1 / 1;
-  /* UNBOUND: component-set sizes 192x192 (1:1) and 256x192 (4:3); width comes from the parent here. */
+  /* UNBOUND (D4): set sizes 192×192 (1:1) and 256×192 (4:3); width comes from the parent. */
 }
 .hds-card-image[data-ratio='4:3'] {
   aspect-ratio: 4 / 3;
@@ -99,6 +96,7 @@
   height: 100%;
   object-fit: cover;
 }
+/* Overlay (163:62 / 163:66): the overlayGradient style, color/gradient-0 → color/gradient-100. */
 .hds-card-image__overlay {
   position: absolute;
   inset: 0;
@@ -112,52 +110,44 @@
 }
 .hds-card-image__action {
   position: absolute;
-  /* UNBOUND: Figma offsets the IconBtn 13px from top/right (11-14px across variants).
-     No spacing token is bound, so it sits flush in the corner until design binds one. */
-  inset-block-start: 0;
-  inset-inline-end: 0;
+  /* UNBOUND (D1): Figma offsets the IconBtn 13px from the right and 11–14px from the top
+     across variants, with no spacing token. It sits in the corner until design binds one. */
+  inset-block-start: var(--spacing-none);
+  inset-inline-end: var(--spacing-none);
 }
 
 /* ---------- IconBtn (163:74) ---------- */
 .hds-iconbtn {
-  /* UNBOUND (design gap D5): Figma size is 32x32, radius 16, glyph Inter Regular 14px.
-     No size token is bound, so the size is derived from the bound tokens instead:
-     the bound vertical padding (spacing/sm) on both sides plus the glyph's line box
-     (lineheight/xs). With the English typography mode that is 8 + 16 + 8 = 32.
-     Width and height use the same expression, so the button is always square. */
-  --hds-iconbtn-size: calc(var(--spacing-sm) * 2 + var(--lineheight-xs));
   box-sizing: border-box;
   display: inline-flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: var(--spacing-none);
-  inline-size: var(--hds-iconbtn-size);
-  block-size: var(--hds-iconbtn-size);
-  padding: var(--spacing-sm) var(--spacing-base);
+  /* Figma: fixed 32×32 frame (UNBOUND, D5) with py spacing/sm, px spacing/base and a 16px icon.
+     The fixed width makes px inert: the icon is centred, so the real inline inset is also
+     spacing/sm. Using spacing/sm on all sides reproduces 8 + 16 + 8 = 32 in both axes from
+     tokens and the icon's own size, so the button is square without a raw size. */
+  padding: var(--spacing-sm);
   border: 0;
   margin: 0;
   background: var(--color-bg-base);
+  /* UNBOUND (D5): Figma radius is a raw 16 (half of 32), i.e. a circle. */
   border-radius: var(--borderradius-circle);
+  color: var(--color-icon-accent-red);
   cursor: pointer;
-  /* <button> does not inherit font. Set it explicitly: body/body3 is the 400-weight
-     14px composite, and the line box is pinned to lineheight/xs so it matches the size above. */
-  font: var(--body-body3);
-  line-height: var(--lineheight-xs);
 }
-/* The pinned state, real hover on the button, and hover on its parent CardImage
+.hds-iconbtn__icon {
+  display: block;
+  flex: none;
+}
+/* Pinned state, real hover on the button, and hover on its parent CardImage
    (Figma 163:58 / 163:60 give the IconBtn elevation/level1) all agree. */
 .hds-iconbtn[data-state='hover'],
 .hds-iconbtn:hover,
 .hds-card-image[data-state='hover'] .hds-iconbtn,
 .hds-card-image:hover .hds-iconbtn {
   box-shadow: var(--elevation-level1);
-}
-.hds-iconbtn__icon {
-  /* Figma binds the base token color/red-600; no semantic token exists for it (reported). */
-  color: var(--color-red-600);
-  font: inherit;
-  white-space: nowrap;
 }
 
 /* ---------- CardText (162:27) ---------- */
@@ -176,7 +166,8 @@
 .hds-card-text__header {
   display: flex;
   flex-direction: column;
-  /* UNBOUND: header gap is a raw 4px in Figma; no gap applied. */
+  gap: var(--spacing-base);
+  padding: var(--spacing-none);
 }
 .hds-card-text__title {
   font: var(--label-default);
@@ -194,11 +185,14 @@
   padding: var(--spacing-none);
   white-space: nowrap;
 }
-/* Review and Price rows: Figma gap between the two texts is a raw 4px (UNBOUND).
-   They are inline text separated by a word space instead of a hardcoded gap. */
-.hds-card-text__review,
-.hds-card-text__price {
+/* Review (121:240) and Price (121:243) rows. UNBOUND (D2): the gap between the two texts
+   is a raw 4px, so they are inline text separated by a word space, centred like Figma's
+   items-center, instead of a hardcoded gap. */
+.hds-card-text__row {
   font: var(--body-body4);
+}
+.hds-card-text__row > span {
+  vertical-align: middle;
 }
 .hds-card-text__rating {
   font: var(--list-item);

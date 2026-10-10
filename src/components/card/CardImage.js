@@ -13,7 +13,6 @@ import { IconBtn } from './IconBtn.js';
  */
 export function CardImage({ ratio = '1:1', state = 'idle', showIconBtn = true, src, alt = '' } = {}) {
   const img = src ? `<img class="hds-card-image__media" src="${esc(src)}" alt="${esc(alt)}" />` : '';
-  return `<div class="hds-card-image" data-ratio="${esc(ratio)}" data-state="${esc(state)}">${img}<div class="hds-card-image__overlay" aria-hidden="true"></div>${
-    showIconBtn ? `<div class="hds-card-image__action">${IconBtn({ state })}</div>` : ''
-  }</div>`;
+  const action = showIconBtn ? `<div class="hds-card-image__action">${IconBtn({ state })}</div>` : '';
+  return `<div class="hds-card-image" data-ratio="${esc(ratio)}" data-state="${esc(state)}">${img}<div class="hds-card-image__overlay" aria-hidden="true"></div>${action}</div>`;
 }
