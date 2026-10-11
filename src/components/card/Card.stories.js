@@ -4,7 +4,7 @@
 //
 // One story per row of the variant matrix. The frame widths below are story fixtures
 // that reproduce the Figma frame sizes for side-by-side comparison; the components
-// themselves carry no fixed widths.
+// fill their parent's width.
 import { Card, CardContainer, CardLayout, CardImage, CardText, IconBtn } from './Card.js';
 
 export default {
@@ -23,11 +23,10 @@ export const ContainerIdle = { name: 'CardContainer / state=idle', render: () =>
 export const ContainerHover = { name: 'CardContainer / state=hover', render: () => frame(424, CardContainer({ state: 'hover', children: slotFill })) };
 
 // ---- CardLayout 166:221 · orientation × showContentSlot ----
-const contentFill = '<div style="height:48px"></div>';
-export const LayoutHorizontal = { name: 'CardLayout / orientation=horizontal', render: () => frame(453, CardLayout({ orientation: 'horizontal', children: contentFill })) };
-export const LayoutVerticle = { name: 'CardLayout / orientation=verticle', render: () => frame(302, CardLayout({ orientation: 'verticle', children: contentFill })) };
+export const LayoutHorizontal = { name: 'CardLayout / orientation=horizontal', render: () => frame(453, CardLayout({ orientation: 'horizontal' })) };
+export const LayoutVertical = { name: 'CardLayout / orientation=vertical', render: () => frame(302, CardLayout({ orientation: 'vertical' })) };
 export const LayoutHorizontalNoSlot = { name: 'CardLayout / horizontal, showContentSlot=false', render: () => frame(453, CardLayout({ orientation: 'horizontal', showContentSlot: false })) };
-export const LayoutVerticleNoSlot = { name: 'CardLayout / verticle, showContentSlot=false', render: () => frame(302, CardLayout({ orientation: 'verticle', showContentSlot: false })) };
+export const LayoutVerticalNoSlot = { name: 'CardLayout / vertical, showContentSlot=false', render: () => frame(302, CardLayout({ orientation: 'vertical', showContentSlot: false })) };
 
 // ---- CardImage 163:56 · ratio × state, plus showIconBtn ----
 export const Image11Idle = { name: 'CardImage / ratio=1:1, state=idle', render: () => frame(192, CardImage({ ratio: '1:1', state: 'idle' })) };

@@ -4,10 +4,9 @@ import { esc } from './esc.js';
 
 /**
  * @param {object} p
- * @param {boolean} [p.metadata=true]  Shows the metadata group (Review + Price).
+ * @param {boolean} [p.metadata=true]  Shows the Review + Price block.
  * @param {boolean} [p.review=true]
  * @param {boolean} [p.price=true]
- * @param {string} [p.title]  [p.subtitle]  [p.rating]  [p.reviews]  [p.amount]  [p.unit]
  */
 export function CardText({
   metadata = true,
@@ -21,10 +20,10 @@ export function CardText({
   unit = 'per night',
 } = {}) {
   const reviewRow = review
-    ? `<p class="hds-card-text__row"><span class="hds-card-text__rating">${esc(rating)}</span> <span class="hds-card-text__secondary">${esc(reviews)}</span></p>`
+    ? `<div class="hds-card-text__row"><p class="hds-card-text__rating">${esc(rating)}</p><p class="hds-card-text__meta">${esc(reviews)}</p></div>`
     : '';
   const priceRow = price
-    ? `<p class="hds-card-text__row"><span class="hds-card-text__amount">${esc(amount)}</span> <span class="hds-card-text__secondary">${esc(unit)}</span></p>`
+    ? `<div class="hds-card-text__row hds-card-text__row--price"><p class="hds-card-text__price">${esc(amount)}</p><p class="hds-card-text__meta">${esc(unit)}</p></div>`
     : '';
   const meta = metadata && (review || price) ? `<div class="hds-card-text__metadata">${reviewRow}${priceRow}</div>` : '';
   return `<div class="hds-card-text"><div class="hds-card-text__header"><p class="hds-card-text__title">${esc(title)}</p><p class="hds-card-text__subtitle">${esc(subtitle)}</p></div>${meta}</div>`;

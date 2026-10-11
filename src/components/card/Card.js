@@ -12,14 +12,14 @@ export { CardText } from './CardText.js';
 export { IconBtn } from './IconBtn.js';
 
 /**
- * The Card component has no variant properties of its own in Figma.
+ * Card has no variant properties of its own in Figma.
  * @param {object} p
  * @param {string} [p.children='']  HTML for the nested ContentSlot.
  * @param {object} [p.image]  Props for CardImage.
  * @param {object} [p.text]   Props for CardText.
  */
 export function Card({ children = '', image = {}, text = {} } = {}) {
-  // Figma: the Card instance sets CardContainer to state=hover (elevation/level1 always on).
+  // Figma: the Card instance sets CardContainer to state=hover, so elevation/level1 is always on.
   return `<div class="hds-card">${CardContainer({
     state: 'hover',
     children: CardLayout({ orientation: 'horizontal', children, image, text }),
