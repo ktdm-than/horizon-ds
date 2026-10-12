@@ -208,6 +208,15 @@ await css(
   (t) => t.filePath.includes('typography.burmese') || t.filePath.includes('typography.styles')
 ).buildAllPlatforms();
 
+// English again, for any non-Burmese lang inside a Burmese one (e.g. lang="en" within lang="my").
+// Type only: re-declaring colours here would override dark mode on that element.
+await css(
+  'tokens-english.css',
+  [CORE, T + 'semantic.light.tokens.json', T + 'typography.english.tokens.json', ...STYLES],
+  '[lang]:not(:lang(my))',
+  (t) => t.filePath.includes('typography.english') || t.filePath.includes('typography.styles')
+).buildAllPlatforms();
+
 // dark — only the colours that change
 await css(
   'tokens-dark.css',

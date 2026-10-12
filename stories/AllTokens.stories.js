@@ -11,14 +11,14 @@ export const Table = {
   render: () => {
     const rows = tokens
       .map(
-        (t) => `<tr data-q="${esc(`${t.name} ${t.value}`.toLowerCase())}"><td>${preview(t)}</td><td><code class="tk-code">${esc(t.name)}</code></td><td class="tk-value">${esc(t.value)}</td><td class="tk-value">${esc(t.dark && t.dark !== t.value ? t.dark : '')}</td></tr>`,
+        (t) => `<tr data-q="${esc(`${t.name} ${t.value} ${t.my ?? ''}`.toLowerCase())}"><td>${preview(t)}</td><td><code class="tk-code">${esc(t.name)}</code></td><td class="tk-value">${esc(t.value)}</td><td class="tk-value">${esc(t.dark && t.dark !== t.value ? t.dark : '')}</td><td class="tk-value">${esc(t.my && t.my !== t.value ? t.my : '')}</td></tr>`,
       )
       .join('');
     const el = pageEl(
       'All tokens',
-      `Every CSS custom property in <code>build/css/tokens.css</code> (${tokens.length}). Dark column lists values that differ in <code>tokens-dark.css</code>.`,
+      `Every CSS custom property in <code>build/css/tokens.css</code> (${tokens.length}). Dark and Burmese columns list values that differ in <code>tokens-dark.css</code> and <code>tokens-burmese.css</code>.`,
       `<input class="tk-search" type="search" placeholder="Filter by name or value…" aria-label="Filter tokens">
-       <table class="tk-table"><thead><tr><th></th><th>Token</th><th>Value</th><th>Dark</th></tr></thead><tbody>${rows}</tbody></table>`,
+       <table class="tk-table"><thead><tr><th></th><th>Token</th><th>Value</th><th>Dark</th><th>Burmese</th></tr></thead><tbody>${rows}</tbody></table>`,
     );
     el.querySelector('input').addEventListener('input', (e) => {
       const q = e.target.value.toLowerCase();

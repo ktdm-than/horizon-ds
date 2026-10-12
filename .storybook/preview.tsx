@@ -2,6 +2,7 @@ import type { Preview } from '@storybook/react-vite';
 import '../build/css/tokens.css';
 import '../build/css/tokens-dark.css';
 import '../build/css/tokens-burmese.css';
+import '../build/css/tokens-english.css';
 import '../stories/tokens.css';
 
 const preview: Preview = {

@@ -20,7 +20,8 @@ const burmese = new Map(parse(burmeseCss).map((t) => [t.name, t.value]));
 for (const t of tokens) t.my = burmese.get(t.name);
 
 // The value in the active typography mode: Burmese when the preview's Language is Burmese.
-export const valueFor = (t) => (document.documentElement.lang === 'my' && t.my ? t.my : t.value);
+// Same test as the CSS, so region tags such as my-MM count too.
+export const valueFor = (t) => (document.documentElement.matches(':lang(my)') && t.my ? t.my : t.value);
 
 export const byPrefix = (prefix) => tokens.filter((t) => t.name.startsWith(prefix));
 
