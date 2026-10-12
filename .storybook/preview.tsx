@@ -1,9 +1,9 @@
+import type { Preview } from '@storybook/react-vite';
 import '../build/css/tokens.css';
 import '../build/css/tokens-dark.css';
 import '../stories/tokens.css';
 
-/** @type { import('@storybook/html').Preview } */
-export default {
+const preview: Preview = {
   globalTypes: {
     theme: {
       description: 'Semantic colour mode',
@@ -20,9 +20,9 @@ export default {
   },
   initialGlobals: { theme: 'light' },
   decorators: [
-    (story, { globals }) => {
+    (Story, { globals }) => {
       document.documentElement.dataset.theme = globals.theme;
-      return story();
+      return <Story />;
     },
   ],
   parameters: {
@@ -34,3 +34,5 @@ export default {
     },
   },
 };
+
+export default preview;

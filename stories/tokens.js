@@ -2,6 +2,7 @@
 // with `npm run build:tokens` — no token values are duplicated here.
 import lightCss from '../build/css/tokens.css?raw';
 import darkCss from '../build/css/tokens-dark.css?raw';
+import { createElement, useEffect, useRef } from 'react';
 
 const parse = (css) => {
   const out = [];
@@ -23,12 +24,24 @@ export const isColor = (v) => COLOR_RE.test(v);
 export const esc = (s) =>
   String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
 
-export const page = (title, intro, body) => {
+// Token stories build plain DOM. Mount hands that node to the React renderer as-is.
+const Mount = ({ node }) => {
+  const ref = useRef(null);
+  useEffect(() => {
+    ref.current.replaceChildren(node);
+  }, [node]);
+  return createElement('div', { ref });
+};
+export const mount = (node) => createElement(Mount, { node });
+
+export const pageEl = (title, intro, body) => {
   const el = document.createElement('div');
   el.className = 'tk-page';
   el.innerHTML = `<h1>${esc(title)}</h1>${intro ? `<p class="tk-intro">${intro}</p>` : ''}${body}`;
   return el;
 };
+
+export const page = (title, intro, body) => mount(pageEl(title, intro, body));
 
 export const section = (title, body) => `<section><h2>${esc(title)}</h2>${body}</section>`;
 

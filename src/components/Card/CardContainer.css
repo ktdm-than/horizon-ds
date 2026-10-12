@@ -1,0 +1,21 @@
+/* CardContainer — Figma 163:45 */
+.hds-card-container {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-none);
+  padding: var(--spacing-md);
+  background: var(--color-bg-surfaceprimary);
+  overflow: clip;
+}
+
+.hds-card-container[data-state='hover'],
+.hds-card-container:hover {
+  box-shadow: var(--elevation-level1);
+}
+
+.hds-card-container__slot {
+  flex: 1 1 auto;
+  min-inline-size: 0;
+  background: var(--color-bg-surfaceprimary);
+}
