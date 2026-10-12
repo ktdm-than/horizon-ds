@@ -15,8 +15,7 @@
   flex-direction: column;
 }
 
-/* Figma: CardImage fills, CardData is a fixed 249 that no token carries (D4).
- * Two equal columns stand in, which reproduces 249/249 at the Card's 510 width.
+/* Figma: CardImage and CardData both fill, so they share the row equally.
  * Grid rather than flex: the image's padding would otherwise inflate its flex base size. */
 .hds-card-layout[data-orientation='horizontal'] {
   display: grid;
