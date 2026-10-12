@@ -1,0 +1,66 @@
+/* CardText — Figma 162:27 */
+.hds-card-text {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-none);
+  inline-size: 100%;
+  overflow-wrap: break-word;
+}
+
+.hds-card-text p {
+  margin: 0;
+}
+
+.hds-card-text__header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-base);
+  inline-size: 100%;
+}
+
+.hds-card-text__title {
+  inline-size: 100%;
+  font: var(--label-default);
+  color: var(--color-text-primary);
+}
+
+.hds-card-text__subtitle {
+  inline-size: 100%;
+  font: var(--body-body4);
+  color: var(--color-text-secondary);
+}
+
+.hds-card-text__metadata {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-md);
+  inline-size: 100%;
+  white-space: nowrap;
+}
+
+.hds-card-text__row {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-base);
+  inline-size: 100%;
+}
+
+.hds-card-text__rating {
+  font: var(--list-item);
+  color: var(--color-text-warning);
+}
+
+.hds-card-text__price {
+  font: var(--label-default);
+  color: var(--color-text-primary);
+}
+
+.hds-card-text__meta {
+  font: var(--body-body4);
+  color: var(--color-text-secondary);
+}

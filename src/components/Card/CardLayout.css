@@ -1,0 +1,39 @@
+/* CardLayout — Figma 166:221 */
+.hds-card-layout {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: var(--spacing-md);
+  padding: var(--spacing-none);
+  inline-size: 100%;
+  background: var(--color-bg-surfaceprimary);
+  overflow: clip;
+}
+
+.hds-card-layout[data-orientation='vertical'] {
+  flex-direction: column;
+}
+
+/* Figma: CardImage fills, CardData is a fixed 249 that no token carries (D4).
+ * Two equal columns stand in, which reproduces 249/249 at the Card's 510 width.
+ * Grid rather than flex: the image's padding would otherwise inflate its flex base size. */
+.hds-card-layout[data-orientation='horizontal'] {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.hds-card-layout__data {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-2xl);
+  padding: var(--spacing-none);
+}
+
+/* PROVISIONAL: Figma's 48 slot height is unbound; --spacing-3xl carries the same value (D3). */
+.hds-card-layout__slot {
+  flex: none;
+  inline-size: 100%;
+  min-block-size: var(--spacing-3xl);
+}

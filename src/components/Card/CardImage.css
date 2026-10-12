@@ -1,0 +1,48 @@
+/* CardImage — Figma 163:56 */
+.hds-card-image {
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--spacing-none);
+  padding: var(--spacing-md);
+  inline-size: 100%;
+  aspect-ratio: 1 / 1;
+  background: var(--color-bg-surfacesecondary);
+  overflow: clip;
+}
+
+.hds-card-image[data-ratio='4:3'] {
+  aspect-ratio: 4 / 3;
+}
+
+.hds-card-image__media {
+  position: absolute;
+  inset: 0;
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+}
+
+.hds-card-image__overlay {
+  position: absolute;
+  inset: 0;
+  background: var(--overlaygradient);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.hds-card-image[data-state='hover'] > .hds-card-image__overlay,
+.hds-card-image:hover > .hds-card-image__overlay {
+  opacity: 1;
+}
+
+/* IconBtn paints above the overlay, and lifts with the image's hover as in the Figma hover variants. */
+.hds-card-image > .hds-iconbtn {
+  position: relative;
+}
+
+.hds-card-image:hover > .hds-iconbtn {
+  box-shadow: var(--elevation-level1);
+}

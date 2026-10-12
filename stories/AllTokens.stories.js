@@ -1,4 +1,4 @@
-import { esc, isColor, page, tokens } from './tokens.js';
+import { esc, isColor, mount, pageEl, tokens } from './tokens.js';
 
 export default { title: 'Tokens/All Tokens' };
 
@@ -14,7 +14,7 @@ export const Table = {
         (t) => `<tr data-q="${esc(`${t.name} ${t.value}`.toLowerCase())}"><td>${preview(t)}</td><td><code class="tk-code">${esc(t.name)}</code></td><td class="tk-value">${esc(t.value)}</td><td class="tk-value">${esc(t.dark && t.dark !== t.value ? t.dark : '')}</td></tr>`,
       )
       .join('');
-    const el = page(
+    const el = pageEl(
       'All tokens',
       `Every CSS custom property in <code>build/css/tokens.css</code> (${tokens.length}). Dark column lists values that differ in <code>tokens-dark.css</code>.`,
       `<input class="tk-search" type="search" placeholder="Filter by name or value…" aria-label="Filter tokens">
@@ -24,6 +24,6 @@ export const Table = {
       const q = e.target.value.toLowerCase();
       for (const tr of el.querySelectorAll('tbody tr')) tr.hidden = q && !tr.dataset.q.includes(q);
     });
-    return el;
+    return mount(el);
   },
 };

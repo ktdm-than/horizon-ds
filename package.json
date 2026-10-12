@@ -7,16 +7,24 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:tokens": "node build-tokens.js",
     "storybook": "npm run build:tokens && storybook dev -p 6006",
-    "build-storybook": "npm run build:tokens && storybook build"
+    "build-storybook": "npm run build:tokens && storybook build",
+    "lint": "tsc --noEmit"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "module",
   "devDependencies": {
-    "@storybook/html-vite": "^10.6.1",
+    "@storybook/react-vite": "^10.6.1",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
     "storybook": "^10.6.1",
     "style-dictionary": "^5.5.3",
+    "typescript": "^7.0.2",
     "vite": "^8.3.4"
+  },
+  "dependencies": {
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
   }
 }

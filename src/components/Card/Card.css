@@ -1,0 +1,11 @@
+/* Card — Figma 218:143 */
+.hds-card {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-none);
+  padding: var(--spacing-none);
+}
+
+.hds-card > .hds-card-container {
+  flex: 1 1 auto;
+}
