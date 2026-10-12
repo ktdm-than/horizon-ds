@@ -191,17 +191,20 @@ const native = (sources) =>
 // 4. EXECUTION
 // ---------------------------------------------------------------------------
 
-// :root — core, light colours, web space + type, styles
+// :root — core, light colours, web space + English type, styles
 await css(
   'tokens.css',
-  [
-    CORE,
-    T + 'semantic.light.tokens.json',
-    T + 'typography.english.tokens.json',
-    T + 'typography.burmese.tokens.json',
-    ...STYLES,
-  ],
+  [CORE, T + 'semantic.light.tokens.json', T + 'typography.english.tokens.json', ...STYLES],
   ':root'
+).buildAllPlatforms();
+
+// Burmese — only the type primitives, plus the text styles re-resolved against them
+// (the composite font shorthands carry resolved values, so they must be re-emitted too)
+await css(
+  'tokens-burmese.css',
+  [CORE, T + 'semantic.light.tokens.json', T + 'typography.burmese.tokens.json', ...STYLES],
+  '[lang="my"]',
+  (t) => t.filePath.includes('typography.burmese') || t.filePath.includes('typography.styles')
 ).buildAllPlatforms();
 
 // dark — only the colours that change
