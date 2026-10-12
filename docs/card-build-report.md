@@ -40,9 +40,9 @@ Behaviour I drove: real hover on CardContainer, CardImage (overlay + IconBtn lif
 
 | # | What | Figma | What the code does |
 |---|---|---|---|
-| D1 | IconBtn offset in the CardImage hover variants | raw `top 14 / right 14` (absolute inside the Overlay) | stays in flow at CardImage padding `spacing/md` (12), the same as idle |
+| D1 | IconBtn offset in the CardImage hover variants | **Resolved in Figma:** IconBtn is now in auto layout at `spacing/md`, as in idle | in flow at CardImage padding `spacing/md` (12) |
 | D3 | ContentSlot height | raw 48 | **provisional** `min-block-size: var(--spacing-3xl)` (same value) |
-| D4 | CardData width | raw fixed 249, with CardImage set to fill | two equal grid columns. Exact at the Card's 510; at 453 it gives 221/221, not 192/249 |
+| D4 | CardData width | **Resolved in Figma:** CardImage and CardData both Fill container | `flex: 1 0 0` on both, matching Figma's Fill (the padded image comes out wider: 261/237 in the Card, 232.5/208.5 at 453) |
 | D5 | IconBtn size and glyph size | raw 32×32 and 16×16 | **provisional** `--spacing-2xl` and `--fontsize-md` (same values) |
 | D6 | Focus, pressed and disabled states; focus-ring token | none modelled | the UA focus ring. `:disabled` sets only the cursor. No colour is invented |
 | D7 | CardContainer description mentions borders and radius | the component has neither | follows the component (none) |

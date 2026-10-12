@@ -15,11 +15,13 @@
   flex-direction: column;
 }
 
-/* Figma: CardImage and CardData both fill, so they share the row equally.
- * Grid rather than flex: the image's padding would otherwise inflate its flex base size. */
-.hds-card-layout[data-orientation='horizontal'] {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+/* Figma: CardImage and CardData both Fill container. Figma's Fill shares the space left
+ * after each item's own padding, so the padded image comes out wider than CardData.
+ * flex: 1 0 0 on border-box items reproduces that exactly. */
+.hds-card-layout[data-orientation='horizontal'] > .hds-card-image,
+.hds-card-layout[data-orientation='horizontal'] > .hds-card-layout__data {
+  flex: 1 0 0;
+  min-inline-size: 0;
 }
 
 .hds-card-layout__data {
