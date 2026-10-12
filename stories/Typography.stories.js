@@ -1,4 +1,4 @@
-import { byPrefix, code, esc, page, section, tokens } from './tokens.js';
+import { byPrefix, code, esc, page, section, tokens, valueFor } from './tokens.js';
 
 export default {
   title: 'Tokens/Typography',
@@ -26,7 +26,7 @@ export const TextStyles = {
         list
           .map(
             (t) => `<div class="tk-type">
-              <div class="tk-meta">${code(`font: var(${t.name})`)}<span class="tk-value">${esc(t.value)}</span></div>
+              <div class="tk-meta">${code(`font: var(${t.name})`)}<span class="tk-value">${esc(valueFor(t))}</span></div>
               <div class="tk-sample" style="font: var(${t.name}); color: var(--color-text-bold)">${esc(sample)}<br>${esc(burmese)}</div>
             </div>`,
           )
@@ -46,7 +46,7 @@ const scale = (prefix, title, intro, styleFor) => ({
       byPrefix(prefix)
         .map(
           (t) => `<div class="tk-type">
-            <div class="tk-meta">${code(`var(${t.name})`)}<span class="tk-value">${esc(t.value)}</span></div>
+            <div class="tk-meta">${code(`var(${t.name})`)}<span class="tk-value">${esc(valueFor(t))}</span></div>
             <div class="tk-sample" style="${styleFor(t)}">${esc(sample)}<br>${esc(burmese)}</div>
           </div>`,
         )
@@ -68,7 +68,7 @@ export const FontWeights = scale(
   '--fontweight-',
   'Font weights',
   'Weight tokens are exported as Figma style <em>names</em> (e.g. “semibold”), which CSS does not accept as <code>font-weight</code>. Samples below map each name to its numeric weight so you can see the intent.',
-  (t) => `font-family: var(--fontfamily-body); font-size: 20px; font-weight: ${({ regular: 400, medium: 500, semibold: 600, bold: 700 })[t.value] ?? `var(${t.name})`}`,
+  (t) => `font-family: var(--fontfamily-body); font-size: 20px; font-weight: ${({ regular: 400, medium: 500, semibold: 600, bold: 700 })[valueFor(t)] ?? `var(${t.name})`}`,
 );
 
 export const FontFamilies = scale('--fontfamily-', 'Font families', 'Typeface per text role.', (t) => `font-family: var(${t.name}); font-size: 20px`);
@@ -79,6 +79,6 @@ export const Other = {
   render: () => {
     const known = /^--(fontsize|lineheight|fontweight|fontfamily|heading|body|caption|label|action|list)-/;
     const rest = tokens.filter((t) => /^--(font|line|letter|text-?case|text-?decoration|paragraph)/.test(t.name) && !known.test(t.name));
-    return page('Other typography tokens', rest.length ? '' : 'None right now — new typography token groups will appear here automatically.', section('tokens', rest.map((t) => `<p>${code(t.name)} ${esc(t.value)}</p>`).join('')));
+    return page('Other typography tokens', rest.length ? '' : 'None right now — new typography token groups will appear here automatically.', section('tokens', rest.map((t) => `<p>${code(t.name)} ${esc(valueFor(t))}</p>`).join('')));
   },
 };

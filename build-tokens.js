@@ -203,7 +203,8 @@ await css(
 await css(
   'tokens-burmese.css',
   [CORE, T + 'semantic.light.tokens.json', T + 'typography.burmese.tokens.json', ...STYLES],
-  '[lang="my"]',
+  // :lang() also matches region tags such as my-MM
+  ':lang(my)',
   (t) => t.filePath.includes('typography.burmese') || t.filePath.includes('typography.styles')
 ).buildAllPlatforms();
 

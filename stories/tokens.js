@@ -2,6 +2,7 @@
 // with `npm run build:tokens` — no token values are duplicated here.
 import lightCss from '../build/css/tokens.css?raw';
 import darkCss from '../build/css/tokens-dark.css?raw';
+import burmeseCss from '../build/css/tokens-burmese.css?raw';
 import { createElement, useEffect, useRef } from 'react';
 
 const parse = (css) => {
@@ -15,6 +16,11 @@ const parse = (css) => {
 export const tokens = parse(lightCss);
 const dark = new Map(parse(darkCss).map((t) => [t.name, t.value]));
 for (const t of tokens) t.dark = dark.get(t.name);
+const burmese = new Map(parse(burmeseCss).map((t) => [t.name, t.value]));
+for (const t of tokens) t.my = burmese.get(t.name);
+
+// The value in the active typography mode: Burmese when the preview's Language is Burmese.
+export const valueFor = (t) => (document.documentElement.lang === 'my' && t.my ? t.my : t.value);
 
 export const byPrefix = (prefix) => tokens.filter((t) => t.name.startsWith(prefix));
 
