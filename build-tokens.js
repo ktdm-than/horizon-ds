@@ -38,7 +38,11 @@ StyleDictionary.registerPreprocessor({
         const valKey = t.$value !== undefined ? '$value' : t.value !== undefined ? 'value' : null;
 
         if (type === 'typography' && valKey) {
-          const v = t[valKey];
+          // CSS `font` shorthand cannot carry letter-spacing. Zero is the CSS default, so drop it;
+          // a non-zero value is kept and Style Dictionary warns, because it would be lost.
+          const { letterSpacing, ...v } = t[valKey];
+          const ls = letterSpacing?.value ?? letterSpacing;
+          if (ls !== undefined && ls !== 0 && ls !== '0' && ls !== '0px') v.letterSpacing = letterSpacing;
           t[valKey] = {
             ...v,
             fontWeight: WEIGHTS[v.fontWeight] ?? v.fontWeight,
