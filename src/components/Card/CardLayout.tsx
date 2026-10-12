@@ -11,7 +11,7 @@ export type CardLayoutProps = {
   showContentSlot?: boolean;
   /** Figma slot `ContentSlot`. */
   children?: ReactNode;
-  /** Props for the nested CardImage. Figma hides its IconBtn in the vertical variant. */
+  /** Props for the nested CardImage. */
   image?: CardImageProps;
   /** Props for the nested CardText. */
   text?: CardTextProps;
@@ -22,7 +22,7 @@ export function CardLayout({ orientation = 'horizontal', showContentSlot = true,
   const slot = showContentSlot && <div className="hds-card-layout__slot">{children}</div>;
   return (
     <div className="hds-card-layout" data-orientation={orientation}>
-      <CardImage ratio="1:1" showIconBtn={horizontal} {...image} />
+      <CardImage ratio="1:1" {...image} />
       {horizontal ? (
         // CardData: text + slot, gap spacing/2xl.
         <div className="hds-card-layout__data">
