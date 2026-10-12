@@ -38,7 +38,11 @@ StyleDictionary.registerPreprocessor({
         const valKey = t.$value !== undefined ? '$value' : t.value !== undefined ? 'value' : null;
 
         if (type === 'typography' && valKey) {
-          const v = t[valKey];
+          // CSS `font` shorthand cannot carry letter-spacing. Zero is the CSS default, so drop it;
+          // a non-zero value is kept and Style Dictionary warns, because it would be lost.
+          const { letterSpacing, ...v } = t[valKey];
+          const ls = letterSpacing?.value ?? letterSpacing;
+          if (ls !== undefined && ls !== 0 && ls !== '0' && ls !== '0px') v.letterSpacing = letterSpacing;
           t[valKey] = {
             ...v,
             fontWeight: WEIGHTS[v.fontWeight] ?? v.fontWeight,
@@ -191,17 +195,30 @@ const native = (sources) =>
 // 4. EXECUTION
 // ---------------------------------------------------------------------------
 
-// :root — core, light colours, web space + type, styles
+// :root — core, light colours, web space + English type, styles
 await css(
   'tokens.css',
-  [
-    CORE,
-    T + 'semantic.light.tokens.json',
-    T + 'typography.english.tokens.json',
-    T + 'typography.burmese.tokens.json',
-    ...STYLES,
-  ],
+  [CORE, T + 'semantic.light.tokens.json', T + 'typography.english.tokens.json', ...STYLES],
   ':root'
+).buildAllPlatforms();
+
+// Burmese — only the type primitives, plus the text styles re-resolved against them
+// (the composite font shorthands carry resolved values, so they must be re-emitted too)
+await css(
+  'tokens-burmese.css',
+  [CORE, T + 'semantic.light.tokens.json', T + 'typography.burmese.tokens.json', ...STYLES],
+  // :lang() also matches region tags such as my-MM
+  ':lang(my)',
+  (t) => t.filePath.includes('typography.burmese') || t.filePath.includes('typography.styles')
+).buildAllPlatforms();
+
+// English again, for any non-Burmese lang inside a Burmese one (e.g. lang="en" within lang="my").
+// Type only: re-declaring colours here would override dark mode on that element.
+await css(
+  'tokens-english.css',
+  [CORE, T + 'semantic.light.tokens.json', T + 'typography.english.tokens.json', ...STYLES],
+  '[lang]:not(:lang(my))',
+  (t) => t.filePath.includes('typography.english') || t.filePath.includes('typography.styles')
 ).buildAllPlatforms();
 
 // dark — only the colours that change

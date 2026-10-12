@@ -1,6 +1,8 @@
 import type { Preview } from '@storybook/react-vite';
 import '../build/css/tokens.css';
 import '../build/css/tokens-dark.css';
+import '../build/css/tokens-burmese.css';
+import '../build/css/tokens-english.css';
 import '../stories/tokens.css';
 
 const preview: Preview = {
@@ -17,11 +19,24 @@ const preview: Preview = {
         dynamicTitle: true,
       },
     },
+    lang: {
+      description: 'Typography mode',
+      toolbar: {
+        title: 'Language',
+        icon: 'globe',
+        items: [
+          { value: 'en', title: 'English' },
+          { value: 'my', title: 'Burmese' },
+        ],
+        dynamicTitle: true,
+      },
+    },
   },
-  initialGlobals: { theme: 'light' },
+  initialGlobals: { theme: 'light', lang: 'en' },
   decorators: [
     (Story, { globals }) => {
       document.documentElement.dataset.theme = globals.theme;
+      document.documentElement.lang = globals.lang;
       return <Story />;
     },
   ],
