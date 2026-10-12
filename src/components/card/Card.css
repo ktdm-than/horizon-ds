@@ -1,0 +1,242 @@
+/* Card — Figma 218:143 and its nested component sets.
+ * Every value is a semantic token from build/css/tokens.css.
+ * The few sizes Figma leaves unbound are named once below as --hds-card-* and marked UNBOUND;
+ * they carry the Figma value until design binds a token.
+ */
+.hds-card,
+.hds-card-container,
+.hds-card-layout,
+.hds-card-image,
+.hds-iconbtn,
+.hds-card-text,
+.hds-card-text * {
+  box-sizing: border-box;
+}
+
+/* On :root because the nested parts are also used on their own. */
+:root {
+  /* UNBOUND: CardData fixed width (Figma 172:253, 249). */
+  --hds-card-data-width: 249px;
+  /* UNBOUND: ContentSlot fixed height (Figma 172:251 / 166:226, 48). */
+  --hds-card-content-slot-height: 48px;
+  /* UNBOUND: IconBtn size (Figma 163:73, 32×32) and its icon (221:146, 16×16). */
+  --hds-iconbtn-size: 32px;
+  --hds-iconbtn-icon-size: 16px;
+}
+
+.hds-card {
+  display: flex;
+  align-items: flex-start;
+}
+
+/* ---------- CardContainer 163:45 ---------- */
+.hds-card-container {
+  display: flex;
+  flex: 1 1 auto;
+  align-items: center;
+  gap: var(--spacing-none);
+  padding: var(--spacing-md);
+  background: var(--color-bg-surfaceprimary);
+  overflow: clip;
+}
+
+.hds-card-container__slot {
+  flex: 1 1 auto;
+  min-width: 0;
+  background: var(--color-bg-surfaceprimary);
+}
+
+.hds-card-container[data-state='hover'],
+.hds-card-container:hover {
+  box-shadow: var(--elevation-level1);
+}
+
+/* ---------- CardLayout 166:221 ---------- */
+.hds-card-layout {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: var(--spacing-md);
+  padding: var(--spacing-none);
+  width: 100%;
+  background: var(--color-bg-surfaceprimary);
+  overflow: clip;
+}
+
+.hds-card-layout[data-orientation='vertical'] {
+  flex-direction: column;
+}
+
+/* Horizontal: the image fills what CardData leaves. Vertical: the image spans the width. */
+.hds-card-layout > .hds-card-image {
+  flex: 1 0 0;
+  min-width: 0;
+}
+
+.hds-card-layout[data-orientation='vertical'] > .hds-card-image {
+  flex: none;
+  width: 100%;
+}
+
+.hds-card-layout__data {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-2xl);
+  padding: var(--spacing-none);
+  width: var(--hds-card-data-width);
+}
+
+.hds-card-layout__slot {
+  flex: none;
+  width: 100%;
+  min-height: var(--hds-card-content-slot-height);
+}
+
+/* ---------- CardImage 163:56 ---------- */
+.hds-card-image {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--spacing-none);
+  padding: var(--spacing-md);
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: var(--color-bg-surfacesecondary);
+  overflow: clip;
+}
+
+.hds-card-image[data-ratio='4:3'] {
+  aspect-ratio: 4 / 3;
+}
+
+.hds-card-image__media {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hds-card-image__overlay {
+  position: absolute;
+  inset: 0;
+  background: var(--overlaygradient);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.hds-card-image[data-state='hover'] > .hds-card-image__overlay,
+.hds-card-image:hover > .hds-card-image__overlay {
+  opacity: 1;
+}
+
+/* IconBtn sits above the overlay and lifts with the image's hover state. */
+.hds-card-image > .hds-iconbtn {
+  position: relative;
+}
+
+.hds-card-image[data-state='hover'] > .hds-iconbtn,
+.hds-card-image:hover > .hds-iconbtn {
+  box-shadow: var(--elevation-level1);
+}
+
+/* ---------- IconBtn 163:74 ---------- */
+.hds-iconbtn {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-none);
+  width: var(--hds-iconbtn-size);
+  height: var(--hds-iconbtn-size);
+  padding: var(--spacing-none);
+  border: 0;
+  border-radius: var(--borderradius-md);
+  background: var(--color-bg-base);
+  color: var(--color-icon-accent-red);
+  cursor: pointer;
+}
+
+.hds-iconbtn[data-state='hover'],
+.hds-iconbtn:hover {
+  box-shadow: var(--elevation-level1);
+}
+
+.hds-iconbtn__icon {
+  display: block;
+  width: var(--hds-iconbtn-icon-size);
+  height: var(--hds-iconbtn-icon-size);
+}
+
+/* ---------- CardText 162:27 ---------- */
+.hds-card-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-none);
+  width: 100%;
+  overflow-wrap: anywhere;
+}
+
+.hds-card-text p {
+  margin: 0;
+}
+
+.hds-card-text__header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-base);
+  padding: var(--spacing-none);
+  width: 100%;
+}
+
+.hds-card-text__title {
+  width: 100%;
+  font: var(--label-default);
+  color: var(--color-text-primary);
+}
+
+.hds-card-text__subtitle {
+  width: 100%;
+  font: var(--body-body4);
+  color: var(--color-text-secondary);
+}
+
+.hds-card-text__metadata {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-md);
+  padding: var(--spacing-none);
+  width: 100%;
+  white-space: nowrap;
+}
+
+/* Review (121:240) gap is spacing/base. Price (121:243) gap is an unbound 4 in Figma — same value, reported. */
+.hds-card-text__row {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-base);
+  width: 100%;
+}
+
+.hds-card-text__rating {
+  font: var(--list-item);
+  color: var(--color-text-warning);
+}
+
+.hds-card-text__price {
+  font: var(--label-default);
+  color: var(--color-text-primary);
+}
+
+.hds-card-text__meta {
+  font: var(--body-body4);
+  color: var(--color-text-secondary);
+}
