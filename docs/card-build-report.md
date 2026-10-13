@@ -64,12 +64,17 @@ Behaviour I drove: real hover on CardContainer, CardImage (overlay + IconBtn lif
 **Typing `image` outside JSX.** If you build the `image` object in a variable, type it as `CardLayoutProps['image']` or add `as const`. Otherwise TypeScript widens `ratio: '1:1'` to `string` and rejects it:
 
 ```tsx
-import { Card, type CardLayoutProps } from './Card';
+// Card and CardLayoutProps are exported from src/components/Card/Card.tsx.
+// This path is relative to docs/; adjust it to your file's location.
+import { Card, type CardLayoutProps } from '../src/components/Card/Card';
 
-const image: CardLayoutProps['image'] = { ratio: '1:1', state: 'hover' }; // ✅
-const also = { ratio: '1:1' } as const;                                     // ✅
-const widened = { ratio: '1:1' };                                            // ❌ ratio: string
-<Card image={image} />;
+const image: CardLayoutProps['image'] = { ratio: '1:1', state: 'hover' };
+const also = { ratio: '1:1' } as const;
+const widened = { ratio: '1:1' };
+
+<Card image={image} />;   // ✅
+<Card image={also} />;    // ✅
+<Card image={widened} />; // ❌ error: ratio is widened to string
 ```
 
 ## Stack change in this branch
