@@ -61,6 +61,17 @@ Behaviour I drove: real hover on CardContainer, CardImage (overlay + IconBtn lif
 | — | `title`, `subtitle`, `rating`, `reviews`, `amount`, `unit` on CardText | text content. Figma has text layers only |
 | — | `icon`, `aria-label` on IconBtn | glyph choice and accessible name for an icon-only button |
 
+**Typing `image` outside JSX.** If you build the `image` object in a variable, type it as `CardLayoutProps['image']` or add `as const`. Otherwise TypeScript widens `ratio: '1:1'` to `string` and rejects it:
+
+```tsx
+import { Card, type CardLayoutProps } from './Card';
+
+const image: CardLayoutProps['image'] = { ratio: '1:1', state: 'hover' }; // ✅
+const also = { ratio: '1:1' } as const;                                     // ✅
+const widened = { ratio: '1:1' };                                            // ❌ ratio: string
+<Card image={image} />;
+```
+
 ## Stack change in this branch
 
 `package.json` disagreed with `tools.md`: it had `@storybook/html-vite`, no React, no TypeScript and no lint script. As agreed, this branch:
