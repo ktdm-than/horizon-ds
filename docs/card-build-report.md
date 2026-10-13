@@ -56,7 +56,7 @@ Behaviour I drove: real hover on CardContainer, CardImage (overlay + IconBtn lif
 |---|---|---|
 | slot `containerSlot` (CardContainer) | `children` | React's slot convention |
 | slot `ContentSlot` (CardLayout) | `children` | React's slot convention |
-| — | `image`, `text` on Card / CardLayout | passes props to the nested instances. Not a Figma property |
+| — | `image`, `text` on Card / CardLayout | passes props to the nested instances. Not a Figma property. `image.ratio` is fixed at `1:1`, as in Figma: `'4:3'` is a type error and is overridden at runtime |
 | — | `src`, `alt`, `iconBtn` on CardImage | real content and IconBtn handlers. Not in Figma |
 | — | `title`, `subtitle`, `rating`, `reviews`, `amount`, `unit` on CardText | text content. Figma has text layers only |
 | — | `icon`, `aria-label` on IconBtn | glyph choice and accessible name for an icon-only button |

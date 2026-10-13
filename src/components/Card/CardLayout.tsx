@@ -12,7 +12,7 @@ export type CardLayoutProps = {
   /** Figma slot `ContentSlot`. */
   children?: ReactNode;
   /** Props for the nested CardImage. Its ratio is fixed at 1:1, as in Figma. */
-  image?: Omit<CardImageProps, 'ratio'>;
+  image?: Omit<CardImageProps, 'ratio'> & { ratio?: '1:1' };
   /** Props for the nested CardText. */
   text?: CardTextProps;
 };

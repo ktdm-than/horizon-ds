@@ -11,6 +11,7 @@ const meta: Meta<typeof IconBtn> = {
     state: { control: 'inline-radio', options: ['idle', 'hover'] },
     type: { control: 'inline-radio', options: ['button', 'submit', 'reset'] },
   },
+  args: { type: 'button' },
 };
 export default meta;
 type Story = StoryObj<typeof IconBtn>;
