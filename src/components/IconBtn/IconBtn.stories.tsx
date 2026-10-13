@@ -7,7 +7,10 @@ const meta: Meta<typeof IconBtn> = {
   title: 'Components/IconBtn',
   component: IconBtn,
   parameters: { layout: 'padded' },
-  argTypes: { state: { control: 'inline-radio', options: ['idle', 'hover'] } },
+  argTypes: {
+    state: { control: 'inline-radio', options: ['idle', 'hover'] },
+    type: { control: 'inline-radio', options: ['button', 'submit', 'reset'] },
+  },
 };
 export default meta;
 type Story = StoryObj<typeof IconBtn>;

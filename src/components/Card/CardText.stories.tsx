@@ -11,8 +11,9 @@ const meta: Meta<typeof CardText> = {
   decorators: [(Story) => <div style={{ width: 278 }}><Story /></div>],
   argTypes: {
     metadata: { control: 'boolean' },
-    review: { control: 'boolean' },
-    price: { control: 'boolean' },
+    // review and price live inside metadata, so they only apply while it is on.
+    review: { control: 'boolean', if: { arg: 'metadata' } },
+    price: { control: 'boolean', if: { arg: 'metadata' } },
   },
   args: {
     metadata: true,

@@ -11,8 +11,8 @@ export type CardLayoutProps = {
   showContentSlot?: boolean;
   /** Figma slot `ContentSlot`. */
   children?: ReactNode;
-  /** Props for the nested CardImage. */
-  image?: CardImageProps;
+  /** Props for the nested CardImage. Its ratio is fixed at 1:1, as in Figma. */
+  image?: Omit<CardImageProps, 'ratio'>;
   /** Props for the nested CardText. */
   text?: CardTextProps;
 };
@@ -22,7 +22,7 @@ export function CardLayout({ orientation = 'horizontal', showContentSlot = true,
   const slot = showContentSlot && <div className="hds-card-layout__slot">{children}</div>;
   return (
     <div className="hds-card-layout" data-orientation={orientation}>
-      <CardImage ratio="1:1" {...image} />
+      <CardImage {...image} ratio="1:1" />
       {horizontal ? (
         // CardData: text + slot, gap spacing/2xl.
         <div className="hds-card-layout__data">

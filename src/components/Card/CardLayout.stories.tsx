@@ -18,7 +18,7 @@ const meta: Meta<typeof CardLayout> = {
   argTypes: {
     orientation: { control: 'inline-radio', options: ['horizontal', 'vertical'] },
     showContentSlot: { control: 'boolean' },
-    image: { control: 'object', description: 'Props for the nested CardImage.' },
+    image: { control: 'object', description: 'Props for the nested CardImage: state, showIconBtn, src, alt, iconBtn. Ratio is fixed at 1:1.' },
     text: { control: 'object', description: 'Props for the nested CardText.' },
     children: { control: false, description: 'Figma slot `ContentSlot`.' },
   },

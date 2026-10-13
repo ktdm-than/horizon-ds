@@ -14,7 +14,7 @@ const meta: Meta<typeof Card> = {
   parameters: { layout: 'padded' },
   decorators: [(Story) => <div style={{ width: 534 }}><Story /></div>],
   argTypes: {
-    image: { control: 'object', description: 'Props for the nested CardImage (src, alt, showIconBtn, iconBtn).' },
+    image: { control: 'object', description: 'Props for the nested CardImage: state, showIconBtn, src, alt, iconBtn. Ratio is fixed at 1:1.' },
     text: { control: 'object', description: 'Props for the nested CardText (metadata, review, price and the text fields).' },
     children: { control: false },
   },
