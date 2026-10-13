@@ -4,7 +4,7 @@
 import type { ReactNode } from 'react';
 import { CardContainer } from './CardContainer';
 import { CardLayout } from './CardLayout';
-import type { CardImageProps } from './CardImage';
+import type { CardLayoutProps } from './CardLayout';
 import type { CardTextProps } from './CardText';
 import './Card.css';
 
@@ -16,8 +16,8 @@ export { CardText, type CardTextProps } from './CardText';
 export type CardProps = {
   /** The nested ContentSlot. */
   children?: ReactNode;
-  /** Props for the nested CardImage. */
-  image?: CardImageProps;
+  /** Props for the nested CardImage. Its ratio is fixed at 1:1, as in Figma. */
+  image?: CardLayoutProps['image'];
   /** Props for the nested CardText. */
   text?: CardTextProps;
 };
