@@ -56,7 +56,7 @@ those components into the parent component.
 
 ## Typography
 
-- Install required font and load properly from Google Font CDN[cite: 15]
+- Install required font and load properly from Google Font CDN
 
 
 ## Icon

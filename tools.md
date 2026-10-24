@@ -28,7 +28,7 @@ Stack facts and commands only. Rules about how we work live in `CLAUDE.md`.
 
 - Token source: `tokens/tokens.json` (exported from Figma, committed)
 - Token config: `style-dictionary.config.js`
-- Generated output: `build/tokens/` (never edit by hand, gitignored)
+- Generated output: `build/css/tokens.css/` (never edit by hand, gitignored)
 - Components: `src/components/<Name>/`
 - Agents: `.claude/agents/`
 - Skills: `.claude/skills/`
