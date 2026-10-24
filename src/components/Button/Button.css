@@ -1,0 +1,49 @@
+/* Button — Figma "Btn" 268:245. Semantic tokens only (build/css/tokens.css).
+ *
+ * Bound in Figma and used here:
+ *   gap spacing/sm · padding spacing/sm (block) + spacing/md (inline) · radius borderRadius/sm
+ *   fill color/bg/primary/idle · stroke borderWidth/sm + color/border/primary (outline only)
+ *   text style action/button1 · text colour color/text/inverse (fill) or color/text/primary (outline)
+ *
+ * Height: Figma fixes 42 without a token. It follows from bound tokens instead of a raw value:
+ * line-height (24) + block padding (2 x spacing/sm) + stroke (2 x borderWidth/sm). The fill variant
+ * carries a transparent stroke of the same width so both treatments share that height, as in Figma.
+ *
+ * DESIGN GAPS (reported, not invented): the per-size widths (120 / 180 / 376) are unbound, and no
+ * hover, pressed, focus, disabled or loading treatment is modelled in the component set.
+ * Disabled is native behaviour (no click, not focusable) with only the cursor changed; focus uses
+ * the user-agent ring.
+ */
+.hds-button {
+  box-sizing: border-box;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border: var(--borderwidth-sm) solid transparent;
+  border-radius: var(--borderradius-sm);
+  font: var(--action-button1);
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.hds-button[data-state='fill'] {
+  background: var(--color-bg-primary-idle);
+  color: var(--color-text-inverse);
+}
+
+.hds-button[data-state='outline'] {
+  background: transparent;
+  border-color: var(--color-border-primary);
+  color: var(--color-text-primary);
+}
+
+.hds-button:disabled {
+  cursor: not-allowed;
+}
+
+.hds-button__label {
+  display: block;
+}
