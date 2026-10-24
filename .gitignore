@@ -4,10 +4,5 @@ build/
 storybook-static/
 reports/
 .claude/*
-!.claude/agents/
-!.claude/skills/
-!.claude/skills/build/
-!.claude/launch.json
 !.claude/registry.local.example.json
 .claude/registry.local.json
-.claude/settings.local.json
