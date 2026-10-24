@@ -13,7 +13,7 @@ font value in a component references a token.
 - Semantic tokens point at primitives. Components use semantic tokens only.
 A component referencing a raw hex is wrong; it should reference
 `--color-action-primary`.
-- Never edit anything in `build/tokens/` by hand. It is generated based on `tokens/`
+- Never edit anything in `build/css/` by hand. It is generated based on `tokens/`
 - Modes come from Figma. A token that exists in one mode and not another is a
 design gap; report it rather than filling it in.
 
@@ -56,9 +56,18 @@ those components into the parent component.
 
 ## Typography
 
-- Install required font and load properly from Google Font CDN[cite: 15]
+- Install required font and load properly from Google Font CDN
 
 
 ## Icon
 
 - Install and import material symbols from https://fonts.google.com/icons
+
+## Git
+
+- Work happens on short-lived branches cut from `main` and merged back into `main` by pull request.
+There is no long-lived staging branch: each pull request's preview deployment is staging. Branch
+names and commands are in `tools.md`.
+- Only DevOps merges into `main`, and only after the required checks pass and a human has approved
+the pull request.
+- No agent approves a pull request, its own or anyone else's.
