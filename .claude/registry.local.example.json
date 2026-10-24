@@ -1,0 +1,13 @@
+{
+  "baseId": "appXXXXXXXXXXXXXX",
+  "tables": {
+    "components": "tblXXXXXXXXXXXXXX",
+    "stagingTesting": "tblXXXXXXXXXXXXXX",
+    "dsFeedback": "tblXXXXXXXXXXXXXX",
+    "githubCommits": "tblXXXXXXXXXXXXXX",
+    "oneOffComponents": "tblXXXXXXXXXXXXXX"
+  },
+  "views": {
+    "components": "viwXXXXXXXXXXXXXX"
+  }
+}
