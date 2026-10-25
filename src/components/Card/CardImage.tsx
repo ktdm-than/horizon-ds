@@ -1,4 +1,4 @@
-// CardImage — Figma component set 163:56 (ratio = 1:1 | 4:3, state = idle | hover, showIconBtn)
+// CardImage — Figma component set 163:56 in section 227:333 (ratio = 1:1 | 4:3, state = idle | hover, showIconBtn)
 import { IconBtn, type IconBtnProps } from '../IconBtn/IconBtn';
 import './CardImage.css';
 

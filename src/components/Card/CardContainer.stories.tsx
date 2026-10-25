@@ -1,5 +1,5 @@
-// Figma: https://www.figma.com/design/l87TswOf2FHCxsYmK8XhHJ/Horizon-Stays-.-Web-.-Component-.-V1.0-.-Draft?node-id=163-45
-// fileKey l87TswOf2FHCxsYmK8XhHJ · CardContainer 163:45 (nested in Card 218:143)
+// Figma: https://www.figma.com/design/l87TswOf2FHCxsYmK8XhHJ/Horizon-Stays-.-Web-.-Component-.-V1.0-.-Draft?node-id=227-333
+// fileKey l87TswOf2FHCxsYmK8XhHJ · section 227:333 · CardContainer 163:45 (nested in Card 218:143)
 // The 424 frame width and 104 slot fill are story fixtures matching the Figma frame.
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { CardContainer } from './CardContainer';

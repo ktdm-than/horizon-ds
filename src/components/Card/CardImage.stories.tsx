@@ -1,5 +1,5 @@
-// Figma: https://www.figma.com/design/l87TswOf2FHCxsYmK8XhHJ/Horizon-Stays-.-Web-.-Component-.-V1.0-.-Draft?node-id=163-56
-// fileKey l87TswOf2FHCxsYmK8XhHJ · CardImage 163:56 (nested in Card 218:143)
+// Figma: https://www.figma.com/design/l87TswOf2FHCxsYmK8XhHJ/Horizon-Stays-.-Web-.-Component-.-V1.0-.-Draft?node-id=227-333
+// fileKey l87TswOf2FHCxsYmK8XhHJ · section 227:333 · CardImage 163:56 (nested in Card 218:143)
 // Frame widths are story fixtures matching the Figma frames: 192 for 1:1, 256 for 4:3.
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { CardImage, type CardImageProps } from './CardImage';

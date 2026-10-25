@@ -1,4 +1,4 @@
-// CardContainer — Figma component set 163:45 (state = idle | hover, slot: containerSlot)
+// CardContainer — Figma component set 163:45 in section 227:333 (state = idle | hover, slot: containerSlot)
 import type { ReactNode } from 'react';
 import './CardContainer.css';
 
