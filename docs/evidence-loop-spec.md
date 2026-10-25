@@ -9,6 +9,13 @@ version of the board: its node 24:313 no longer exists, and its Task 1/2/3 lists
 longer on the board. That draft also records a decision on who writes "Fixed (To re-test)". The
 current board contradicts that decision, so it is listed here as open (Q4) and not carried over.
 
+**Branch model — resolved after this draft (2026-10-25).** The board draws a long-lived Git staging
+branch. The repo has since adopted a trunk-based model instead (`CLAUDE.md` → Git, `tools.md` →
+Branches and deploys): each component is a short-lived `component/<name>` or `fix/<name>` branch
+cut from `main` and merged back into `main` by pull request, and **each pull request's Vercel
+preview deployment is staging**. There is no staging branch. Board quotes below are left as the
+board wrote them; the lines marked **Resolved (Repo)** say how the repo now works.
+
 ## How to read this
 
 - **Board** means the board says it, in its own words where they are quoted.
@@ -16,7 +23,8 @@ current board contradicts that decision, so it is listed here as open (Q4) and n
   `.claude/agents/*.md`) and the board does not.
 - **Not stated** means neither source says it.
 - Where an actor's entry depends on an open question, it points to the question (Q1, Q2, …) in
-  section 4. **No ambiguity is resolved in this document.**
+  section 4. **No ambiguity is resolved in this document**, except the branch model, marked
+  **Resolved (Repo)** where it appears.
 
 ---
 
@@ -99,6 +107,8 @@ the Figma link still exists after the component is built (Q5).
 - **Reads (Board):** "Figma, Figjam", fed by the Designer's Components.
 - **Uses (Board):** "AI IDE".
 - **Does (Board):** "Develop branch → PR and Merged into Git Staging Branch" (Q15).
+  - **Resolved (Repo):** the Developer cuts `component/<name>` from `main` and opens a PR to
+    `main`. It never merges. The PR's preview deployment of the exact commit is the staging URL.
 - **Writes (Board):**
   - Tokens, Components, and a Staging URL (Q14 on tokens).
   - "Write staging link in Airtable record", into `Components / Staging Storybook`.
@@ -110,6 +120,9 @@ the Figma link still exists after the component is built (Q5).
 - **Reads (Board):** "Figma" and "Airtable Records" (Q17).
 - **Uses (Board):** "AI IDE".
 - **Does (Board):** "Develop branch → New commit, PR and merged into Git staging branch" (Q15).
+  - **Resolved (Repo):** while the component's PR is open, the repair is a new commit on that
+    PR; once it has merged, the repair is a `fix/<name>` branch from `main` with its own PR. The
+    new commit's preview is the new staging URL.
 - **Writes (Board):**
   - Tokens, Components, and a Staging URL.
   - "Update status in Staging Storybook/ testing result", into
@@ -164,6 +177,8 @@ the Figma link still exists after the component is built (Q5).
 - **First step (Board):** An edge labelled "new" leads to "Component Library". No other exit is
   drawn (Q25).
 - **Does (Board):** "Git Staging → Main" (Q3, Q26).
+  - **Resolved (Repo):** DevOps merges the component's own PR into `main`, only after its
+    required checks pass and a human has approved it. `main` deploys production Storybook.
 - **Writes (Board):**
   - A Production URL.
   - "Write production link in Airtable record", into `Components / Production Storybook` (Q27).
@@ -227,6 +242,9 @@ a guess on any of them puts the same error into all four agents.
     and DevOps merges staging into main.
   - Candidates: before the staging merge, before staging → main, after Completed, or none.
   - Affects: Developer, DevOps.
+  - **Resolved (Repo):** there is no staging merge. A human approves each component's PR to
+    `main`; no agent approves any PR. DevOps merges only after that approval and green checks
+    (`CLAUDE.md` → Roles and Git).
 - **Q4. Who writes "Fixed (To re-test)", and into which column?**
   - Board: the Developer writes it into `Staging Testing / Testing Result` after a repair.
   - Repo, registry: QA owns every Staging Testing column; "The Engineer never writes this,
@@ -306,6 +324,9 @@ a guess on any of them puts the same error into all four agents.
   - "Develop branch → PR and Merged into Git Staging Branch". Who merges that PR: the Developer
     or a human? (See Q3.)
   - What are the branch names? Is there one branch per component or per fix?
+  - **Resolved (Repo):** the Developer opens the PR and never merges it (see Q3). Branch names
+    are in `tools.md`: `component/<name>` for a build, `fix/<name>` for a repair after merge, one
+    open PR per component.
 - **Q16. "Update status in Staging Storybook/ testing result".** The label names Staging
   Storybook, but the document it points to is `Staging Testing / Testing Result`.
   - Does the fix path rewrite the `Staging Storybook` link too?
@@ -320,6 +341,7 @@ a guess on any of them puts the same error into all four agents.
 - **Q19. What exactly QA reads.**
   - "UI Kit": the component's own Figma node, or the whole library file?
   - "Component Library Staging URL": the same link as `Components / Staging Storybook`?
+    **Resolved (Repo):** yes — the PR preview URL of the exact commit, never the branch alias.
 - **Q20. Where QA writes.** The board and the registry say Airtable rows. `qa.md` says
   `reports/` only. Airtable, `reports/`, or both?
 - **Q21. Re-test rows.** On a re-test, does QA overwrite the existing row or add a new one? Does
@@ -342,6 +364,8 @@ a guess on any of them puts the same error into all four agents.
 - **Q26. What staging → main promotes.** Merging the staging branch promotes everything on it,
   including components still failing. Is release per component, or a batch gated on all of
   staging passing?
+  - **Resolved (Repo):** per component. Each component has its own PR, so merging it promotes
+    that component only.
 - **Q27. The production link.** Is `Production Storybook` one URL per component, or one site-wide
   URL? Is it a Vercel deploy?
 - **Q28. Astro Link.** The repo gives DevOps the docs-site link. Keep it or drop it?
