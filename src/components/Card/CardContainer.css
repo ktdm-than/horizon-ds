@@ -15,7 +15,18 @@
 }
 
 .hds-card-container__slot {
+  /* Figma containerSlot: vertical auto layout, gap spacing/lg, padding spacing/none, top-left aligned. */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-lg);
+  padding: var(--spacing-none);
   flex: 1 1 auto;
   min-inline-size: 0;
   background: var(--color-bg-surfaceprimary);
+}
+
+/* A full-width child (CardLayout) keeps filling the slot, as it does at its fixed Figma width. */
+.hds-card-container__slot > .hds-card-layout {
+  align-self: stretch;
 }

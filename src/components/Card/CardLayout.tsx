@@ -1,8 +1,11 @@
-// CardLayout — Figma component set 166:221 (orientation = horizontal | vertical, showContentSlot, slot: ContentSlot)
+// CardLayout — Figma component set 166:221 in section 227:333 (orientation = horizontal | vertical, showContentSlot, slot: ContentSlot)
 import type { ReactNode } from 'react';
 import { CardImage, type CardImageProps } from './CardImage';
 import { CardText, type CardTextProps } from './CardText';
 import './CardLayout.css';
+
+/** Props for the CardImage nested in CardLayout. Its ratio is fixed at 1:1, as in Figma. */
+export type CardLayoutImageProps = Omit<CardImageProps, 'ratio'> & { ratio?: '1:1' };
 
 export type CardLayoutProps = {
   /** Figma `orientation`. */
@@ -12,7 +15,7 @@ export type CardLayoutProps = {
   /** Figma slot `ContentSlot`. */
   children?: ReactNode;
   /** Props for the nested CardImage. Its ratio is fixed at 1:1, as in Figma. */
-  image?: Omit<CardImageProps, 'ratio'> & { ratio?: '1:1' };
+  image?: CardLayoutImageProps;
   /** Props for the nested CardText. */
   text?: CardTextProps;
 };
