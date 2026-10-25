@@ -1,18 +1,27 @@
-/* Button — Figma "Btn" 268:245. Semantic tokens only (build/css/tokens.css).
+/* Button — Figma "Btn" 280:276. Semantic tokens only (build/css/tokens.css).
  *
- * Bound in Figma and used here:
- *   gap spacing/sm · padding spacing/sm (block) + spacing/md (inline) · radius borderRadius/sm
- *   fill color/bg/primary/idle · stroke borderWidth/sm + color/border/primary (outline only)
- *   text style action/button1 · text colour color/text/inverse (fill) or color/text/primary (outline)
+ * Bound in Figma and used here (all variants):
+ *   gap spacing/sm · padding spacing/sm (block) + spacing/xl (inline) · radius borderRadius/sm
+ *   text style action/button1 (fontFamily/label, fontWeight/semibold, fontSize/md, lineHeight/md)
  *
- * Height: Figma fixes 42 without a token. It follows from bound tokens instead of a raw value:
- * line-height (24) + block padding (2 x spacing/sm) + stroke (2 x borderWidth/sm). The fill variant
- * carries a transparent stroke of the same width so both treatments share that height, as in Figma.
+ * Per variant, as bound in Figma:
+ *   fill     default  bg color/bg/primary/idle     text color/text/inverse   icon color/border/brand/light
+ *   fill     hover    bg color/bg/primary/hovered  text color/text/inverse   icon color/border/brand/light
+ *   fill     focus    bg color/bg/primary/focused  text color/text/inverse   icon color/border/brand/light
+ *   fill     disabled bg color/bg/disabled         text color/text/disabled  icon color/border/primary
+ *   outline  default  stroke color/border/primary     text color/text/primary  icon color/border/inverse
+ *   outline  hover    stroke color/border/brand/bold  text color/text/primary  icon color/border/inverse
+ *   outline  focus    stroke color/border/brand/light text color/text/primary  icon color/border/inverse
+ *   outline  disabled stroke color/border/primary     text color/text/disabled icon color/border/primary
+ *   outline strokes: borderWidth/sm, inside.
  *
- * DESIGN GAPS (reported, not invented): the per-size widths (120 / 180 / 376) are unbound, and no
- * hover, pressed, focus, disabled or loading treatment is modelled in the component set.
- * Disabled is native behaviour (no click, not focusable) with only the cursor changed; focus uses
- * the user-agent ring.
+ * DESIGN GAPS (reported in docs/button-build-report.md, not invented):
+ *   G1 height 42 is fixed and unbound. It follows here from bound tokens: line-height (24) +
+ *      2 x spacing/sm + 2 x borderWidth/sm. Fill carries a transparent stroke so both shapes match.
+ *   G2 the 20x20 icon frame is unbound. PROVISIONAL: the glyph is sized by the equal-valued
+ *      --fontsize-xl (20px), as IconBtn does, until design binds an icon-size token.
+ *   G3 icons are bound to border tokens (color/border/*), not color/icon/*. Used as bound.
+ *   G4 no pressed or loading state in the set; none is styled.
  */
 .hds-button {
   box-sizing: border-box;
@@ -21,7 +30,7 @@
   align-items: center;
   justify-content: center;
   gap: var(--spacing-sm);
-  padding: var(--spacing-sm) var(--spacing-md);
+  padding: var(--spacing-sm) var(--spacing-xl);
   border: var(--borderwidth-sm) solid transparent;
   border-radius: var(--borderradius-sm);
   font: var(--action-button1);
@@ -29,21 +38,72 @@
   cursor: pointer;
 }
 
-.hds-button[data-state='fill'] {
+.hds-button__label {
+  display: block;
+}
+
+.hds-button__icon {
+  display: block;
+  flex: none;
+  font-size: var(--fontsize-xl);
+  line-height: 1;
+  inline-size: 1em;
+  block-size: 1em;
+  overflow: hidden;
+}
+
+/* ── fill ─────────────────────────────────────────── */
+.hds-button[data-shape='fill'] {
   background: var(--color-bg-primary-idle);
   color: var(--color-text-inverse);
 }
+.hds-button[data-shape='fill'] .hds-button__icon {
+  color: var(--color-border-brand-light);
+}
+.hds-button[data-shape='fill'][data-state='hover'],
+.hds-button[data-shape='fill']:not(:disabled):hover {
+  background: var(--color-bg-primary-hovered);
+}
+.hds-button[data-shape='fill'][data-state='focus'],
+.hds-button[data-shape='fill']:not(:disabled):focus-visible {
+  background: var(--color-bg-primary-focused);
+}
 
-.hds-button[data-state='outline'] {
+/* ── outline ──────────────────────────────────────── */
+.hds-button[data-shape='outline'] {
   background: transparent;
   border-color: var(--color-border-primary);
   color: var(--color-text-primary);
 }
-
-.hds-button:disabled {
-  cursor: not-allowed;
+.hds-button[data-shape='outline'] .hds-button__icon {
+  color: var(--color-border-inverse);
+}
+.hds-button[data-shape='outline'][data-state='hover'],
+.hds-button[data-shape='outline']:not(:disabled):hover {
+  border-color: var(--color-border-brand-bold);
+}
+.hds-button[data-shape='outline'][data-state='focus'],
+.hds-button[data-shape='outline']:not(:disabled):focus-visible {
+  border-color: var(--color-border-brand-light);
 }
 
-.hds-button__label {
-  display: block;
+/* Figma draws focus as a colour change only, with no ring, so the user-agent ring is replaced
+ * by the bound focus colours above. See docs/button-build-report.md (A1). */
+.hds-button:focus-visible {
+  outline: none;
+}
+
+/* ── disabled (native attribute; state="disabled" sets it) ── */
+.hds-button:disabled {
+  cursor: not-allowed;
+  color: var(--color-text-disabled);
+}
+.hds-button[data-shape='fill']:disabled {
+  background: var(--color-bg-disabled);
+}
+.hds-button[data-shape='outline']:disabled {
+  border-color: var(--color-border-primary);
+}
+.hds-button:disabled .hds-button__icon {
+  color: var(--color-border-primary);
 }
