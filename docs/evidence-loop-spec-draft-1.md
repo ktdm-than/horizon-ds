@@ -2,6 +2,14 @@
 
 Source: FigJam board "Evidence Loop Mapping", node 24:313, read 2026-10-23.
 Status: **draft. Nothing here is approved, and no agent files have been written from it.**
+Superseded by `docs/evidence-loop-spec.md`; kept for its history.
+
+**Branch model — superseded (2026-10-25).** This draft describes a long-lived Git staging branch.
+The repo now uses a trunk-based model (`CLAUDE.md` → Git, `tools.md` → Branches and deploys):
+short-lived `component/<name>` or `fix/<name>` branches cut from `main` and merged back into
+`main` by pull request, with **each pull request's Vercel preview deployment as staging**. There
+is no staging branch. Board quotes are left as written; lines marked **[Superseded]** say how the
+repo now works.
 
 How to read this document:
 
@@ -88,6 +96,8 @@ Changed by A7: "Fixed (Re-test)" now lives in the Developer's claim column, not 
   - The AI IDE.
 - **Does [Board]:** Develop branch → PR → merged into the Git staging branch. Who approves or
   merges that PR is not stated (A5).
+  - **[Superseded]** The Developer opens a PR from `component/<name>` to `main` and never merges
+    it. The PR's preview of the exact commit is the staging URL.
 - **Writes [Board]:**
   - Tokens, components, and a staging URL.
   - The staging link in Airtable, in `Components / Staging Storybook`.
@@ -100,6 +110,8 @@ Changed by A7: "Fixed (Re-test)" now lives in the Developer's claim column, not 
 
 - **Reads [Board]:** Figma and the Airtable records (QA's test rows).
 - **Does [Board]:** Develop branch → new commit, PR, merged into the Git staging branch.
+  - **[Superseded]** A new commit on the component's open PR, or a `fix/<name>` PR to `main` once
+    the first PR has merged. The new commit's preview is the new staging URL.
 - **Writes [Board]:**
   - Tokens, components, and a staging URL.
   - "Update status in Staging Storybook / testing result". **Changed by A7:** the Developer
@@ -164,6 +176,8 @@ Changed by A7: "Fixed (Re-test)" now lives in the Developer's claim column, not 
 - **Does [Board]:** Merges Git staging → main.
   - The staging branch can hold other components that have not passed yet (A18).
   - No human approval appears before this merge (A19).
+  - **[Superseded]** DevOps merges the component's own PR into `main`, after its checks pass and
+    a human has approved it.
 - **Writes [Board]:**
   - A production URL.
   - The production link in Airtable, in `Components / Production Storybook`.
@@ -265,6 +279,7 @@ grouped by how much of the crew they affect.
   - The board has no human anywhere after the Designer.
   - Where does a human approve? For example: before the staging PR merges, before staging → main,
     or after Completed.
+  - **[Superseded]** A human approves each component's PR to `main`. No agent approves a PR.
 - **A26. How "Provoke" works.**
   - Only the PM's trigger is drawn (the 9 am routine).
   - For the other agents it is not stated what detects a status change. Options include an Airtable
@@ -311,6 +326,7 @@ grouped by how much of the crew they affect.
   - It could be the waking status (To-do counts as new, To be fixed does not), or something else.
 - **A5. Staging PR approval.** Does the Developer merge its own PR into staging, or is that a human
   step?
+  - **[Superseded]** There is no staging merge. The Developer never merges; see A19.
 - **A10. The production bug-fix path.**
   - It is listed as a Developer task, but no path is drawn.
   - The Developer's only "No" branch is "Fix in staging".
@@ -341,6 +357,7 @@ grouped by how much of the crew they affect.
     failing.
   - Is the release per component (for example, cherry-pick or a per-component branch), or a batch
     gated on all of staging passing?
+  - **[Superseded]** Per component: each component has its own PR to `main`.
   - Is "Production Storybook" one URL per component, or one site-wide URL?
 - **A21. PM time zone and calendar.** Does "every 9 am daily" use your time zone, and does it run
   on weekends?
