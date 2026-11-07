@@ -26,7 +26,7 @@ Stack facts and commands only. Rules about how we work live in `CLAUDE.md`.
 
 ## Paths
 
-- Token source: `tokens/tokens.json` (exported from Figma, committed)
+- Token source: `tokens/*.tokens.json` (exported from Figma by the Design Tokens plugin, committed)
 - Token config: `style-dictionary.config.js`
 - Generated output: `build/css/` (`tokens.css` plus one file per mode; never edit by hand, gitignored)
 - Components: `src/components/<Name>/`
@@ -37,7 +37,7 @@ Stack facts and commands only. Rules about how we work live in `CLAUDE.md`.
 
 Trunk-based: `main` is production. All work is a short-lived branch merged into `main` by PR.
 
-| Branch | For | Commit Type in GitHub Commits |
+| Branch | For | Usual Commit Type in GitHub Commits |
 |---|---|---|
 | `component/<name>` | Building one component | Feature |
 | `fix/<name>` | Repairing one component | Bugfix |
@@ -45,6 +45,9 @@ Trunk-based: `main` is production. All work is a short-lived branch merged into 
 | `docs/<name>` | Docs only | Documentation |
 | `chore/<name>` | Tooling, config | Chore |
 | `tokens/sync-<name>` | One token re-export (`token-runner`) | Chore |
+
+Commit Type follows the commit, not the branch: a repair pushed to an open `component/<name>` PR
+is a Bugfix.
 
 | Job | Command |
 |---|---|
@@ -60,7 +63,8 @@ Trunk-based: `main` is production. All work is a short-lived branch merged into 
   which changes as the branch moves and disappears when it is deleted.
 - Merges use merge commits, never squash or rebase, so the commit in `Commit` stays reachable
   from `main`.
-- `main` deploys production Storybook.
+- `main` deploys production Storybook. `Production Storybook` is the exact production deployment
+  of the merge commit, never the production domain, which moves with every later merge.
 - CI (`.github/workflows/ci.yml`) runs `npm run lint` and `npm run build-storybook` on every PR.
   `npm test` is a placeholder in `package.json` and is not in CI yet.
 
