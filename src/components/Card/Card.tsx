@@ -6,7 +6,6 @@ import { CardContainer } from './CardContainer';
 import { CardLayout } from './CardLayout';
 import type { CardLayoutImageProps } from './CardLayout';
 import type { CardTextProps } from './CardText';
-import './Card.css';
 
 export { CardContainer, type CardContainerProps } from './CardContainer';
 export { CardLayout, type CardLayoutProps, type CardLayoutImageProps } from './CardLayout';

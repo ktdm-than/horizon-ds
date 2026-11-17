@@ -4,6 +4,7 @@ import '../build/css/tokens-dark.css';
 import '../build/css/tokens-burmese.css';
 import '../build/css/tokens-english.css';
 import '../stories/tokens.css';
+import '../src/styles.css';
 
 const preview: Preview = {
   globalTypes: {

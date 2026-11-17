@@ -1,0 +1,5 @@
+/* Opt-in: the Google Fonts this design system uses, as published at '@horizon-ds/react/fonts.css'.
+   Same families and axes as .storybook/preview-head.html. Keep the two in step.
+   Apps that already load these fonts with <link> tags (faster than @import) skip this file. */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Myanmar:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=block');

@@ -1,7 +1,6 @@
 // IconBtn — Figma component set 163:74 (state = idle | hover)
 // https://www.figma.com/design/l87TswOf2FHCxsYmK8XhHJ/Horizon-Stays-.-Web-.-Component-.-V1.0-.-Draft?node-id=163-74
 import type { ButtonHTMLAttributes } from 'react';
-import './IconBtn.css';
 
 export type IconBtnProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'children'> & {
   /** Figma `state`. Pins the hover look; real pointer hover applies regardless. */

@@ -1,7 +1,6 @@
 // CardText — Figma component 162:27 (booleans: Metadata, Review, Price)
 // Section: https://www.figma.com/design/l87TswOf2FHCxsYmK8XhHJ/Horizon-Stays-.-Web-.-Component-.-V1.0-.-Draft?node-id=227-333
 // Prop names match the Figma property names exactly, including their capitals (see docs/card-build-report.md, N1).
-import './CardText.css';
 
 export type CardTextProps = {
   /** Figma `Metadata`. Shows the Review + Price block. */
