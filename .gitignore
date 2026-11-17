@@ -6,3 +6,4 @@ reports/
 .claude/*
 !.claude/registry.local.example.json
 .claude/registry.local.json
+dist/

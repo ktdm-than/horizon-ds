@@ -2,7 +2,6 @@
 import type { ReactNode } from 'react';
 import { CardImage, type CardImageProps } from './CardImage';
 import { CardText, type CardTextProps } from './CardText';
-import './CardLayout.css';
 
 /** Props for the CardImage nested in CardLayout. Its ratio is fixed at 1:1, as in Figma. */
 export type CardLayoutImageProps = Omit<CardImageProps, 'ratio'> & { ratio?: '1:1' };

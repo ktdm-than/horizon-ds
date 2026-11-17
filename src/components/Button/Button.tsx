@@ -4,7 +4,6 @@
 // plus booleans showLeadingIcon and showTrailingIcon. The leading and trailing icons are the
 // local Figma components LeadingIcon 280:255 and TrailingIcon 280:271 (a 20x20 "+" glyph).
 import type { ButtonHTMLAttributes, ReactNode } from 'react';
-import './Button.css';
 
 export type ButtonState = 'default' | 'hover' | 'focus' | 'disabled';
 export type ButtonShape = 'fill' | 'outline';
