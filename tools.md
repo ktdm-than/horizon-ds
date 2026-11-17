@@ -64,6 +64,20 @@ Trunk-based: `main` is production. All work is a short-lived branch merged into 
 - CI (`.github/workflows/ci.yml`) runs `npm run lint` and `npm run build-storybook` on every PR.
   `npm test` is a placeholder in `package.json` and is not in CI yet.
 
+## Docs site
+
+- Folder: `docs-site/`, its own npm package (Astro + Starlight) with its own `package.json` and
+  lockfile. It lives only on the `astro` branch.
+- Vercel project: `horizon-ds-docs` (`prj_OA7Kxau8kZnYEYqfoo4aMAYAtrph`, team `tangible7`),
+  root directory `docs-site`, production branch `astro`.
+- Build settings live in `docs-site/vercel.json` on `astro`: framework `astro`, install
+  `npm install` (not `npm ci`: a lockfile written on macOS can omit packages Linux needs),
+  build `npm run build`, output `dist`.
+- Production URL: `https://horizon-ds-docs.vercel.app` (assigned on the first production deploy).
+- Every other branch carries `docs-site/vercel.json` = `{"git": {"deploymentEnabled": false}}`,
+  so the docs project skips those pushes instead of failing.
+- Local: `cd docs-site && npm install && npm run dev`.
+
 ## Dependency rules
 
 - Match the package manager in this file. This project uses npm, not yarn or pnpm.
