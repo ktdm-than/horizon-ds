@@ -1,11 +1,11 @@
-# @horizon-ds/react
+# @morethanthings/horizon-ds
 
 React components for the Horizon design system, built from its Figma library.
 
 ## Install
 
 ```bash
-npm install @horizon-ds/react react react-dom
+npm install @morethanthings/horizon-ds react react-dom
 ```
 
 React 19 and React DOM 19 are peer dependencies.
@@ -15,9 +15,9 @@ React 19 and React DOM 19 are peer dependencies.
 Order matters: tokens first, then fonts, then component styles.
 
 ```ts
-import '@horizon-ds/react/tokens.css'; // design tokens: light, dark, English and Burmese modes
-import '@horizon-ds/react/fonts.css';  // optional, see below
-import '@horizon-ds/react/styles.css'; // every component's styles
+import '@morethanthings/horizon-ds/tokens.css'; // design tokens: light, dark, English and Burmese modes
+import '@morethanthings/horizon-ds/fonts.css';  // optional, see below
+import '@morethanthings/horizon-ds/styles.css'; // every component's styles
 ```
 
 ### Fonts
@@ -44,7 +44,7 @@ Without one or the other, text falls back to system fonts and icons show as thei
 ## Use
 
 ```tsx
-import { Button, Card } from '@horizon-ds/react';
+import { Button, Card } from '@morethanthings/horizon-ds';
 
 export function Listing() {
   return (

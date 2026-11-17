@@ -1,6 +1,6 @@
 // The package's only public surface. Anything not exported here is internal.
-// Styles are not imported here: consumers import '@horizon-ds/react/tokens.css' and
-// '@horizon-ds/react/styles.css' once, at their app root.
+// Styles are not imported here: consumers import '@morethanthings/horizon-ds/tokens.css' and
+// '@morethanthings/horizon-ds/styles.css' once, at their app root.
 export { Button, type ButtonProps, type ButtonShape, type ButtonState } from './components/Button/Button';
 export { IconBtn, type IconBtnProps } from './components/IconBtn/IconBtn';
 export { Card, type CardProps } from './components/Card/Card';
