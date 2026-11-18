@@ -1,0 +1,87 @@
+{
+  "component": "CardText",
+  "figma": "https://www.figma.com/design/l87TswOf2FHCxsYmK8XhHJ/Horizon-Stays-.-Web-.-Component-.-V1.0-.-Draft?node-id=162-27",
+  "commit": "b61eb78b10d7aea4b3b1723cbba2e2aee739b693",
+  "use_when": [],
+  "dont_use_when": [],
+  "variant_intent": {
+    "Metadata": {
+      "true": {
+        "purpose": ""
+      },
+      "false": {
+        "purpose": ""
+      }
+    },
+    "Review": {
+      "true": {
+        "purpose": ""
+      },
+      "false": {
+        "purpose": ""
+      }
+    },
+    "Price": {
+      "true": {
+        "purpose": ""
+      },
+      "false": {
+        "purpose": ""
+      }
+    }
+  },
+  "placement": [
+    {
+      "where": "In the CardData column of a horizontal CardLayout inside Card, beside CardImage and above the ContentSlot.",
+      "story": "components-card-card--card-default"
+    },
+    {
+      "where": "Below CardImage and above the ContentSlot in a vertical CardLayout.",
+      "story": "components-card-cardlayout--layout-vertical"
+    }
+  ],
+  "pairs_with": [
+    {
+      "component": "CardImage",
+      "story": "components-card-cardlayout--layout-horizontal"
+    },
+    {
+      "component": "CardLayout",
+      "story": "components-card-cardlayout--layout-horizontal"
+    },
+    {
+      "component": "Card",
+      "story": "components-card-card--card-default"
+    }
+  ],
+  "required_tokens": [
+    "spacing-sm",
+    "spacing-none",
+    "spacing-base",
+    "label-default",
+    "color-text-primary",
+    "body-body4",
+    "color-text-secondary",
+    "spacing-md",
+    "list-item",
+    "color-text-warning"
+  ],
+  "a11y": [
+    {
+      "fact": "The title is rendered as a <p>, not a heading element, so it does not appear in a screen reader's heading list.",
+      "source": "src/components/Card/CardText.tsx:34"
+    },
+    {
+      "fact": "Subtitle, rating, review count, price and unit are each rendered as a separate <p>.",
+      "source": "src/components/Card/CardText.tsx:35"
+    },
+    {
+      "fact": "Review and Price render only while Metadata is true.",
+      "source": "src/components/Card/CardText.tsx:37"
+    },
+    {
+      "fact": "The rating is plain text (e.g. \"4.7\") with no accessible label naming it as a rating.",
+      "source": "src/components/Card/CardText.tsx:41"
+    }
+  ]
+}

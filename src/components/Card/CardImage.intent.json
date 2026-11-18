@@ -1,0 +1,90 @@
+{
+  "component": "CardImage",
+  "figma": "https://www.figma.com/design/l87TswOf2FHCxsYmK8XhHJ/Horizon-Stays-.-Web-.-Component-.-V1.0-.-Draft?node-id=163-56",
+  "commit": "b61eb78b10d7aea4b3b1723cbba2e2aee739b693",
+  "use_when": [],
+  "dont_use_when": [],
+  "variant_intent": {
+    "ratio": {
+      "1:1": {
+        "purpose": ""
+      },
+      "4:3": {
+        "purpose": ""
+      }
+    },
+    "state": {
+      "idle": {
+        "purpose": ""
+      },
+      "hover": {
+        "purpose": ""
+      }
+    },
+    "showIconBtn": {
+      "true": {
+        "purpose": ""
+      },
+      "false": {
+        "purpose": ""
+      }
+    }
+  },
+  "placement": [
+    {
+      "where": "First child of the horizontal CardLayout inside Card, at ratio 1:1, beside the CardText column.",
+      "story": "components-card-card--card-default"
+    },
+    {
+      "where": "Left of the CardText column in a horizontal CardLayout, at ratio 1:1.",
+      "story": "components-card-cardlayout--layout-horizontal"
+    },
+    {
+      "where": "Above CardText in a vertical CardLayout, at ratio 1:1.",
+      "story": "components-card-cardlayout--layout-vertical"
+    }
+  ],
+  "pairs_with": [
+    {
+      "component": "IconBtn",
+      "story": "components-card-cardimage--image-11-idle"
+    },
+    {
+      "component": "CardText",
+      "story": "components-card-cardlayout--layout-horizontal"
+    },
+    {
+      "component": "CardLayout",
+      "story": "components-card-cardlayout--layout-horizontal"
+    },
+    {
+      "component": "Card",
+      "story": "components-card-card--card-default"
+    }
+  ],
+  "required_tokens": [
+    "spacing-none",
+    "spacing-md",
+    "color-bg-surfacesecondary",
+    "overlaygradient",
+    "elevation-level1"
+  ],
+  "a11y": [
+    {
+      "fact": "alt defaults to \"\", so the <img> (rendered only when src is set) is treated as decorative unless alt is passed.",
+      "source": "src/components/Card/CardImage.tsx:18"
+    },
+    {
+      "fact": "Without src no <img> is rendered; only the placeholder background shows.",
+      "source": "src/components/Card/CardImage.tsx:21"
+    },
+    {
+      "fact": "The hover overlay <div> has aria-hidden=\"true\".",
+      "source": "src/components/Card/CardImage.tsx:22"
+    },
+    {
+      "fact": "The overlaid IconBtn receives the iconBtn props (e.g. onClick, aria-label) and CardImage's state; CardImage sets no accessible name for it.",
+      "source": "src/components/Card/CardImage.tsx:23"
+    }
+  ]
+}

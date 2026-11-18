@@ -1,0 +1,50 @@
+{
+  "component": "CardContainer",
+  "figma": "https://www.figma.com/design/l87TswOf2FHCxsYmK8XhHJ/Horizon-Stays-.-Web-.-Component-.-V1.0-.-Draft?node-id=163-45",
+  "commit": "b61eb78b10d7aea4b3b1723cbba2e2aee739b693",
+  "use_when": [],
+  "dont_use_when": [],
+  "variant_intent": {
+    "state": {
+      "idle": {
+        "purpose": ""
+      },
+      "hover": {
+        "purpose": ""
+      }
+    }
+  },
+  "placement": [
+    {
+      "where": "Outermost surface of Card, at state=hover; its containerSlot holds a horizontal CardLayout.",
+      "story": "components-card-card--card-default"
+    }
+  ],
+  "pairs_with": [
+    {
+      "component": "Card",
+      "story": "components-card-card--card-default"
+    },
+    {
+      "component": "CardLayout",
+      "story": "components-card-card--card-default"
+    }
+  ],
+  "required_tokens": [
+    "spacing-none",
+    "spacing-md",
+    "color-bg-surfaceprimary",
+    "elevation-level1",
+    "spacing-lg"
+  ],
+  "a11y": [
+    {
+      "fact": "Renders two nested <div>s (container and containerSlot) with no role or accessible name.",
+      "source": "src/components/Card/CardContainer.tsx:14"
+    },
+    {
+      "fact": "The hover elevation is applied by state=\"hover\" or pointer :hover only; there is no :focus-within equivalent for keyboard users.",
+      "source": "src/components/Card/CardContainer.css:12"
+    }
+  ]
+}
