@@ -1,9 +1,35 @@
 {
   "component": "Card",
   "figma": "https://www.figma.com/design/l87TswOf2FHCxsYmK8XhHJ/Horizon-Stays-.-Web-.-Component-.-V1.0-.-Draft?node-id=227-333",
-  "commit": "b61eb78b10d7aea4b3b1723cbba2e2aee739b693",
-  "use_when": [],
-  "dont_use_when": [],
+  "commit": "14a76fd989ada6ae165c757ee13adf8535ba7dde",
+  "use_when": [
+    "Use a card to display content and actions on a single topic.",
+    "Cards should be easy to scan for relevant and actionable information.",
+    "Cards can serve as entry points into deeper levels of detail or navigation, such as a music album or details on an upcoming vacation.",
+    "Cards can be displayed together in a grid, vertical list, or carousel.",
+    "Use cards to contain related elements",
+    "Contents can include anything from images to headlines, supporting text, buttons, and lists",
+    "Can also contain other components in slot area.",
+    "Cards have flexible layouts and dimensions based on their contents. Configuration is done at subcomponent level: CardLayout."
+  ],
+  "dont_use_when": [
+    {
+      "when": "Don’t scroll within a card to reveal information",
+      "use_instead": null
+    },
+    {
+      "when": "Cards shouldn’t contain content that can be swiped, such as an image carousel or pagination. Also, swipe gestures shouldn’t cause portions of cards to detach upon swiping.",
+      "use_instead": null
+    },
+    {
+      "when": "Don’t let cards bump other elements out of the way. When a card is picked up, it appears in front of all elements, except app bars and navigation.",
+      "use_instead": null
+    },
+    {
+      "when": "On a mobile device, cards can't internally scroll, as it could cause two scroll bars to be displayed.",
+      "use_instead": null
+    }
+  ],
   "variant_intent": {
     "showContentSlot": {
       "true": {

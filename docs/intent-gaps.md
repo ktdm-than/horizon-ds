@@ -2,23 +2,36 @@
 
 Fields left empty in `src/components/**/<Name>.intent.json` because their one source is silent or
 ambiguous. They are for a human to close **in Figma**, not in JSON. Written by doc-generator (Job A)
-at `b61eb78` from the Figma file `l87TswOf2FHCxsYmK8XhHJ`, read live on 2026-11-18.
+at `14a76fd` from the Figma file `l87TswOf2FHCxsYmK8XhHJ`, read live on 2026-11-18 (refresh after
+the Usage frames were added to the Button and Card pages).
+
+## Closed in this refresh
+
+- Button `use_when`, `dont_use_when`: now transposed from the `Usage` frame 315:1428 on the Button
+  page (3:3), sections "Use a button" and "Do not use a button".
+- Card `use_when`, `dont_use_when`: now transposed from the `Usage` frame 315:470 on the Listing
+  Card page (7:25), sections "Use a card" and "Do not use a card".
+
+## Open
 
 | Component | Empty field(s) | Missing source |
 |---|---|---|
-| Button | `use_when`, `dont_use_when` | No usage region on the Figma documentation page. The Button page (3:3) carries only an Anatomy frame (82:139: core structure and a state list); no when-to-use, when-not-to-use or best practice. |
-| Button | `variant_intent.*.purpose` (state, shape, showLeadingIcon, showTrailingIcon) | No usage region, so no variant purposes. |
+| Button | `variant_intent.*.purpose` (state, shape, showLeadingIcon, showTrailingIcon) | The Usage frame (315:1428) names the variants only collectively ("Buttons come in different variants (such as filled or outlined) and interactive states (default, hover, focus, disabled)…"; Best Practice: "Use distinct styles (such as fill vs. outline) to distinguish between primary and secondary actions."). It never says which value is for what, so no per-value purpose was transposed. A designer should state what `fill` and `outline` (and each state, and the icon toggles) are for. |
 | Button | `placement`, `pairs_with` | Every Button story renders Button alone (or beside other Buttons, in Interactive). No story places it in another component. |
-| Card | `use_when`, `dont_use_when` | **Ambiguous usage region.** The Card documentation page (Listing Card, 7:25) has one usage region (`_DocBody` 306:501) tagged `[ card ]`, but its text describes the text container, "Text content container for listing cards (Title, Location, Rating, Pricing)". Its text layer's tag is named `[ card text]` underneath the override, and the same text sits in the older Anatomy frame (227:331) under `[ card text]`. It is unclear whether its Do and Don't belong to Card or to CardText, so it was transposed to neither. A designer should either retag it `[ card text ]` or write Card's own usage. |
-| Card | `variant_intent.showContentSlot.purpose` | No variant purposes in Figma. |
+| Card | `variant_intent.showContentSlot.purpose` | The Usage frame (315:470) says "Can also contain other components in slot area." but does not name `showContentSlot` or say what `true`/`false` are for, so no purpose was transposed. |
 | Card | `placement` | Card stories render Card alone in a 534px fixture frame. |
-| CardContainer | `use_when`, `dont_use_when`, `variant_intent.state.purpose` | Its sub-component block on the Card page (306:601, `[ card container ]`) shows the component only, with no usage text. |
-| CardImage | `use_when`, `dont_use_when`, `variant_intent.*.purpose` (ratio, state, showIconBtn) | Its sub-component block (306:574, `[ card image ]`) shows the component only, with no usage text. |
-| CardLayout | `use_when`, `dont_use_when`, `variant_intent.*.purpose` (orientation, showContentSlot) | Its sub-component block (306:619, `[ card layout ]`) shows the component only, with no usage text. |
-| CardText | `use_when`, `dont_use_when`, `variant_intent.*.purpose` (Metadata, Review, Price) | Its sub-component block (306:551, `[ card text ]`) shows the component only, with no usage text. The usage text that describes it is tagged `[ card ]` (see Card above). |
+| CardContainer | `use_when`, `dont_use_when`, `variant_intent.state.purpose` | Its sub-component block on the Card page (306:601, `[ card container ]`) still shows the component only, with no usage text. |
+| CardImage | `use_when`, `dont_use_when`, `variant_intent.*.purpose` (ratio, state, showIconBtn) | Its sub-component block (306:574, `[ card image ]`) still shows the component only, with no usage text. |
+| CardLayout | `use_when`, `dont_use_when`, `variant_intent.*.purpose` (orientation, showContentSlot) | Its sub-component block (306:619, `[ card layout ]`) still shows the component only, with no usage text. |
+| CardText | `use_when`, `dont_use_when`, `variant_intent.*.purpose` (Metadata, Review, Price) | Its sub-component block (306:551, `[ card text ]`) still shows the component only, with its textBox hidden. **Still unresolved:** the `_DocBody` 306:501 is still tagged `[ card ]` (re-read live) while its text describes the text container, "Text content container for listing cards (Title, Location, Rating, Pricing)", with a Do, a Don't and a Best Practice. It was transposed to neither Card nor CardText. Card now has its own usage (315:470), so a designer should either retag 306:501 `[ card text ]` or move its text into CardText's block. |
 
 ## Open questions (not intent fields)
 
+- **Button and Card Usage frames carry no `[ tag ]`.** 315:1428 and 315:470 are attributed by their
+  headings ("Use a button", "Use a card") and the page they sit on, not by a `_DocBody` tag.
+- **Button `use_instead` is not a component.** Figma names "text links or navigational tabs" as the
+  alternative to a navigation button. Neither exists in the registry or `src/components/`, so
+  `dont_use_when[0].use_instead` holds Figma's words, not a component name.
 - **Button: the anatomy lists more than the component set has.** Anatomy 82:139 lists a `ghost`
   container and Pressed/Active, Loading and Error states. The component set `Btn` (280:276) and the
   code have only `fill`/`outline` and default/hover/focus/disabled (already recorded as G4 in
