@@ -1,9 +1,33 @@
 {
   "component": "Button",
   "figma": "https://www.figma.com/design/l87TswOf2FHCxsYmK8XhHJ/Horizon-Stays-.-Web-.-Component-.-V1.0-.-Draft?node-id=280-276",
-  "commit": "b61eb78b10d7aea4b3b1723cbba2e2aee739b693",
-  "use_when": [],
-  "dont_use_when": [],
+  "commit": "14a76fd989ada6ae165c757ee13adf8535ba7dde",
+  "use_when": [
+    "Use a button to trigger actions, events, or main workflows (such as submitting forms, confirming choices, or proceeding to the next step).",
+    "Buttons should be easy to locate, scan, and understand as actionable items.",
+    "Buttons can serve as entry points into deeper workflows, dialogs, or page transitions.",
+    "Buttons can be placed together in a row or grouped logically (such as primary and secondary actions in a footer).",
+    "Labels should clearly describe the action the button performs, optionally accompanied by leading or trailing icons for added context.",
+    "Buttons come in different variants (such as filled or outlined) and interactive states (default, hover, focus, disabled) to clearly communicate availability and interactivity."
+  ],
+  "dont_use_when": [
+    {
+      "when": "Don't use buttons for navigation links that take users to a different website or page content (use text links or navigational tabs instead).",
+      "use_instead": "text links or navigational tabs"
+    },
+    {
+      "when": "Don't crowd too many high-priority buttons together; avoid having multiple primary buttons side-by-side in the same view.",
+      "use_instead": null
+    },
+    {
+      "when": "Don't use buttons as static informational tags or badges where no action is performed.",
+      "use_instead": null
+    },
+    {
+      "when": "Don't rely on icons alone inside a button without an accessible text label or tooltip, unless the icon's meaning is universally understood.",
+      "use_instead": null
+    }
+  ],
   "variant_intent": {
     "state": {
       "default": {
