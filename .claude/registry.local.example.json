@@ -1,5 +1,6 @@
 {
   "baseId": "appXXXXXXXXXXXXXX",
+  "baseName": "Horizon DS",
   "tables": {
     "components": "tblXXXXXXXXXXXXXX",
     "stagingTesting": "tblXXXXXXXXXXXXXX",
