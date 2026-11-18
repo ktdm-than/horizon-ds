@@ -1,0 +1,102 @@
+{
+  "component": "Button",
+  "figma": "https://www.figma.com/design/l87TswOf2FHCxsYmK8XhHJ/Horizon-Stays-.-Web-.-Component-.-V1.0-.-Draft?node-id=280-276",
+  "commit": "b61eb78b10d7aea4b3b1723cbba2e2aee739b693",
+  "use_when": [],
+  "dont_use_when": [],
+  "variant_intent": {
+    "state": {
+      "default": {
+        "purpose": ""
+      },
+      "hover": {
+        "purpose": ""
+      },
+      "focus": {
+        "purpose": ""
+      },
+      "disabled": {
+        "purpose": ""
+      }
+    },
+    "shape": {
+      "fill": {
+        "purpose": ""
+      },
+      "outline": {
+        "purpose": ""
+      }
+    },
+    "showLeadingIcon": {
+      "true": {
+        "purpose": ""
+      },
+      "false": {
+        "purpose": ""
+      }
+    },
+    "showTrailingIcon": {
+      "true": {
+        "purpose": ""
+      },
+      "false": {
+        "purpose": ""
+      }
+    }
+  },
+  "placement": [],
+  "pairs_with": [],
+  "required_tokens": [
+    "spacing-sm",
+    "spacing-xl",
+    "borderwidth-sm",
+    "borderradius-sm",
+    "action-button1",
+    "fontsize-xl",
+    "color-bg-primary-idle",
+    "color-text-inverse",
+    "color-border-brand-light",
+    "color-bg-primary-hovered",
+    "color-bg-primary-focused",
+    "color-border-primary",
+    "color-text-primary",
+    "color-border-inverse",
+    "color-border-brand-bold",
+    "color-text-disabled",
+    "color-bg-disabled"
+  ],
+  "a11y": [
+    {
+      "fact": "Renders a native <button> element, so Enter and Space activate it and it is in the tab order.",
+      "source": "src/components/Button/Button.tsx:63"
+    },
+    {
+      "fact": "type defaults to \"button\", so it does not submit a surrounding form unless type=\"submit\" is passed.",
+      "source": "src/components/Button/Button.tsx:56"
+    },
+    {
+      "fact": "The disabled prop or state=\"disabled\" sets the native disabled attribute, which removes it from the tab order and blocks clicks.",
+      "source": "src/components/Button/Button.tsx:61"
+    },
+    {
+      "fact": "Remaining props, including aria-* attributes, are spread onto the <button>.",
+      "source": "src/components/Button/Button.tsx:64"
+    },
+    {
+      "fact": "The accessible name is the label text from children (default \"Button\"), rendered in a <span>.",
+      "source": "src/components/Button/Button.tsx:72"
+    },
+    {
+      "fact": "Leading and trailing icons are Material Symbols ligatures in a <span> with aria-hidden=\"true\", so they are not announced.",
+      "source": "src/components/Button/Button.tsx:41"
+    },
+    {
+      "fact": "Keyboard focus (:focus-visible) removes the browser outline and shows focus only as a background colour (fill) or border colour (outline) change.",
+      "source": "src/components/Button/Button.css:93"
+    },
+    {
+      "fact": "There is no loading or pressed state and no aria-busy or aria-pressed handling.",
+      "source": "src/components/Button/Button.tsx:8"
+    }
+  ]
+}
