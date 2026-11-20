@@ -30,6 +30,15 @@
       "use_instead": null
     }
   ],
+  "best_practice": [
+    "Adjust the card layout so content remains the main focus on large screens",
+    "When designing for large screens, use multiple columns to display content",
+    "Certain devices or user contexts require different components to meet platform expectations",
+    "Expand a card to reveal information",
+    "A card should only have one swipe action assigned to it",
+    "When moving a card, increase its elevation",
+    "On a mobile device, cards can expand to reveal more content, scrolling within the screen. Content within cards doesn’t scroll."
+  ],
   "variant_intent": {
     "showContentSlot": {
       "true": {
