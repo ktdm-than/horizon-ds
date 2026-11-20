@@ -1,0 +1,113 @@
+{
+  "readAt": "2026-11-20",
+  "fileKey": "l87TswOf2FHCxsYmK8XhHJ",
+  "fileUrl": "https://www.figma.com/design/l87TswOf2FHCxsYmK8XhHJ/Horizon-Stays-.-Web-.-Component-.-V1.0-.-Draft",
+  "how": "Read live over the Figma MCP connection: get_metadata for the variant matrices, get_design_context for the usage frames and for unbound values, get_screenshot for the images in public/figma/.",
+  "components": {
+    "Button": {
+      "node": "280:276",
+      "nodeName": "Btn",
+      "description": null,
+      "screenshot": "/figma/button-280-276.png",
+      "usage": {
+        "frame": "315:1428",
+        "useHeading": "Use a button",
+        "use": [
+          "Use a button to trigger actions, events, or main workflows (such as submitting forms, confirming choices, or proceeding to the next step).",
+          "Buttons should be easy to locate, scan, and understand as actionable items.",
+          "Buttons can serve as entry points into deeper workflows, dialogs, or page transitions.",
+          "Buttons can be placed together in a row or grouped logically (such as primary and secondary actions in a footer).",
+          "Labels should clearly describe the action the button performs, optionally accompanied by leading or trailing icons for added context.",
+          "Buttons come in different variants (such as filled or outlined) and interactive states (default, hover, focus, disabled) to clearly communicate availability and interactivity."
+        ],
+        "dontHeading": "Do not use a button",
+        "dont": [
+          "Don't use buttons for navigation links that take users to a different website or page content (use text links or navigational tabs instead).",
+          "Don't crowd too many high-priority buttons together; avoid having multiple primary buttons side-by-side in the same view.",
+          "Don't use buttons as static informational tags or badges where no action is performed.",
+          "Don't rely on icons alone inside a button without an accessible text label or tooltip, unless the icon's meaning is universally understood."
+        ],
+        "bestPractice": [
+          "Adjust button placement and hierarchy so the primary call-to-action remains the main focus on the screen.",
+          "When designing forms or dialogs, consistently align primary actions (e.g., \"Save\" or \"Submit\") and secondary actions (e.g., \"Cancel\") following platform conventions.",
+          "Use distinct styles (such as fill vs. outline) to distinguish between primary and secondary actions.",
+          "Ensure buttons provide clear visual feedback across all states (hover, focus, active, and disabled).",
+          "Keep button text concise and action-oriented, typically starting with a strong verb.",
+          "Ensure touch targets on mobile devices are large enough to be easily tapped (minimum recommended size).",
+          "Support keyboard navigation with clear focus rings around buttons.",
+          "Maintain consistent spacing around buttons to prevent accidental clicks, especially on dense layouts or mobile screens."
+        ]
+      },
+      "sets": [
+        {
+          "name": "Btn",
+          "node": "280:276",
+          "variants": [
+            { "node": "280:256", "name": "state=default, shape=fill" },
+            { "node": "280:277", "name": "state=hover, shape=fill" },
+            { "node": "280:285", "name": "state=focus, shape=fill" },
+            { "node": "280:292", "name": "state=disabled, shape=fill" },
+            { "node": "280:333", "name": "state=default, shape=outline" },
+            { "node": "280:339", "name": "state=hover, shape=outline" },
+            { "node": "280:347", "name": "state=focus, shape=outline" },
+            { "node": "280:353", "name": "state=disabled, shape=outline" }
+          ]
+        }
+      ],
+      "unbound": [
+        { "node": "280:256", "what": "Height", "value": "42px", "note": "Fixed height with no variable bound. Padding, gap, radius, colours and type on the same node are bound." }
+      ]
+    },
+    "Card": {
+      "node": "227:333",
+      "nodeName": "Components (section); Card 218:143",
+      "description": "Main container component for listing items, combining media previews, structured metadata, action controls, and layout arrangements.",
+      "screenshot": "/figma/card-310-249.png",
+      "usage": {
+        "frame": "315:470",
+        "useHeading": "Use a card",
+        "use": [
+          "Use a card to display content and actions on a single topic.",
+          "Cards should be easy to scan for relevant and actionable information.",
+          "Cards can serve as entry points into deeper levels of detail or navigation, such as a music album or details on an upcoming vacation.",
+          "Cards can be displayed together in a grid, vertical list, or carousel.",
+          "Use cards to contain related elements",
+          "Contents can include anything from images to headlines, supporting text, buttons, and lists",
+          "Can also contain other components in slot area.",
+          "Cards have flexible layouts and dimensions based on their contents. Configuration is done at subcomponent level: CardLayout."
+        ],
+        "dontHeading": "Do not use a card",
+        "dont": [
+          "Don’t scroll within a card to reveal information",
+          "Cards shouldn’t contain content that can be swiped, such as an image carousel or pagination. Also, swipe gestures shouldn’t cause portions of cards to detach upon swiping.",
+          "Don’t let cards bump other elements out of the way. When a card is picked up, it appears in front of all elements, except app bars and navigation.",
+          "On a mobile device, cards can't internally scroll, as it could cause two scroll bars to be displayed."
+        ],
+        "bestPractice": [
+          "Adjust the card layout so content remains the main focus on large screens",
+          "When designing for large screens, use multiple columns to display content",
+          "Certain devices or user contexts require different components to meet platform expectations",
+          "Expand a card to reveal information",
+          "A card should only have one swipe action assigned to it",
+          "When moving a card, increase its elevation",
+          "On a mobile device, cards can expand to reveal more content, scrolling within the screen. Content within cards doesn’t scroll."
+        ]
+      },
+      "sets": [
+        { "name": "Card", "node": "218:143", "description": "Main container component for listing items, combining media previews, structured metadata, action controls, and layout arrangements.", "variants": [ { "node": "218:143", "name": "Card (properties: showContentSlot, ContentSlot)" } ] },
+        { "name": "CardContainer", "node": "163:45", "description": "Base structural frame for card components that manages outer surface styling, elevation (shadows), borders, padding, and corner radius.", "variants": [ { "node": "163:44", "name": "state=idle" }, { "node": "163:46", "name": "state=hover" } ] },
+        { "name": "CardLayout", "node": "166:221", "description": "Structural layout container used to switch between horizontal (row) and vertical (column) arrangements for card components.", "variants": [ { "node": "166:219", "name": "orientation=horizontal" }, { "node": "166:222", "name": "orientation=vertical" } ] },
+        { "name": "CardImage", "node": "163:56", "description": "Media subcomponent for cards that manages image display ratios, gradient overlays for contrast, and overlaid action buttons (e.g., favorite heart trigger).", "variants": [ { "node": "163:55", "name": "ratio=1:1, state=idle" }, { "node": "163:58", "name": "ratio=1:1, state=hover" }, { "node": "163:57", "name": "ratio=4:3, state=idle" }, { "node": "163:60", "name": "ratio=4:3, state=hover" } ] },
+        { "name": "CardText", "node": "162:27", "description": "Text metadata subcomponent for cards that standardizes typographic hierarchy, including title, subtitle, location, review rating, and pricing details.", "variants": [ { "node": "162:27", "name": "CardText (properties: showMetadata, showReview, showPrice)" } ] },
+        { "name": "IconBtn", "node": "163:74", "description": "Compact action button for icon-only interactions, such as favoriting, saving, or sharing, designed for image overlays or tight inline layouts.", "variants": [ { "node": "163:73", "name": "state=idle" }, { "node": "163:75", "name": "state=hover" } ] }
+      ],
+      "unbound": [
+        { "node": "I172:261;166:204;163:77", "what": "IconBtn size", "value": "32 × 32px", "note": "Raw size on the IconBtn inside CardImage." },
+        { "node": "I172:261;166:204;163:77;221:146", "what": "IconBtn glyph size", "value": "16 × 16px", "note": "Raw size of the at-icons:heart glyph." },
+        { "node": "I172:261;172:251", "what": "ContentSlot height", "value": "48px", "note": "Raw height on the empty ContentSlot." },
+        { "node": "163:91", "what": "containerSlot size (inside CardContainer 163:46)", "value": "400 × 104px", "note": "Raw size of the slot placeholder in the component set." },
+        { "node": "172:261", "what": "CardLayout width (inside Card 218:143)", "value": "510px", "note": "Raw width of the nested CardLayout instance." }
+      ]
+    }
+  }
+}

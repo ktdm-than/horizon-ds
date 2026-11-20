@@ -1,0 +1,377 @@
+---
+title: "Tokens"
+description: "Every semantic token at d1860fe, in light, dark, English and Burmese."
+---
+
+import { Aside } from '@astrojs/starlight/components';
+
+Values come from `build/css/`, built by `npm run build:tokens` from `tokens/` at `d1860fe`. Components use semantic tokens only; primitives (`--color-blue-500` and the like) are not public API (`VERSIONING.md`).
+
+Modes: dark is `[data-theme="dark"]` on an ancestor; Burmese type is `lang="my"` (README).
+
+<Aside type="caution" title="Dark mode ships the light values">
+`tokens-dark.css` redeclares 120 tokens, and every one has the same value as in light at `d1860fe`. The dark column below shows that. It is a design gap to close in Figma's dark mode, not here.
+</Aside>
+## color-gradient
+
+| Token | Light | Dark |
+|---|---|---|
+| `--color-gradient-100` | `rgba(254, 254, 254, 0)` | *not redeclared* |
+| `--color-gradient-0` | `#1a1d20` | *not redeclared* |
+
+## spacing
+
+| Token | Light | Dark |
+|---|---|---|
+| `--spacing-none` | `0px` | *not redeclared* |
+| `--spacing-xs` | `2px` | *not redeclared* |
+| `--spacing-base` | `4px` | *not redeclared* |
+| `--spacing-sm` | `8px` | *not redeclared* |
+| `--spacing-md` | `12px` | *not redeclared* |
+| `--spacing-lg` | `16px` | *not redeclared* |
+| `--spacing-xl` | `24px` | *not redeclared* |
+| `--spacing-2xl` | `32px` | *not redeclared* |
+| `--spacing-3xl` | `48px` | *not redeclared* |
+| `--spacing-4xl` | `64px` | *not redeclared* |
+| `--spacing-negative-4` | `-4px` | *not redeclared* |
+| `--spacing-negative-8` | `-8px` | *not redeclared* |
+
+## borderradius
+
+| Token | Light | Dark |
+|---|---|---|
+| `--borderradius-xs` | `4px` | *not redeclared* |
+| `--borderradius-sm` | `8px` | *not redeclared* |
+| `--borderradius-md` | `16px` | *not redeclared* |
+| `--borderradius-lg` | `32px` | *not redeclared* |
+| `--borderradius-circle` | `10000px` | *not redeclared* |
+
+## borderwidth
+
+| Token | Light | Dark |
+|---|---|---|
+| `--borderwidth-sm` | `1px` | *not redeclared* |
+| `--borderwidth-md` | `1.5px` | *not redeclared* |
+| `--borderwidth-lg` | `2px` | *not redeclared* |
+
+## elevation
+
+| Token | Light | Dark |
+|---|---|---|
+| `--elevation-color` | `rgba(26, 29, 32, 0.25)` | *not redeclared* |
+| `--elevation-blur-level1` | `8px` | *not redeclared* |
+| `--elevation-blur-level2` | `16px` | *not redeclared* |
+| `--elevation-blur-level3` | `20px` | *not redeclared* |
+| `--elevation-x-level1` | `0px` | *not redeclared* |
+| `--elevation-y-level1` | `2px` | *not redeclared* |
+| `--elevation-y-level2` | `4px` | *not redeclared* |
+| `--elevation-y-level3` | `8px` | *not redeclared* |
+| `--elevation-level1` | `0px 2px 8px 0px rgba(26, 29, 32, 0.25)` | *not redeclared* |
+| `--elevation-level2` | `0px 4px 16px 0px rgba(26, 29, 32, 0.25)` | *not redeclared* |
+| `--elevation-level3` | `0px 8px 20px 0px rgba(26, 29, 32, 0.25)` | *not redeclared* |
+
+## color-bg
+
+| Token | Light | Dark |
+|---|---|---|
+| `--color-bg-base` | `#fefefe` | `#fefefe` |
+| `--color-bg-inverse` | `#1a1d20` | `#1a1d20` |
+| `--color-bg-surfaceprimary` | `#f1f2f4` | `#f1f2f4` |
+| `--color-bg-surfacesecondary` | `#d4d6db` | `#d4d6db` |
+| `--color-bg-disabled` | `#bfc3ca` | `#bfc3ca` |
+| `--color-bg-primary-light` | `#e7f0fe` | `#e7f0fe` |
+| `--color-bg-primary-lighthovered` | `#8fb8fa` | `#8fb8fa` |
+| `--color-bg-primary-lightfocused` | `#8fb8fa` | `#8fb8fa` |
+| `--color-bg-primary-idle` | `#0b64f4` | `#0b64f4` |
+| `--color-bg-primary-hovered` | `#3c83f6` | `#3c83f6` |
+| `--color-bg-primary-focused` | `#3c83f6` | `#3c83f6` |
+| `--color-bg-primary-neutral-idle` | `#1a1d20` | `#1a1d20` |
+| `--color-bg-primary-neutral-hovered` | `#30343b` | `#30343b` |
+| `--color-bg-primary-neutral-focused` | `#3f444d` | `#3f444d` |
+| `--color-bg-negative-light` | `#feebe7` | `#feebe7` |
+| `--color-bg-negative-lighthovered` | `#faa18f` | `#faa18f` |
+| `--color-bg-negative-lightfocused` | `#faa18f` | `#faa18f` |
+| `--color-bg-negative-idle` | `#f4320b` | `#f4320b` |
+| `--color-bg-negative-hovered` | `#f65b3c` | `#f65b3c` |
+| `--color-bg-negative-focused` | `#f65b3c` | `#f65b3c` |
+| `--color-bg-positive-light` | `#f2fee7` | `#f2fee7` |
+| `--color-bg-positive-lighthovered` | `#c5fa8f` | `#c5fa8f` |
+| `--color-bg-positive-lightfocused` | `#c5fa8f` | `#c5fa8f` |
+| `--color-bg-positive-idle` | `#80f40b` | `#80f40b` |
+| `--color-bg-positive-hovered` | `#99f63c` | `#99f63c` |
+| `--color-bg-positive-focused` | `#99f63c` | `#99f63c` |
+| `--color-bg-warning-light` | `#fef6e7` | `#fef6e7` |
+| `--color-bg-warning-lighthovered` | `#fad68f` | `#fad68f` |
+| `--color-bg-warning-lightfocused` | `#fad68f` | `#fad68f` |
+| `--color-bg-warning-idle` | `#f4a60b` | `#f4a60b` |
+| `--color-bg-warning-hovered` | `#f6b83c` | `#f6b83c` |
+| `--color-bg-warning-focused` | `#f6b83c` | `#f6b83c` |
+| `--color-bg-info-light` | `#e7fbfe` | `#e7fbfe` |
+| `--color-bg-info-lighthovered` | `#8feefa` | `#8feefa` |
+| `--color-bg-info-lightfocused` | `#8feefa` | `#8feefa` |
+| `--color-bg-info-idle` | `#0bd9f4` | `#0bd9f4` |
+| `--color-bg-info-hovered` | `#3ce1f6` | `#3ce1f6` |
+| `--color-bg-info-focused` | `#3ce1f6` | `#3ce1f6` |
+| `--color-bg-update-light` | `#fefbe7` | `#fefbe7` |
+| `--color-bg-update-lighthovered` | `#faee8f` | `#faee8f` |
+| `--color-bg-update-lightfocused` | `#faee8f` | `#faee8f` |
+| `--color-bg-update-idle` | `#f4d90b` | `#f4d90b` |
+| `--color-bg-update-hovered` | `#f6e13c` | `#f6e13c` |
+| `--color-bg-update-focused` | `#f6e13c` | `#f6e13c` |
+| `--color-bg-accent-blue` | `#e7f0fe` | `#e7f0fe` |
+| `--color-bg-accent-red` | `#feebe7` | `#feebe7` |
+| `--color-bg-accent-green` | `#f2fee7` | `#f2fee7` |
+| `--color-bg-accent-orange` | `#fef6e7` | `#fef6e7` |
+| `--color-bg-accent-aqua` | `#e7fbfe` | `#e7fbfe` |
+| `--color-bg-accent-yellow` | `#fefbe7` | `#fefbe7` |
+| `--color-bg-accent-mint` | `#e7fefa` | `#e7fefa` |
+| `--color-bg-accent-purple` | `#f5e7fe` | `#f5e7fe` |
+| `--color-bg-accent-pink` | `#fee7fb` | `#fee7fb` |
+
+## color-text
+
+| Token | Light | Dark |
+|---|---|---|
+| `--color-text-primary` | `#3f444d` | `#3f444d` |
+| `--color-text-secondary` | `#69717f` | `#69717f` |
+| `--color-text-bold` | `#1a1d20` | `#1a1d20` |
+| `--color-text-disabled` | `#8f96a3` | `#8f96a3` |
+| `--color-text-inverse` | `#fefefe` | `#fefefe` |
+| `--color-text-inversesecondary` | `#bfc3ca` | `#bfc3ca` |
+| `--color-text-disabledondark` | `#8f96a3` | `#8f96a3` |
+| `--color-text-brand` | `#0847ad` | `#0847ad` |
+| `--color-text-negative` | `#ad2408` | `#ad2408` |
+| `--color-text-positive` | `#5bad08` | `#5bad08` |
+| `--color-text-warning` | `#de970a` | `#de970a` |
+| `--color-text-info` | `#089aad` | `#089aad` |
+| `--color-text-update` | `#dec50a` | `#dec50a` |
+
+## color-icon
+
+| Token | Light | Dark |
+|---|---|---|
+| `--color-icon-primary` | `#3f444d` | `#3f444d` |
+| `--color-icon-secondary` | `#69717f` | `#69717f` |
+| `--color-icon-bold` | `#1a1d20` | `#1a1d20` |
+| `--color-icon-disabled` | `#8f96a3` | `#8f96a3` |
+| `--color-icon-inverse` | `#fefefe` | `#fefefe` |
+| `--color-icon-inversesecondary` | `#bfc3ca` | `#bfc3ca` |
+| `--color-icon-disabledondark` | `#8f96a3` | `#8f96a3` |
+| `--color-icon-brand` | `#0847ad` | `#0847ad` |
+| `--color-icon-negative` | `#ad2408` | `#ad2408` |
+| `--color-icon-positive` | `#5bad08` | `#5bad08` |
+| `--color-icon-warning` | `#de970a` | `#de970a` |
+| `--color-icon-info` | `#089aad` | `#089aad` |
+| `--color-icon-update` | `#dec50a` | `#dec50a` |
+| `--color-icon-accent-blue` | `#0847ad` | `#0847ad` |
+| `--color-icon-accent-red` | `#ad2408` | `#ad2408` |
+| `--color-icon-accent-green` | `#5bad08` | `#5bad08` |
+| `--color-icon-accent-orange` | `#ad7608` | `#ad7608` |
+| `--color-icon-accent-aqua` | `#067786` | `#067786` |
+| `--color-icon-accent-yellow` | `#ad9a08` | `#ad9a08` |
+| `--color-icon-accent-mint` | `#068671` | `#068671` |
+| `--color-icon-accent-purple` | `#6e08ad` | `#6e08ad` |
+| `--color-icon-accent-pink` | `#ad089a` | `#ad089a` |
+
+## color-border
+
+| Token | Light | Dark |
+|---|---|---|
+| `--color-border-primary` | `#a1a7b2` | `#a1a7b2` |
+| `--color-border-secondary` | `#8f96a3` | `#8f96a3` |
+| `--color-border-inverse` | `#1a1d20` | `#1a1d20` |
+| `--color-border-brand-light` | `#8fb8fa` | `#8fb8fa` |
+| `--color-border-brand-default` | `#5c97f8` | `#5c97f8` |
+| `--color-border-brand-bold` | `#3c83f6` | `#3c83f6` |
+| `--color-border-negative-light` | `#faa18f` | `#faa18f` |
+| `--color-border-negative-default` | `#f8765c` | `#f8765c` |
+| `--color-border-negative-bold` | `#f65b3c` | `#f65b3c` |
+| `--color-border-positive-light` | `#c5fa8f` | `#c5fa8f` |
+| `--color-border-positive-default` | `#aaf85c` | `#aaf85c` |
+| `--color-border-positive-bold` | `#99f63c` | `#99f63c` |
+| `--color-border-warning-light` | `#fad68f` | `#fad68f` |
+| `--color-border-warning-default` | `#f8c35c` | `#f8c35c` |
+| `--color-border-warning-bold` | `#f6b83c` | `#f6b83c` |
+| `--color-border-info-light` | `#8feefa` | `#8feefa` |
+| `--color-border-info-default` | `#5ce6f8` | `#5ce6f8` |
+| `--color-border-info-bold` | `#3ce1f6` | `#3ce1f6` |
+| `--color-border-update-light` | `#faee8f` | `#faee8f` |
+| `--color-border-update-default` | `#f8e65c` | `#f8e65c` |
+| `--color-border-update-bold` | `#f6e13c` | `#f6e13c` |
+| `--color-border-accent-mint-light` | `#8ffae8` | `#8ffae8` |
+| `--color-border-accent-mint-default` | `#5cf8de` | `#5cf8de` |
+| `--color-border-accent-mint-bold` | `#3cf6d7` | `#3cf6d7` |
+| `--color-border-accent-purple-light` | `#d18ffa` | `#d18ffa` |
+| `--color-border-accent-purple-default` | `#bc5cf8` | `#bc5cf8` |
+| `--color-border-accent-purple-bold` | `#af3cf6` | `#af3cf6` |
+| `--color-border-accent-pink-light` | `#fa8fee` | `#fa8fee` |
+| `--color-border-accent-pink-default` | `#f85ce6` | `#f85ce6` |
+| `--color-border-accent-pink-bold` | `#f63ce1` | `#f63ce1` |
+
+## color-overlay
+
+| Token | Light | Dark |
+|---|---|---|
+| `--color-overlay-subtle` | `rgba(26, 29, 32, 0.12999999523162842)` | `rgba(26, 29, 32, 0.12999999523162842)` |
+| `--color-overlay-intense` | `rgba(26, 29, 32, 0.3100000023841858)` | `rgba(26, 29, 32, 0.3100000023841858)` |
+
+## fontfamily
+
+| Token | Light | Dark |
+|---|---|---|
+| `--fontfamily-heading` | `Inter` | *not redeclared* |
+| `--fontfamily-body` | `Inter` | *not redeclared* |
+| `--fontfamily-caption` | `Inter` | *not redeclared* |
+| `--fontfamily-label` | `Inter` | *not redeclared* |
+
+## fontsize
+
+| Token | Light | Dark |
+|---|---|---|
+| `--fontsize-2xs` | `10px` | *not redeclared* |
+| `--fontsize-xs` | `12px` | *not redeclared* |
+| `--fontsize-sm` | `14px` | *not redeclared* |
+| `--fontsize-md` | `16px` | *not redeclared* |
+| `--fontsize-lg` | `18px` | *not redeclared* |
+| `--fontsize-xl` | `20px` | *not redeclared* |
+| `--fontsize-2xl` | `24px` | *not redeclared* |
+| `--fontsize-3xl` | `32px` | *not redeclared* |
+| `--fontsize-4xl` | `44px` | *not redeclared* |
+| `--fontsize-jumbo` | `60px` | *not redeclared* |
+
+## lineheight
+
+| Token | Light | Dark |
+|---|---|---|
+| `--lineheight-2xs` | `14px` | *not redeclared* |
+| `--lineheight-xs` | `16px` | *not redeclared* |
+| `--lineheight-sm` | `20px` | *not redeclared* |
+| `--lineheight-md` | `24px` | *not redeclared* |
+| `--lineheight-lg` | `28px` | *not redeclared* |
+| `--lineheight-xl` | `28px` | *not redeclared* |
+| `--lineheight-2xl` | `32px` | *not redeclared* |
+| `--lineheight-3xl` | `40px` | *not redeclared* |
+| `--lineheight-4xl` | `48px` | *not redeclared* |
+| `--lineheight-jumbo` | `64px` | *not redeclared* |
+
+## fontweight
+
+| Token | Light | Dark |
+|---|---|---|
+| `--fontweight-regular` | `regular` | *not redeclared* |
+| `--fontweight-medium` | `medium` | *not redeclared* |
+| `--fontweight-semibold` | `semibold` | *not redeclared* |
+| `--fontweight-bold` | `bold` | *not redeclared* |
+
+## heading
+
+| Token | Light | Dark |
+|---|---|---|
+| `--heading-jumbo` | `600 60px/64px Inter` | *not redeclared* |
+| `--heading-h1` | `600 44px/48px Inter` | *not redeclared* |
+| `--heading-h2` | `600 32px/40px Inter` | *not redeclared* |
+| `--heading-h3` | `600 24px/32px Inter` | *not redeclared* |
+| `--heading-h4` | `600 20px/28px Inter` | *not redeclared* |
+| `--heading-h5` | `600 18px/28px Inter` | *not redeclared* |
+| `--heading-h6` | `600 16px/24px Inter` | *not redeclared* |
+
+## caption
+
+| Token | Light | Dark |
+|---|---|---|
+| `--caption-caption1` | `600 16px/24px Inter` | *not redeclared* |
+| `--caption-caption2` | `600 10px/14px Inter` | *not redeclared* |
+
+## body
+
+| Token | Light | Dark |
+|---|---|---|
+| `--body-body1` | `500 18px/28px Inter` | *not redeclared* |
+| `--body-body2` | `500 16px/24px Inter` | *not redeclared* |
+| `--body-body3` | `400 14px/20px Inter` | *not redeclared* |
+| `--body-body4` | `400 12px/16px Inter` | *not redeclared* |
+| `--body-body5` | `500 10px/14px Inter` | *not redeclared* |
+| `--body-bodyunderlined2` | `600 16px/24px Inter` | *not redeclared* |
+| `--body-bodyunderlined3` | `600 14px/20px Inter` | *not redeclared* |
+
+## label
+
+| Token | Light | Dark |
+|---|---|---|
+| `--label-default` | `600 14px/20px Inter` | *not redeclared* |
+
+## action
+
+| Token | Light | Dark |
+|---|---|---|
+| `--action-button1` | `600 16px/24px Inter` | *not redeclared* |
+| `--action-button2` | `600 14px/20px Inter` | *not redeclared* |
+
+## list
+
+| Token | Light | Dark |
+|---|---|---|
+| `--list-item` | `500 14px/20px Inter` | *not redeclared* |
+
+## overlaygradient
+
+| Token | Light | Dark |
+|---|---|---|
+| `--overlaygradient` | `linear-gradient(180deg, #1a1d20 0%, rgba(254, 254, 254, 0) 100%)` | *not redeclared* |
+
+## Typography modes
+
+| Token | English | Burmese |
+|---|---|---|
+| `--fontfamily-heading` | `Inter` | `'Noto Sans Myanmar'` |
+| `--fontfamily-body` | `Inter` | `'Noto Sans Myanmar'` |
+| `--fontfamily-caption` | `Inter` | `'Noto Sans Myanmar'` |
+| `--fontfamily-label` | `Inter` | `'Noto Sans Myanmar'` |
+| `--fontsize-2xs` | `10px` | `10px` |
+| `--fontsize-xs` | `12px` | `12px` |
+| `--fontsize-sm` | `14px` | `14px` |
+| `--fontsize-md` | `16px` | `16px` |
+| `--fontsize-lg` | `18px` | `18px` |
+| `--fontsize-xl` | `20px` | `20px` |
+| `--fontsize-2xl` | `24px` | `24px` |
+| `--fontsize-3xl` | `32px` | `32px` |
+| `--fontsize-4xl` | `44px` | `44px` |
+| `--lineheight-2xs` | `14px` | `18px` |
+| `--lineheight-xs` | `16px` | `20px` |
+| `--lineheight-sm` | `20px` | `24px` |
+| `--lineheight-md` | `24px` | `28px` |
+| `--lineheight-lg` | `28px` | `32px` |
+| `--lineheight-xl` | `28px` | `36px` |
+| `--lineheight-2xl` | `32px` | `40px` |
+| `--lineheight-3xl` | `40px` | `52px` |
+| `--lineheight-4xl` | `48px` | `72px` |
+| `--fontweight-regular` | `regular` | `regular` |
+| `--fontweight-medium` | `medium` | `medium` |
+| `--fontweight-semibold` | `semibold` | `semibold` |
+| `--fontweight-bold` | `bold` | `bold` |
+| `--fontsize-jumbo` | `60px` | `60px` |
+| `--lineheight-jumbo` | `64px` | `96px` |
+| `--heading-jumbo` | `600 60px/64px Inter` | `600 60px/96px 'Noto Sans Myanmar'` |
+| `--heading-h1` | `600 44px/48px Inter` | `600 44px/72px 'Noto Sans Myanmar'` |
+| `--heading-h2` | `600 32px/40px Inter` | `600 32px/52px 'Noto Sans Myanmar'` |
+| `--heading-h3` | `600 24px/32px Inter` | `600 24px/40px 'Noto Sans Myanmar'` |
+| `--heading-h4` | `600 20px/28px Inter` | `600 20px/36px 'Noto Sans Myanmar'` |
+| `--heading-h5` | `600 18px/28px Inter` | `600 18px/32px 'Noto Sans Myanmar'` |
+| `--heading-h6` | `600 16px/24px Inter` | `600 16px/28px 'Noto Sans Myanmar'` |
+| `--caption-caption1` | `600 16px/24px Inter` | `600 16px/28px 'Noto Sans Myanmar'` |
+| `--caption-caption2` | `600 10px/14px Inter` | `600 10px/18px 'Noto Sans Myanmar'` |
+| `--body-body1` | `500 18px/28px Inter` | `500 18px/32px 'Noto Sans Myanmar'` |
+| `--body-body2` | `500 16px/24px Inter` | `500 16px/28px 'Noto Sans Myanmar'` |
+| `--body-body3` | `400 14px/20px Inter` | `400 14px/24px 'Noto Sans Myanmar'` |
+| `--body-body4` | `400 12px/16px Inter` | `400 12px/20px 'Noto Sans Myanmar'` |
+| `--body-body5` | `500 10px/14px Inter` | `500 10px/18px 'Noto Sans Myanmar'` |
+| `--body-bodyunderlined2` | `600 16px/24px Inter` | `600 16px/28px 'Noto Sans Myanmar'` |
+| `--body-bodyunderlined3` | `600 14px/20px Inter` | `600 14px/24px 'Noto Sans Myanmar'` |
+| `--label-default` | `600 14px/20px Inter` | `600 14px/24px 'Noto Sans Myanmar'` |
+| `--action-button1` | `600 16px/24px Inter` | `600 16px/28px 'Noto Sans Myanmar'` |
+| `--action-button2` | `600 14px/20px Inter` | `600 14px/24px 'Noto Sans Myanmar'` |
+| `--list-item` | `500 14px/20px Inter` | `500 14px/24px 'Noto Sans Myanmar'` |
+
+---
+
+<small>Generated by `docs-site/scripts/generate.mjs` from [`d1860fe`](https://github.com/ktdm-than/horizon-ds/commit/d1860feaaa47e0af02a0d0b0f0ac52cba9a7aca2) (2026-11-20), `data/board.json` and `data/figma.json` read 2026-11-20. Do not edit this page by hand.</small>

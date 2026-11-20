@@ -1,0 +1,14 @@
+[
+  {
+    "label": "All components",
+    "slug": "core/components/overview"
+  },
+  {
+    "label": "Button",
+    "slug": "core/components/button"
+  },
+  {
+    "label": "Card",
+    "slug": "core/components/card"
+  }
+]

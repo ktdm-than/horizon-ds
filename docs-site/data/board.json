@@ -1,0 +1,30 @@
+{
+  "readAt": "2026-11-20",
+  "source": "Registry, Components table (statuses only; no record, base or table IDs)",
+  "components": [
+    {
+      "name": "Button",
+      "category": "ATOMS",
+      "design": "Done",
+      "development": "Completed",
+      "releaseVerdict": "Cleared",
+      "releaseReview": "https://github.com/ktdm-than/horizon-ds/blob/6ae7c524eda298deb2933079ad191515b877aa44/reviews/Button.md",
+      "figma": "https://www.figma.com/design/l87TswOf2FHCxsYmK8XhHJ/Horizon-Stays-.-Web-.-Component-.-V1.0-.-Draft?node-id=280-276&t=1EQtnjFi1qLgMlGt-1",
+      "productionStorybook": "https://horizon-8po5n4k19-tangible7.vercel.app/?path=/story/components-button--default-fill",
+      "composes": [],
+      "astroLink": null
+    },
+    {
+      "name": "Card",
+      "category": "ORGANISMS",
+      "design": "Done",
+      "development": "Completed",
+      "releaseVerdict": "Cleared",
+      "releaseReview": "https://github.com/ktdm-than/horizon-ds/blob/6fdc4fe3a9701d9dc789641c0b365db229565367/reviews/Card.md",
+      "figma": "https://www.figma.com/design/l87TswOf2FHCxsYmK8XhHJ/Horizon-Stays-.-Web-.-Component-.-V1.0-.-Draft?node-id=227-333&t=1EQtnjFi1qLgMlGt-1",
+      "productionStorybook": "https://horizon-hxmbwpzyg-tangible7.vercel.app/?path=/story/components-card-card--card-default",
+      "composes": [],
+      "astroLink": null
+    }
+  ]
+}

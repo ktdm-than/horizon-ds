@@ -1,0 +1,586 @@
+---
+title: "Card"
+description: "Card: usage, examples, code, design and changelog, from horizon-ds at d1860fe."
+tableOfContents: false
+---
+
+import { Tabs, TabItem, Aside, Badge } from '@astrojs/starlight/components';
+
+<div class="hds-strip">
+
+<Badge text="completed" variant="note" /> <Badge text="since 0.1.0" variant="default" /> <Badge text="release review: cleared" variant="success" />
+
+[Storybook](https://horizon-hxmbwpzyg-tangible7.vercel.app/?path=/story/components-card-card--card-default) · [Figma node 227:333](https://www.figma.com/design/l87TswOf2FHCxsYmK8XhHJ/Horizon-Stays-.-Web-.-Component-.-V1.0-.-Draft?node-id=227-333&t=1EQtnjFi1qLgMlGt-1) · [Source](https://github.com/ktdm-than/horizon-ds/tree/d1860feaaa47e0af02a0d0b0f0ac52cba9a7aca2/src/components/Card) · [Release review](https://github.com/ktdm-than/horizon-ds/blob/6fdc4fe3a9701d9dc789641c0b365db229565367/reviews/Card.md)
+
+</div>
+
+<Tabs>
+<TabItem label="Usage">
+
+## When to use it
+
+- Use a card to display content and actions on a single topic.
+- Cards should be easy to scan for relevant and actionable information.
+- Cards can serve as entry points into deeper levels of detail or navigation, such as a music album or details on an upcoming vacation.
+- Cards can be displayed together in a grid, vertical list, or carousel.
+- Use cards to contain related elements
+- Contents can include anything from images to headlines, supporting text, buttons, and lists
+- Can also contain other components in slot area.
+- Cards have flexible layouts and dimensions based on their contents. Configuration is done at subcomponent level: CardLayout.
+
+### Where it goes
+
+<Aside type="caution" title="Where it goes: no story places it">
+No story at `d1860fe` renders Card inside another component, so the intent file's `placement` is empty.
+</Aside>
+### When not to use it
+
+- Don’t scroll within a card to reveal information
+- Cards shouldn’t contain content that can be swiped, such as an image carousel or pagination. Also, swipe gestures shouldn’t cause portions of cards to detach upon swiping.
+- Don’t let cards bump other elements out of the way. When a card is picked up, it appears in front of all elements, except app bars and navigation.
+- On a mobile device, cards can't internally scroll, as it could cause two scroll bars to be displayed.
+
+## Best practice
+
+- Adjust the card layout so content remains the main focus on large screens
+- When designing for large screens, use multiple columns to display content
+- Certain devices or user contexts require different components to meet platform expectations
+- Expand a card to reveal information
+- A card should only have one swipe action assigned to it
+- When moving a card, increase its elevation
+- On a mobile device, cards can expand to reveal more content, scrolling within the screen. Content within cards doesn’t scroll.
+
+<small>From the Figma usage frame 315:470, read 2026-11-20.</small>
+
+## What each variant is for
+
+### Card
+
+| Prop | Value | What it is for |
+|---|---|---|
+| `showContentSlot` | `true` | *Not stated in Figma* |
+| `showContentSlot` | `false` | *Not stated in Figma* |
+
+<small>An empty purpose means the Figma usage region does not say what that value is for; see [`docs/intent-gaps.md`](https://github.com/ktdm-than/horizon-ds/blob/d1860feaaa47e0af02a0d0b0f0ac52cba9a7aca2/docs/intent-gaps.md).</small>
+
+### CardContainer
+
+| Prop | Value | What it is for |
+|---|---|---|
+| `state` | `idle` | *Not stated in Figma* |
+| `state` | `hover` | *Not stated in Figma* |
+
+<small>An empty purpose means the Figma usage region does not say what that value is for; see [`docs/intent-gaps.md`](https://github.com/ktdm-than/horizon-ds/blob/d1860feaaa47e0af02a0d0b0f0ac52cba9a7aca2/docs/intent-gaps.md).</small>
+
+### CardImage
+
+| Prop | Value | What it is for |
+|---|---|---|
+| `ratio` | `1:1` | *Not stated in Figma* |
+| `ratio` | `4:3` | *Not stated in Figma* |
+| `state` | `idle` | *Not stated in Figma* |
+| `state` | `hover` | *Not stated in Figma* |
+| `showIconBtn` | `true` | *Not stated in Figma* |
+| `showIconBtn` | `false` | *Not stated in Figma* |
+
+<small>An empty purpose means the Figma usage region does not say what that value is for; see [`docs/intent-gaps.md`](https://github.com/ktdm-than/horizon-ds/blob/d1860feaaa47e0af02a0d0b0f0ac52cba9a7aca2/docs/intent-gaps.md).</small>
+
+### CardLayout
+
+| Prop | Value | What it is for |
+|---|---|---|
+| `orientation` | `horizontal` | *Not stated in Figma* |
+| `orientation` | `vertical` | *Not stated in Figma* |
+| `showContentSlot` | `true` | *Not stated in Figma* |
+| `showContentSlot` | `false` | *Not stated in Figma* |
+
+<small>An empty purpose means the Figma usage region does not say what that value is for; see [`docs/intent-gaps.md`](https://github.com/ktdm-than/horizon-ds/blob/d1860feaaa47e0af02a0d0b0f0ac52cba9a7aca2/docs/intent-gaps.md).</small>
+
+### CardText
+
+| Prop | Value | What it is for |
+|---|---|---|
+| `showMetadata` | `true` | *Not stated in Figma* |
+| `showMetadata` | `false` | *Not stated in Figma* |
+| `showReview` | `true` | *Not stated in Figma* |
+| `showReview` | `false` | *Not stated in Figma* |
+| `showPrice` | `true` | *Not stated in Figma* |
+| `showPrice` | `false` | *Not stated in Figma* |
+
+<small>An empty purpose means the Figma usage region does not say what that value is for; see [`docs/intent-gaps.md`](https://github.com/ktdm-than/horizon-ds/blob/d1860feaaa47e0af02a0d0b0f0ac52cba9a7aca2/docs/intent-gaps.md).</small>
+
+## Accessibility
+
+### Card
+
+- Renders a plain &lt;div&gt; wrapper with no role, landmark or accessible name. ([`src/components/Card/Card.tsx:29`](https://github.com/ktdm-than/horizon-ds/blob/d1860feaaa47e0af02a0d0b0f0ac52cba9a7aca2/src/components/Card/Card.tsx#L29))
+- Card takes no onClick, href or keyboard handler; it is not interactive itself. ([`src/components/Card/Card.tsx:15`](https://github.com/ktdm-than/horizon-ds/blob/d1860feaaa47e0af02a0d0b0f0ac52cba9a7aca2/src/components/Card/Card.tsx#L15))
+- Card always renders CardContainer with state="hover", so its elevation is always on and does not signal focus or hover. ([`src/components/Card/Card.tsx:30`](https://github.com/ktdm-than/horizon-ds/blob/d1860feaaa47e0af02a0d0b0f0ac52cba9a7aca2/src/components/Card/Card.tsx#L30))
+
+### CardContainer
+
+- Renders two nested &lt;div&gt;s (container and containerSlot) with no role or accessible name. ([`src/components/Card/CardContainer.tsx:14`](https://github.com/ktdm-than/horizon-ds/blob/d1860feaaa47e0af02a0d0b0f0ac52cba9a7aca2/src/components/Card/CardContainer.tsx#L14))
+- The hover elevation is applied by state="hover" or pointer :hover only; there is no :focus-within equivalent for keyboard users. ([`src/components/Card/CardContainer.css:12`](https://github.com/ktdm-than/horizon-ds/blob/d1860feaaa47e0af02a0d0b0f0ac52cba9a7aca2/src/components/Card/CardContainer.css#L12))
+
+### CardImage
+
+- alt defaults to "", so the &lt;img&gt; (rendered only when src is set) is treated as decorative unless alt is passed. ([`src/components/Card/CardImage.tsx:18`](https://github.com/ktdm-than/horizon-ds/blob/d1860feaaa47e0af02a0d0b0f0ac52cba9a7aca2/src/components/Card/CardImage.tsx#L18))
+- Without src no &lt;img&gt; is rendered; only the placeholder background shows. ([`src/components/Card/CardImage.tsx:21`](https://github.com/ktdm-than/horizon-ds/blob/d1860feaaa47e0af02a0d0b0f0ac52cba9a7aca2/src/components/Card/CardImage.tsx#L21))
+- The hover overlay &lt;div&gt; has aria-hidden="true". ([`src/components/Card/CardImage.tsx:22`](https://github.com/ktdm-than/horizon-ds/blob/d1860feaaa47e0af02a0d0b0f0ac52cba9a7aca2/src/components/Card/CardImage.tsx#L22))
+- The overlaid IconBtn receives the iconBtn props (e.g. onClick, aria-label) and CardImage's state; CardImage sets no accessible name for it. ([`src/components/Card/CardImage.tsx:23`](https://github.com/ktdm-than/horizon-ds/blob/d1860feaaa47e0af02a0d0b0f0ac52cba9a7aca2/src/components/Card/CardImage.tsx#L23))
+
+### CardLayout
+
+- Renders &lt;div&gt;s only (layout, CardData column and ContentSlot) with no role; reading order is CardImage, then CardText, then the ContentSlot, in both orientations. ([`src/components/Card/CardLayout.tsx:26`](https://github.com/ktdm-than/horizon-ds/blob/d1860feaaa47e0af02a0d0b0f0ac52cba9a7aca2/src/components/Card/CardLayout.tsx#L26))
+- CardImage is always rendered at ratio 1:1; the ratio cannot be changed from CardLayout. ([`src/components/Card/CardLayout.tsx:27`](https://github.com/ktdm-than/horizon-ds/blob/d1860feaaa47e0af02a0d0b0f0ac52cba9a7aca2/src/components/Card/CardLayout.tsx#L27))
+
+### CardText
+
+- The title is rendered as a &lt;p&gt;, not a heading element, so it does not appear in a screen reader's heading list. ([`src/components/Card/CardText.tsx:34`](https://github.com/ktdm-than/horizon-ds/blob/d1860feaaa47e0af02a0d0b0f0ac52cba9a7aca2/src/components/Card/CardText.tsx#L34))
+- Subtitle, rating, review count, price and unit are each rendered as a separate &lt;p&gt;. ([`src/components/Card/CardText.tsx:35`](https://github.com/ktdm-than/horizon-ds/blob/d1860feaaa47e0af02a0d0b0f0ac52cba9a7aca2/src/components/Card/CardText.tsx#L35))
+- showReview and showPrice render only while showMetadata is true. ([`src/components/Card/CardText.tsx:37`](https://github.com/ktdm-than/horizon-ds/blob/d1860feaaa47e0af02a0d0b0f0ac52cba9a7aca2/src/components/Card/CardText.tsx#L37))
+- The rating is plain text (e.g. "4.7") with no accessible label naming it as a rating. ([`src/components/Card/CardText.tsx:41`](https://github.com/ktdm-than/horizon-ds/blob/d1860feaaa47e0af02a0d0b0f0ac52cba9a7aca2/src/components/Card/CardText.tsx#L41))
+
+## Composition
+
+<Aside type="caution" title="Composes is empty on the board">
+The registry's `Composes` column for Card is empty.
+</Aside>
+In the code at `d1860fe`, `Card.tsx` imports `CardContainer`, `CardLayout`. Across folders: `CardImage → IconBtn`. Its parts are exported from `src/index.ts` and documented on this page.
+
+Pairs with (from `Card.intent.json`): CardContainer (story `components-card-card--card-default`), CardLayout (story `components-card-card--card-default`), CardImage (story `components-card-card--card-default`), CardText (story `components-card-card--card-default`), IconBtn (story `components-card-card--card-default`).
+
+### The parts
+
+#### CardContainer
+
+Base structural frame for card components that manages outer surface styling, elevation (shadows), borders, padding, and corner radius. <small>(Figma component description)</small>
+
+<Aside type="caution" title="CardContainer: no usage in Figma">
+CardContainer's block on the Figma page carries no usage text, so its `use_when`, `dont_use_when` and `best_practice` are empty.
+</Aside>
+#### CardImage
+
+Media subcomponent for cards that manages image display ratios, gradient overlays for contrast, and overlaid action buttons (e.g., favorite heart trigger). <small>(Figma component description)</small>
+
+<Aside type="caution" title="CardImage: no usage in Figma">
+CardImage's block on the Figma page carries no usage text, so its `use_when`, `dont_use_when` and `best_practice` are empty.
+</Aside>
+#### CardLayout
+
+Structural layout container used to switch between horizontal (row) and vertical (column) arrangements for card components. <small>(Figma component description)</small>
+
+<Aside type="caution" title="CardLayout: no usage in Figma">
+CardLayout's block on the Figma page carries no usage text, so its `use_when`, `dont_use_when` and `best_practice` are empty.
+</Aside>
+#### CardText
+
+Text metadata subcomponent for cards that standardizes typographic hierarchy, including title, subtitle, location, review rating, and pricing details. <small>(Figma component description)</small>
+
+<Aside type="caution" title="CardText: no usage in Figma">
+CardText's block on the Figma page carries no usage text, so its `use_when`, `dont_use_when` and `best_practice` are empty.
+</Aside>
+## What this version promises
+
+The package is `0.1.0` in `package.json` at `d1860fe`. From [`VERSIONING.md`](https://github.com/ktdm-than/horizon-ds/blob/d1860feaaa47e0af02a0d0b0f0ac52cba9a7aca2/VERSIONING.md):
+
+The package is `0.x`. While it is:
+
+- **Minor** (`0.1.0` → `0.2.0`) for any addition, and for any change that would be major after
+  1.0.0. A breaking change in a minor bump is listed under Changed or Removed in the changelog,
+  with what to change in consumer code.
+- **Patch** (`0.2.0` → `0.2.1`) only for fixes, as defined above.
+
+Going to **1.0.0** is a human decision, not one a release run makes.
+
+This component's props, its exported types, the semantic tokens it uses and the stylesheet entry points are the public API that promise covers. Class names inside the markup (`hds-*`) are not.
+
+</TabItem>
+<TabItem label="Examples">
+
+## The common case
+
+From the README at `d1860fe`:
+
+```tsx
+import { Button, Card } from '@morethanthings/horizon-ds';
+
+export function Listing() {
+  return (
+    <Card image={{ src: '/casa.jpg', alt: 'Casa do Bairro' }} text={{ title: 'Casa do Bairro' }}>
+      <Button shape="outline" showLeadingIcon={false} showTrailingIcon={false}>
+        View
+      </Button>
+    </Card>
+  );
+}
+```
+
+## Stories
+
+Every story that is not a variant-matrix row, rendered live from [Storybook](https://horizon-hxmbwpzyg-tangible7.vercel.app) in light and dark. If a frame stays blank, see [Embedding](/help/embedding/).
+
+### Card / showContentSlot=true
+
+<div class="hds-pair">
+<iframe src="https://horizon-hxmbwpzyg-tangible7.vercel.app/iframe.html?id=components-card-card--card-default&viewMode=story&globals=theme:light" title="Card / showContentSlot=true (light)" loading="lazy" style="width:100%;height:260px;border:1px solid var(--sl-color-hairline);border-radius:var(--borderradius-sm)"></iframe>
+<iframe src="https://horizon-hxmbwpzyg-tangible7.vercel.app/iframe.html?id=components-card-card--card-default&viewMode=story&globals=theme:dark" title="Card / showContentSlot=true (dark)" loading="lazy" style="width:100%;height:260px;border:1px solid var(--sl-color-hairline);border-radius:var(--borderradius-sm)"></iframe>
+</div>
+
+<small>[Open in Storybook](https://horizon-hxmbwpzyg-tangible7.vercel.app/?path=/story/components-card-card--card-default)</small>
+
+### Card / showContentSlot=false
+
+<div class="hds-pair">
+<iframe src="https://horizon-hxmbwpzyg-tangible7.vercel.app/iframe.html?id=components-card-card--card-no-slot&viewMode=story&globals=theme:light" title="Card / showContentSlot=false (light)" loading="lazy" style="width:100%;height:260px;border:1px solid var(--sl-color-hairline);border-radius:var(--borderradius-sm)"></iframe>
+<iframe src="https://horizon-hxmbwpzyg-tangible7.vercel.app/iframe.html?id=components-card-card--card-no-slot&viewMode=story&globals=theme:dark" title="Card / showContentSlot=false (dark)" loading="lazy" style="width:100%;height:260px;border:1px solid var(--sl-color-hairline);border-radius:var(--borderradius-sm)"></iframe>
+</div>
+
+<small>[Open in Storybook](https://horizon-hxmbwpzyg-tangible7.vercel.app/?path=/story/components-card-card--card-no-slot)</small>
+
+### CardImage / showIconBtn=false
+
+<div class="hds-pair">
+<iframe src="https://horizon-hxmbwpzyg-tangible7.vercel.app/iframe.html?id=components-card-cardimage--image-no-icon-btn&viewMode=story&globals=theme:light" title="CardImage / showIconBtn=false (light)" loading="lazy" style="width:100%;height:260px;border:1px solid var(--sl-color-hairline);border-radius:var(--borderradius-sm)"></iframe>
+<iframe src="https://horizon-hxmbwpzyg-tangible7.vercel.app/iframe.html?id=components-card-cardimage--image-no-icon-btn&viewMode=story&globals=theme:dark" title="CardImage / showIconBtn=false (dark)" loading="lazy" style="width:100%;height:260px;border:1px solid var(--sl-color-hairline);border-radius:var(--borderradius-sm)"></iframe>
+</div>
+
+<small>[Open in Storybook](https://horizon-hxmbwpzyg-tangible7.vercel.app/?path=/story/components-card-cardimage--image-no-icon-btn)</small>
+
+### CardLayout / horizontal, showContentSlot=false
+
+<div class="hds-pair">
+<iframe src="https://horizon-hxmbwpzyg-tangible7.vercel.app/iframe.html?id=components-card-cardlayout--layout-horizontal-no-slot&viewMode=story&globals=theme:light" title="CardLayout / horizontal, showContentSlot=false (light)" loading="lazy" style="width:100%;height:260px;border:1px solid var(--sl-color-hairline);border-radius:var(--borderradius-sm)"></iframe>
+<iframe src="https://horizon-hxmbwpzyg-tangible7.vercel.app/iframe.html?id=components-card-cardlayout--layout-horizontal-no-slot&viewMode=story&globals=theme:dark" title="CardLayout / horizontal, showContentSlot=false (dark)" loading="lazy" style="width:100%;height:260px;border:1px solid var(--sl-color-hairline);border-radius:var(--borderradius-sm)"></iframe>
+</div>
+
+<small>[Open in Storybook](https://horizon-hxmbwpzyg-tangible7.vercel.app/?path=/story/components-card-cardlayout--layout-horizontal-no-slot)</small>
+
+### CardLayout / vertical, showContentSlot=false
+
+<div class="hds-pair">
+<iframe src="https://horizon-hxmbwpzyg-tangible7.vercel.app/iframe.html?id=components-card-cardlayout--layout-vertical-no-slot&viewMode=story&globals=theme:light" title="CardLayout / vertical, showContentSlot=false (light)" loading="lazy" style="width:100%;height:260px;border:1px solid var(--sl-color-hairline);border-radius:var(--borderradius-sm)"></iframe>
+<iframe src="https://horizon-hxmbwpzyg-tangible7.vercel.app/iframe.html?id=components-card-cardlayout--layout-vertical-no-slot&viewMode=story&globals=theme:dark" title="CardLayout / vertical, showContentSlot=false (dark)" loading="lazy" style="width:100%;height:260px;border:1px solid var(--sl-color-hairline);border-radius:var(--borderradius-sm)"></iframe>
+</div>
+
+<small>[Open in Storybook](https://horizon-hxmbwpzyg-tangible7.vercel.app/?path=/story/components-card-cardlayout--layout-vertical-no-slot)</small>
+
+### CardText / all on
+
+<div class="hds-pair">
+<iframe src="https://horizon-hxmbwpzyg-tangible7.vercel.app/iframe.html?id=components-card-cardtext--text-default&viewMode=story&globals=theme:light" title="CardText / all on (light)" loading="lazy" style="width:100%;height:260px;border:1px solid var(--sl-color-hairline);border-radius:var(--borderradius-sm)"></iframe>
+<iframe src="https://horizon-hxmbwpzyg-tangible7.vercel.app/iframe.html?id=components-card-cardtext--text-default&viewMode=story&globals=theme:dark" title="CardText / all on (dark)" loading="lazy" style="width:100%;height:260px;border:1px solid var(--sl-color-hairline);border-radius:var(--borderradius-sm)"></iframe>
+</div>
+
+<small>[Open in Storybook](https://horizon-hxmbwpzyg-tangible7.vercel.app/?path=/story/components-card-cardtext--text-default)</small>
+
+### CardText / showMetadata=false
+
+<div class="hds-pair">
+<iframe src="https://horizon-hxmbwpzyg-tangible7.vercel.app/iframe.html?id=components-card-cardtext--text-no-metadata&viewMode=story&globals=theme:light" title="CardText / showMetadata=false (light)" loading="lazy" style="width:100%;height:260px;border:1px solid var(--sl-color-hairline);border-radius:var(--borderradius-sm)"></iframe>
+<iframe src="https://horizon-hxmbwpzyg-tangible7.vercel.app/iframe.html?id=components-card-cardtext--text-no-metadata&viewMode=story&globals=theme:dark" title="CardText / showMetadata=false (dark)" loading="lazy" style="width:100%;height:260px;border:1px solid var(--sl-color-hairline);border-radius:var(--borderradius-sm)"></iframe>
+</div>
+
+<small>[Open in Storybook](https://horizon-hxmbwpzyg-tangible7.vercel.app/?path=/story/components-card-cardtext--text-no-metadata)</small>
+
+### CardText / showReview=false
+
+<div class="hds-pair">
+<iframe src="https://horizon-hxmbwpzyg-tangible7.vercel.app/iframe.html?id=components-card-cardtext--text-no-review&viewMode=story&globals=theme:light" title="CardText / showReview=false (light)" loading="lazy" style="width:100%;height:260px;border:1px solid var(--sl-color-hairline);border-radius:var(--borderradius-sm)"></iframe>
+<iframe src="https://horizon-hxmbwpzyg-tangible7.vercel.app/iframe.html?id=components-card-cardtext--text-no-review&viewMode=story&globals=theme:dark" title="CardText / showReview=false (dark)" loading="lazy" style="width:100%;height:260px;border:1px solid var(--sl-color-hairline);border-radius:var(--borderradius-sm)"></iframe>
+</div>
+
+<small>[Open in Storybook](https://horizon-hxmbwpzyg-tangible7.vercel.app/?path=/story/components-card-cardtext--text-no-review)</small>
+
+### CardText / showPrice=false
+
+<div class="hds-pair">
+<iframe src="https://horizon-hxmbwpzyg-tangible7.vercel.app/iframe.html?id=components-card-cardtext--text-no-price&viewMode=story&globals=theme:light" title="CardText / showPrice=false (light)" loading="lazy" style="width:100%;height:260px;border:1px solid var(--sl-color-hairline);border-radius:var(--borderradius-sm)"></iframe>
+<iframe src="https://horizon-hxmbwpzyg-tangible7.vercel.app/iframe.html?id=components-card-cardtext--text-no-price&viewMode=story&globals=theme:dark" title="CardText / showPrice=false (dark)" loading="lazy" style="width:100%;height:260px;border:1px solid var(--sl-color-hairline);border-radius:var(--borderradius-sm)"></iframe>
+</div>
+
+<small>[Open in Storybook](https://horizon-hxmbwpzyg-tangible7.vercel.app/?path=/story/components-card-cardtext--text-no-price)</small>
+
+### CardText / showReview=false, showPrice=false
+
+<div class="hds-pair">
+<iframe src="https://horizon-hxmbwpzyg-tangible7.vercel.app/iframe.html?id=components-card-cardtext--text-no-review-no-price&viewMode=story&globals=theme:light" title="CardText / showReview=false, showPrice=false (light)" loading="lazy" style="width:100%;height:260px;border:1px solid var(--sl-color-hairline);border-radius:var(--borderradius-sm)"></iframe>
+<iframe src="https://horizon-hxmbwpzyg-tangible7.vercel.app/iframe.html?id=components-card-cardtext--text-no-review-no-price&viewMode=story&globals=theme:dark" title="CardText / showReview=false, showPrice=false (dark)" loading="lazy" style="width:100%;height:260px;border:1px solid var(--sl-color-hairline);border-radius:var(--borderradius-sm)"></iframe>
+</div>
+
+<small>[Open in Storybook](https://horizon-hxmbwpzyg-tangible7.vercel.app/?path=/story/components-card-cardtext--text-no-review-no-price)</small>
+
+### CardText / showMetadata=false, showReview=false
+
+<div class="hds-pair">
+<iframe src="https://horizon-hxmbwpzyg-tangible7.vercel.app/iframe.html?id=components-card-cardtext--text-no-metadata-no-review&viewMode=story&globals=theme:light" title="CardText / showMetadata=false, showReview=false (light)" loading="lazy" style="width:100%;height:260px;border:1px solid var(--sl-color-hairline);border-radius:var(--borderradius-sm)"></iframe>
+<iframe src="https://horizon-hxmbwpzyg-tangible7.vercel.app/iframe.html?id=components-card-cardtext--text-no-metadata-no-review&viewMode=story&globals=theme:dark" title="CardText / showMetadata=false, showReview=false (dark)" loading="lazy" style="width:100%;height:260px;border:1px solid var(--sl-color-hairline);border-radius:var(--borderradius-sm)"></iframe>
+</div>
+
+<small>[Open in Storybook](https://horizon-hxmbwpzyg-tangible7.vercel.app/?path=/story/components-card-cardtext--text-no-metadata-no-review)</small>
+
+### CardText / showMetadata=false, showPrice=false
+
+<div class="hds-pair">
+<iframe src="https://horizon-hxmbwpzyg-tangible7.vercel.app/iframe.html?id=components-card-cardtext--text-no-metadata-no-price&viewMode=story&globals=theme:light" title="CardText / showMetadata=false, showPrice=false (light)" loading="lazy" style="width:100%;height:260px;border:1px solid var(--sl-color-hairline);border-radius:var(--borderradius-sm)"></iframe>
+<iframe src="https://horizon-hxmbwpzyg-tangible7.vercel.app/iframe.html?id=components-card-cardtext--text-no-metadata-no-price&viewMode=story&globals=theme:dark" title="CardText / showMetadata=false, showPrice=false (dark)" loading="lazy" style="width:100%;height:260px;border:1px solid var(--sl-color-hairline);border-radius:var(--borderradius-sm)"></iframe>
+</div>
+
+<small>[Open in Storybook](https://horizon-hxmbwpzyg-tangible7.vercel.app/?path=/story/components-card-cardtext--text-no-metadata-no-price)</small>
+
+### CardText / all off
+
+<div class="hds-pair">
+<iframe src="https://horizon-hxmbwpzyg-tangible7.vercel.app/iframe.html?id=components-card-cardtext--text-all-off&viewMode=story&globals=theme:light" title="CardText / all off (light)" loading="lazy" style="width:100%;height:260px;border:1px solid var(--sl-color-hairline);border-radius:var(--borderradius-sm)"></iframe>
+<iframe src="https://horizon-hxmbwpzyg-tangible7.vercel.app/iframe.html?id=components-card-cardtext--text-all-off&viewMode=story&globals=theme:dark" title="CardText / all off (dark)" loading="lazy" style="width:100%;height:260px;border:1px solid var(--sl-color-hairline);border-radius:var(--borderradius-sm)"></iframe>
+</div>
+
+<small>[Open in Storybook](https://horizon-hxmbwpzyg-tangible7.vercel.app/?path=/story/components-card-cardtext--text-all-off)</small>
+
+</TabItem>
+<TabItem label="Code">
+
+## Import
+
+```tsx
+import { Card, CardContainer, CardImage, CardLayout, CardText } from '@morethanthings/horizon-ds';
+```
+
+Load the styles once, at your app root (README):
+
+```ts
+import '@morethanthings/horizon-ds/tokens.css';
+import '@morethanthings/horizon-ds/fonts.css';
+import '@morethanthings/horizon-ds/styles.css';
+```
+
+## Props
+
+### Card
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `children` | `ReactNode` | — | Figma slot `ContentSlot`. Passed to the nested CardLayout's ContentSlot. |
+| `showContentSlot` | `boolean` | `true` | Figma `showContentSlot`. Passed to the nested CardLayout. |
+| `image` | `CardLayoutImageProps` | — | Props for the nested CardImage. Its ratio is fixed at 1:1, as in Figma. |
+| `text` | `CardTextProps` | — | Props for the nested CardText (showMetadata, showReview, showPrice and the text). |
+
+Source: [`src/components/Card/Card.tsx`](https://github.com/ktdm-than/horizon-ds/blob/d1860feaaa47e0af02a0d0b0f0ac52cba9a7aca2/src/components/Card/Card.tsx#L15).
+
+### CardContainer
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `state` | `'idle' \| 'hover'` | `'idle'` | Figma `state`. hover adds elevation/level1; real pointer hover applies regardless. |
+| `children` | `ReactNode` | — | Figma slot `containerSlot`. |
+| `className` | `string` | — | — |
+
+Source: [`src/components/Card/CardContainer.tsx`](https://github.com/ktdm-than/horizon-ds/blob/d1860feaaa47e0af02a0d0b0f0ac52cba9a7aca2/src/components/Card/CardContainer.tsx#L4).
+
+### CardImage
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `ratio` | `'1:1' \| '4:3'` | `'1:1'` | Figma `ratio`. The image fills its parent's width; height follows the ratio. |
+| `state` | `'idle' \| 'hover'` | `'idle'` | Figma `state`. hover shows the overlay gradient and lifts the IconBtn; real pointer hover applies regardless. |
+| `showIconBtn` | `boolean` | `true` | Figma `showIconBtn`. |
+| `src` | `string` | — | Image URL. Without it the surfaceSecondary placeholder shows, as in Figma. |
+| `alt` | `string` | `''` | — |
+| `iconBtn` | `Omit<IconBtnProps, 'state'>` | — | Passed to the overlaid IconBtn (e.g. onClick, aria-label). |
+
+Source: [`src/components/Card/CardImage.tsx`](https://github.com/ktdm-than/horizon-ds/blob/d1860feaaa47e0af02a0d0b0f0ac52cba9a7aca2/src/components/Card/CardImage.tsx#L4).
+
+### CardLayout
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `orientation` | `'horizontal' \| 'vertical'` | `'horizontal'` | Figma `orientation`. |
+| `showContentSlot` | `boolean` | `true` | Figma `showContentSlot`. |
+| `children` | `ReactNode` | — | Figma slot `ContentSlot`. |
+| `image` | `CardLayoutImageProps` | — | Props for the nested CardImage. Its ratio is fixed at 1:1, as in Figma. |
+| `text` | `CardTextProps` | — | Props for the nested CardText. |
+
+Source: [`src/components/Card/CardLayout.tsx`](https://github.com/ktdm-than/horizon-ds/blob/d1860feaaa47e0af02a0d0b0f0ac52cba9a7aca2/src/components/Card/CardLayout.tsx#L9).
+
+### CardText
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `showMetadata` | `boolean` | `true` | Figma `showMetadata`. Shows the review and price block. |
+| `showReview` | `boolean` | `true` | Figma `showReview`. Only applies while `showMetadata` is on, as in Figma. |
+| `showPrice` | `boolean` | `true` | Figma `showPrice`. Only applies while `showMetadata` is on, as in Figma. |
+| `title` | `string` | `'Casa do Bairro'` | — |
+| `subtitle` | `string` | `'Alfama, Lisbon · 1.2 km from centre'` | — |
+| `rating` | `string` | `'4.7'` | — |
+| `reviews` | `string` | `'(318 reviews)'` | — |
+| `amount` | `string` | `'121 EUR'` | — |
+| `unit` | `string` | `'per night'` | — |
+
+Source: [`src/components/Card/CardText.tsx`](https://github.com/ktdm-than/horizon-ds/blob/d1860feaaa47e0af02a0d0b0f0ac52cba9a7aca2/src/components/Card/CardText.tsx#L5).
+
+## Tokens it needs
+
+From the intent files' `required_tokens`, with values from `build/css/` built at `d1860fe`. Dark is the `[data-theme="dark"]` value; English and Burmese are the typography modes.
+
+| Token | Light | Dark | Burmese |
+|---|---|---|---|
+| `--spacing-none` | `0px` | *same as light* | *same as light* |
+| `--spacing-md` | `12px` | *same as light* | *same as light* |
+| `--color-bg-surfaceprimary` | `#f1f2f4` | `#f1f2f4` | *same as light* |
+| `--elevation-level1` | `0px 2px 8px 0px rgba(26, 29, 32, 0.25)` | *same as light* | *same as light* |
+| `--spacing-lg` | `16px` | *same as light* | *same as light* |
+| `--color-bg-surfacesecondary` | `#d4d6db` | `#d4d6db` | *same as light* |
+| `--overlaygradient` | `linear-gradient(180deg, #1a1d20 0%, rgba(254, 254, 254, 0) 100%)` | *same as light* | *same as light* |
+| `--spacing-2xl` | `32px` | *same as light* | *same as light* |
+| `--spacing-3xl` | `48px` | *same as light* | *same as light* |
+| `--spacing-sm` | `8px` | *same as light* | *same as light* |
+| `--spacing-base` | `4px` | *same as light* | *same as light* |
+| `--label-default` | `600 14px/20px Inter` | *same as light* | `600 14px/24px 'Noto Sans Myanmar'` |
+| `--color-text-primary` | `#3f444d` | `#3f444d` | *same as light* |
+| `--body-body4` | `400 12px/16px Inter` | *same as light* | `400 12px/20px 'Noto Sans Myanmar'` |
+| `--color-text-secondary` | `#69717f` | `#69717f` | *same as light* |
+| `--list-item` | `500 14px/20px Inter` | *same as light* | `500 14px/24px 'Noto Sans Myanmar'` |
+| `--color-text-warning` | `#de970a` | `#de970a` | *same as light* |
+
+<Aside type="caution" title="Dark values equal light">
+5 of the colour tokens above have the same value in dark as in light at `d1860fe`. That is what the token build ships; it is a design gap to close in Figma, not here.
+</Aside>
+## The full API, in Storybook
+
+<iframe src="https://horizon-hxmbwpzyg-tangible7.vercel.app/?path=/story/components-card-card--card-default" title="Card in Storybook" loading="lazy" style="width:100%;height:520px;border:1px solid var(--sl-color-hairline);border-radius:var(--borderradius-sm)"></iframe>
+
+<small>Storybook's own controls and props panel. If it stays blank, see [Embedding](/help/embedding/).</small>
+
+</TabItem>
+<TabItem label="Design">
+
+## The Figma node
+
+<iframe src="https://www.figma.com/embed?embed_host=horizon-docs&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2Fl87TswOf2FHCxsYmK8XhHJ%2FHorizon-Stays-.-Web-.-Component-.-V1.0-.-Draft%3Fnode-id%3D227-333%26t%3D1EQtnjFi1qLgMlGt-1" title="Card in Figma" loading="lazy" style="width:100%;height:480px;border:1px solid var(--sl-color-hairline);border-radius:var(--borderradius-sm)"></iframe>
+
+<small>The Figma file is shared with the team only; outside viewers see a sign-in prompt. [Open node 227:333](https://www.figma.com/design/l87TswOf2FHCxsYmK8XhHJ/Horizon-Stays-.-Web-.-Component-.-V1.0-.-Draft?node-id=227-333&t=1EQtnjFi1qLgMlGt-1).</small>
+
+![Card in Figma, read 2026-11-20](/figma/card-310-249.png)
+
+## The variant matrix
+
+### Card <small>(Figma 218:143)</small>
+
+| Figma variant | Node | Story |
+|---|---|---|
+| Card (properties: showContentSlot, ContentSlot) | 218:143 | *no matrix story* |
+
+### CardContainer <small>(Figma 163:45)</small>
+
+| Figma variant | Node | Story |
+|---|---|---|
+| state=idle | 163:44 | [`components-card-cardcontainer--container-idle`](https://horizon-hxmbwpzyg-tangible7.vercel.app/?path=/story/components-card-cardcontainer--container-idle) |
+| state=hover | 163:46 | [`components-card-cardcontainer--container-hover`](https://horizon-hxmbwpzyg-tangible7.vercel.app/?path=/story/components-card-cardcontainer--container-hover) |
+
+### CardLayout <small>(Figma 166:221)</small>
+
+| Figma variant | Node | Story |
+|---|---|---|
+| orientation=horizontal | 166:219 | [`components-card-cardlayout--layout-horizontal`](https://horizon-hxmbwpzyg-tangible7.vercel.app/?path=/story/components-card-cardlayout--layout-horizontal) |
+| orientation=vertical | 166:222 | [`components-card-cardlayout--layout-vertical`](https://horizon-hxmbwpzyg-tangible7.vercel.app/?path=/story/components-card-cardlayout--layout-vertical) |
+
+### CardImage <small>(Figma 163:56)</small>
+
+| Figma variant | Node | Story |
+|---|---|---|
+| ratio=1:1, state=idle | 163:55 | [`components-card-cardimage--image-11-idle`](https://horizon-hxmbwpzyg-tangible7.vercel.app/?path=/story/components-card-cardimage--image-11-idle) |
+| ratio=1:1, state=hover | 163:58 | [`components-card-cardimage--image-11-hover`](https://horizon-hxmbwpzyg-tangible7.vercel.app/?path=/story/components-card-cardimage--image-11-hover) |
+| ratio=4:3, state=idle | 163:57 | [`components-card-cardimage--image-43-idle`](https://horizon-hxmbwpzyg-tangible7.vercel.app/?path=/story/components-card-cardimage--image-43-idle) |
+| ratio=4:3, state=hover | 163:60 | [`components-card-cardimage--image-43-hover`](https://horizon-hxmbwpzyg-tangible7.vercel.app/?path=/story/components-card-cardimage--image-43-hover) |
+
+### CardText <small>(Figma 162:27)</small>
+
+| Figma variant | Node | Story |
+|---|---|---|
+| CardText (properties: showMetadata, showReview, showPrice) | 162:27 | *no matrix story* |
+
+### IconBtn <small>(Figma 163:74)</small>
+
+| Figma variant | Node | Story |
+|---|---|---|
+| state=idle | 163:73 | [`components-iconbtn--idle`](https://horizon-hxmbwpzyg-tangible7.vercel.app/?path=/story/components-iconbtn--idle) |
+| state=hover | 163:75 | [`components-iconbtn--hover`](https://horizon-hxmbwpzyg-tangible7.vercel.app/?path=/story/components-iconbtn--hover) |
+
+## Both themes
+
+<div class="hds-pair">
+<iframe src="https://horizon-hxmbwpzyg-tangible7.vercel.app/iframe.html?id=components-card-cardcontainer--container-idle&viewMode=story&globals=theme:light" title="CardContainer / state=idle (light)" loading="lazy" style="width:100%;height:260px;border:1px solid var(--sl-color-hairline);border-radius:var(--borderradius-sm)"></iframe>
+<iframe src="https://horizon-hxmbwpzyg-tangible7.vercel.app/iframe.html?id=components-card-cardcontainer--container-idle&viewMode=story&globals=theme:dark" title="CardContainer / state=idle (dark)" loading="lazy" style="width:100%;height:260px;border:1px solid var(--sl-color-hairline);border-radius:var(--borderradius-sm)"></iframe>
+</div>
+
+<small>`components-card-cardcontainer--container-idle`, light then dark.</small>
+
+## What Figma never bound
+
+| Node | What | Value | Note |
+|---|---|---|---|
+| I172:261;166:204;163:77 | IconBtn size | `32 × 32px` | Raw size on the IconBtn inside CardImage. |
+| I172:261;166:204;163:77;221:146 | IconBtn glyph size | `16 × 16px` | Raw size of the at-icons:heart glyph. |
+| I172:261;172:251 | ContentSlot height | `48px` | Raw height on the empty ContentSlot. |
+| 163:91 | containerSlot size (inside CardContainer 163:46) | `400 × 104px` | Raw size of the slot placeholder in the component set. |
+| 172:261 | CardLayout width (inside Card 218:143) | `510px` | Raw width of the nested CardLayout instance. |
+
+<small>Read live from Figma 2026-11-20.</small>
+
+## Recorded design gaps
+
+From [`docs/intent-gaps.md`](https://github.com/ktdm-than/horizon-ds/blob/d1860feaaa47e0af02a0d0b0f0ac52cba9a7aca2/docs/intent-gaps.md):
+
+| Component | Empty field(s) | Missing source |
+|---|---|---|
+| Card | `variant_intent.showContentSlot.purpose` | The Usage frame (315:470) says "Can also contain other components in slot area." but does not name `showContentSlot` or say what `true`/`false` are for, so no purpose was transposed. |
+| Card | `placement` | Card stories render Card alone, at the canvas's natural width (no fixture frame since #25). |
+| CardContainer | `use_when`, `dont_use_when`, `best_practice`, `variant_intent.state.purpose` | Its sub-component block on the Card page (306:601, `[ card container ]`) still shows the component only, with no usage text. |
+| CardImage | `use_when`, `dont_use_when`, `best_practice`, `variant_intent.*.purpose` (ratio, state, showIconBtn) | Its sub-component block (306:574, `[ card image ]`) still shows the component only, with no usage text. |
+| CardLayout | `use_when`, `dont_use_when`, `best_practice`, `variant_intent.*.purpose` (orientation, showContentSlot) | Its sub-component block (306:619, `[ card layout ]`) still shows the component only, with no usage text. |
+| CardText | `use_when`, `dont_use_when`, `best_practice`, `variant_intent.*.purpose` (showMetadata, showReview, showPrice) | Its sub-component block (306:551, `[ card text ]`) still shows the component only, with its textBox hidden. **Still unresolved:** the `_DocBody` 306:501 is still tagged `[ card ]` (re-read live) while its text describes the text container, "Text content container for listing cards (Title, Location, Rating, Pricing)", with a Do, a Don't and a Best Practice. It was transposed to neither Card nor CardText. Card now has its own usage (315:470), so a designer should either retag 306:501 `[ card text ]` or move its text into CardText's block. |
+
+From the build report [`docs/card-build-report.md`](https://github.com/ktdm-than/horizon-ds/blob/d1860feaaa47e0af02a0d0b0f0ac52cba9a7aca2/docs/card-build-report.md):
+
+| # | What | Figma | What the code does |
+|---|---|---|---|
+| D3 | ContentSlot height | raw 48 | **provisional** `min-block-size: var(--spacing-3xl)` (same value) |
+| D5 | IconBtn size and glyph size | raw 32×32 and 16×16 | **provisional** `--spacing-2xl` and `--fontsize-md` (same values) |
+| D6 | Focus, pressed and disabled states; focus-ring token | none modelled | the UA focus ring. `:disabled` sets only the cursor. No colour is invented |
+| D7 | CardContainer description mentions borders and radius | the component has neither | follows the component (none) |
+| D8 | Icon | custom `at-icons:heart` | Material Symbols Rounded `favorite`, filled, as CLAUDE.md requires. The glyph shape differs slightly |
+| D9 | Card's `showContentSlot#227:1` and `ContentSlot#227:0` are defined on Card 218:143 but **not wired** to any layer: the nested CardLayout's ContentSlot still reads CardLayout's own `showContentSlot#166:14`, so toggling Card's property in Figma does nothing | unwired | the code wires them through to CardLayout, which is what the property names promise. Design should connect them |
+| D10 | `containerSlot` direction | vertical in CardContainer 163:45, horizontal in the Card instance | follows the component (column). With one full-width child it renders the same |
+| D11 | IconBtn hover shadow | `elevation/level1` as a layer drop-shadow | `box-shadow: var(--elevation-level1)`; identical on the opaque rounded button |
+
+D1 and D4 from the 218:143 pass are resolved in Figma and stay as built.
+"Provisional" means the token carries the exact Figma value but is not the token design bound.
+
+</TabItem>
+<TabItem label="Changelog">
+
+Every commit that touched `src/components/Card/` (the component and its parts) up to `d1860fe`, newest first. Released in = the first `v*` tag that contains the commit.
+
+| Date | Commit | Subject | Released in |
+|---|---|---|---|
+| 2026-11-20 | [`6527aac`](https://github.com/ktdm-than/horizon-ds/commit/6527aac32c5216e3a15475261f4d16fe58fc87bb) | docs(card): add the four missing CardText stories | 0.1.0 |
+| 2026-11-20 | [`5283f64`](https://github.com/ktdm-than/horizon-ds/commit/5283f646fbe93d02af1cd76ff114145968f6e31e) | fix(card): drop raw story sizes and rename CardText booleans | 0.1.0 |
+| 2026-11-20 | [`091ed8a`](https://github.com/ktdm-than/horizon-ds/commit/091ed8a1134736e8f5c742e257d0934b182a333d) | docs(button,card): add best practice to intent | 0.1.0 |
+| 2026-11-18 | [`40e2c39`](https://github.com/ktdm-than/horizon-ds/commit/40e2c39e9f44fce2c90dc28fb36327dfda6b8079) | docs(button,card): refresh intent from the new Figma usage frames | 0.1.0 |
+| 2026-11-18 | [`0d86c67`](https://github.com/ktdm-than/horizon-ds/commit/0d86c67576f5ac848ae49ea4138239a9165443d4) | docs(button,card): write intent | 0.1.0 |
+| 2026-11-17 | [`5c8b539`](https://github.com/ktdm-than/horizon-ds/commit/5c8b539a3fa4b88b01ebea95cab3467be1d66ede) | Package | 0.1.0 |
+| 2026-10-25 | [`0d9e91f`](https://github.com/ktdm-than/horizon-ds/commit/0d9e91f16c5fbfa39b76771620fa4ed17dc5ec96) | feat(card): rebuild Card from Figma section 227:333 | 0.1.0 |
+| 2026-10-13 | [`6772cb7`](https://github.com/ktdm-than/horizon-ds/commit/6772cb78d935355e931531abed439243906fe801) | Accept explicit image ratio 1:1, document it, preselect IconBtn type (QA S1a, S4a) | 0.1.0 |
+| 2026-10-13 | [`64828dc`](https://github.com/ktdm-than/horizon-ds/commit/64828dc62565a12b1311a7995d279b953f38660d) | Fix Card story controls (QA S1-S4) | 0.1.0 |
+| 2026-10-13 | [`f99833b`](https://github.com/ktdm-than/horizon-ds/commit/f99833bd8e1d8c45ad10a5f18f101c623d5a87cd) | Split Card stories per component so Storybook shows controls | 0.1.0 |
+| 2026-10-12 | [`8f515d3`](https://github.com/ktdm-than/horizon-ds/commit/8f515d30b6c8dab09938c3f7e35dae0914b75f9e) | Match Figma Fill in horizontal CardLayout (QA F3) | 0.1.0 |
+| 2026-10-12 | [`e9c0e45`](https://github.com/ktdm-than/horizon-ds/commit/e9c0e45fcbc3c70cd3d7c81806be1cc5fd54a481) | Show the IconBtn in vertical CardLayout, matching updated Figma 166:221 | 0.1.0 |
+| 2026-10-12 | [`31f3a34`](https://github.com/ktdm-than/horizon-ds/commit/31f3a34ef1dbfa157b67450e16840b433d36b23c) | Update CardLayout comment: Figma now fills both columns (F3) | 0.1.0 |
+| 2026-10-12 | [`905201d`](https://github.com/ktdm-than/horizon-ds/commit/905201d3c60865e4aa619697393232d27df6eb1b) | Rebuild Card from Figma 218:143 in React + TypeScript | 0.1.0 |
+
+</TabItem>
+</Tabs>
+
+---
+
+<small>Generated by `docs-site/scripts/generate.mjs` from [`d1860fe`](https://github.com/ktdm-than/horizon-ds/commit/d1860feaaa47e0af02a0d0b0f0ac52cba9a7aca2) (2026-11-20), `data/board.json` and `data/figma.json` read 2026-11-20. Do not edit this page by hand.</small>

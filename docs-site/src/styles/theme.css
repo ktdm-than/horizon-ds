@@ -1,0 +1,116 @@
+/* The docs site wears the system's own tokens.
+ *
+ * The token CSS is copied from the pinned commit's build by scripts/generate.mjs into
+ * src/generated/tokens/. This file maps Starlight's variables onto SEMANTIC tokens only: no hex,
+ * no primitives. Inter loads from the Google Fonts CDN (head links in astro.config.mjs).
+ *
+ * Dark: at the pinned commit tokens-dark.css redeclares every colour with its light value (a
+ * design gap, shown on the Tokens page). So the dark site is drawn from the semantic *inverse*
+ * family (bg-inverse, text-inverse, …), which exists for dark surfaces in both modes.
+ */
+@import '../generated/tokens/tokens.css';
+@import '../generated/tokens/tokens-dark.css';
+@import '../generated/tokens/tokens-english.css';
+@import '../generated/tokens/tokens-burmese.css';
+
+:root {
+	--sl-font: 'Inter', var(--fontfamily-body), system-ui, sans-serif;
+	--sl-border-radius: var(--borderradius-sm);
+}
+
+/* Light */
+:root[data-theme='light'],
+[data-theme='light'] ::backdrop {
+	--sl-color-white: var(--color-text-bold);
+	--sl-color-gray-1: var(--color-text-bold);
+	--sl-color-gray-2: var(--color-text-primary);
+	--sl-color-gray-3: var(--color-text-secondary);
+	--sl-color-gray-4: var(--color-text-disabled);
+	--sl-color-gray-5: var(--color-bg-surfacesecondary);
+	--sl-color-gray-6: var(--color-bg-surfaceprimary);
+	--sl-color-gray-7: var(--color-bg-surfaceprimary);
+	--sl-color-black: var(--color-bg-base);
+
+	--sl-color-accent-low: var(--color-bg-primary-light);
+	--sl-color-accent: var(--color-bg-primary-idle);
+	--sl-color-accent-high: var(--color-text-brand);
+	--sl-color-text-accent: var(--color-text-brand);
+
+	--sl-color-orange-low: var(--color-bg-warning-light);
+	--sl-color-orange: var(--color-border-warning-bold);
+	--sl-color-orange-high: var(--color-text-primary);
+	--sl-color-green-low: var(--color-bg-positive-light);
+	--sl-color-green: var(--color-border-positive-bold);
+	--sl-color-green-high: var(--color-text-primary);
+	--sl-color-blue-low: var(--color-bg-info-light);
+	--sl-color-blue: var(--color-border-brand-bold);
+	--sl-color-blue-high: var(--color-text-brand);
+	--sl-color-red-low: var(--color-bg-negative-light);
+	--sl-color-red: var(--color-border-negative-bold);
+	--sl-color-red-high: var(--color-text-negative);
+	--sl-color-purple-low: var(--color-bg-accent-purple);
+	--sl-color-purple: var(--color-border-accent-purple-bold);
+	--sl-color-purple-high: var(--color-text-primary);
+
+	--sl-color-hairline-light: var(--color-bg-surfacesecondary);
+	--sl-color-hairline: var(--color-bg-surfacesecondary);
+	--sl-color-hairline-shade: var(--color-border-primary);
+	--sl-color-backdrop-overlay: var(--color-overlay-subtle);
+}
+
+/* Dark: the inverse family */
+:root[data-theme='dark'],
+[data-theme='dark'] ::backdrop {
+	--sl-color-white: var(--color-text-inverse);
+	--sl-color-gray-1: var(--color-text-inverse);
+	--sl-color-gray-2: var(--color-text-inversesecondary);
+	--sl-color-gray-3: var(--color-text-disabledondark);
+	--sl-color-gray-4: var(--color-text-secondary);
+	--sl-color-gray-5: var(--color-bg-primary-neutral-focused);
+	--sl-color-gray-6: var(--color-bg-primary-neutral-hovered);
+	--sl-color-black: var(--color-bg-inverse);
+
+	--sl-color-accent-low: var(--color-text-brand);
+	--sl-color-accent: var(--color-bg-primary-idle);
+	--sl-color-accent-high: var(--color-border-brand-light);
+	--sl-color-text-accent: var(--color-border-brand-light);
+
+	--sl-color-orange-low: var(--color-bg-primary-neutral-hovered);
+	--sl-color-orange: var(--color-border-warning-bold);
+	--sl-color-orange-high: var(--color-text-inverse);
+	--sl-color-green-low: var(--color-bg-primary-neutral-hovered);
+	--sl-color-green: var(--color-border-positive-bold);
+	--sl-color-green-high: var(--color-text-inverse);
+	--sl-color-blue-low: var(--color-bg-primary-neutral-hovered);
+	--sl-color-blue: var(--color-border-brand-bold);
+	--sl-color-blue-high: var(--color-text-inverse);
+	--sl-color-red-low: var(--color-bg-primary-neutral-hovered);
+	--sl-color-red: var(--color-border-negative-bold);
+	--sl-color-red-high: var(--color-text-inverse);
+	--sl-color-purple-low: var(--color-bg-primary-neutral-hovered);
+	--sl-color-purple: var(--color-border-accent-purple-bold);
+	--sl-color-purple-high: var(--color-text-inverse);
+
+	--sl-color-hairline-light: var(--color-bg-primary-neutral-focused);
+	--sl-color-hairline: var(--color-bg-primary-neutral-hovered);
+	--sl-color-hairline-shade: var(--color-bg-inverse);
+	--sl-color-backdrop-overlay: var(--color-overlay-subtle);
+}
+
+/* Component-page layout helpers used by generated pages */
+.hds-strip {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: var(--spacing-sm);
+	padding-block-end: var(--spacing-md);
+	border-block-end: var(--borderwidth-sm) solid var(--sl-color-hairline);
+}
+.hds-strip p {
+	margin: 0;
+}
+.hds-pair {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+	gap: var(--spacing-md);
+}

@@ -1,0 +1,324 @@
+---
+title: "Button"
+description: "Button: usage, examples, code, design and changelog, from horizon-ds at d1860fe."
+tableOfContents: false
+---
+
+import { Tabs, TabItem, Aside, Badge } from '@astrojs/starlight/components';
+
+<div class="hds-strip">
+
+<Badge text="completed" variant="note" /> <Badge text="since 0.1.0" variant="default" /> <Badge text="release review: cleared" variant="success" />
+
+[Storybook](https://horizon-8po5n4k19-tangible7.vercel.app/?path=/story/components-button--default-fill) · [Figma node 280:276](https://www.figma.com/design/l87TswOf2FHCxsYmK8XhHJ/Horizon-Stays-.-Web-.-Component-.-V1.0-.-Draft?node-id=280-276&t=1EQtnjFi1qLgMlGt-1) · [Source](https://github.com/ktdm-than/horizon-ds/tree/d1860feaaa47e0af02a0d0b0f0ac52cba9a7aca2/src/components/Button) · [Release review](https://github.com/ktdm-than/horizon-ds/blob/6ae7c524eda298deb2933079ad191515b877aa44/reviews/Button.md)
+
+</div>
+
+<Tabs>
+<TabItem label="Usage">
+
+## When to use it
+
+- Use a button to trigger actions, events, or main workflows (such as submitting forms, confirming choices, or proceeding to the next step).
+- Buttons should be easy to locate, scan, and understand as actionable items.
+- Buttons can serve as entry points into deeper workflows, dialogs, or page transitions.
+- Buttons can be placed together in a row or grouped logically (such as primary and secondary actions in a footer).
+- Labels should clearly describe the action the button performs, optionally accompanied by leading or trailing icons for added context.
+- Buttons come in different variants (such as filled or outlined) and interactive states (default, hover, focus, disabled) to clearly communicate availability and interactivity.
+
+### Where it goes
+
+<Aside type="caution" title="Where it goes: no story places it">
+No story at `d1860fe` renders Button inside another component, so the intent file's `placement` is empty.
+</Aside>
+### When not to use it
+
+- Don't use buttons for navigation links that take users to a different website or page content (use text links or navigational tabs instead). **Use instead:** text links or navigational tabs.
+- Don't crowd too many high-priority buttons together; avoid having multiple primary buttons side-by-side in the same view.
+- Don't use buttons as static informational tags or badges where no action is performed.
+- Don't rely on icons alone inside a button without an accessible text label or tooltip, unless the icon's meaning is universally understood.
+
+## Best practice
+
+- Adjust button placement and hierarchy so the primary call-to-action remains the main focus on the screen.
+- When designing forms or dialogs, consistently align primary actions (e.g., "Save" or "Submit") and secondary actions (e.g., "Cancel") following platform conventions.
+- Use distinct styles (such as fill vs. outline) to distinguish between primary and secondary actions.
+- Ensure buttons provide clear visual feedback across all states (hover, focus, active, and disabled).
+- Keep button text concise and action-oriented, typically starting with a strong verb.
+- Ensure touch targets on mobile devices are large enough to be easily tapped (minimum recommended size).
+- Support keyboard navigation with clear focus rings around buttons.
+- Maintain consistent spacing around buttons to prevent accidental clicks, especially on dense layouts or mobile screens.
+
+<small>From the Figma usage frame 315:1428, read 2026-11-20.</small>
+
+## What each variant is for
+
+| Prop | Value | What it is for |
+|---|---|---|
+| `state` | `default` | *Not stated in Figma* |
+| `state` | `hover` | *Not stated in Figma* |
+| `state` | `focus` | *Not stated in Figma* |
+| `state` | `disabled` | *Not stated in Figma* |
+| `shape` | `fill` | *Not stated in Figma* |
+| `shape` | `outline` | *Not stated in Figma* |
+| `showLeadingIcon` | `true` | *Not stated in Figma* |
+| `showLeadingIcon` | `false` | *Not stated in Figma* |
+| `showTrailingIcon` | `true` | *Not stated in Figma* |
+| `showTrailingIcon` | `false` | *Not stated in Figma* |
+
+<small>An empty purpose means the Figma usage region does not say what that value is for; see [`docs/intent-gaps.md`](https://github.com/ktdm-than/horizon-ds/blob/d1860feaaa47e0af02a0d0b0f0ac52cba9a7aca2/docs/intent-gaps.md).</small>
+
+## Accessibility
+
+- Renders a native &lt;button&gt; element, so Enter and Space activate it and it is in the tab order. ([`src/components/Button/Button.tsx:62`](https://github.com/ktdm-than/horizon-ds/blob/d1860feaaa47e0af02a0d0b0f0ac52cba9a7aca2/src/components/Button/Button.tsx#L62))
+- type defaults to "button", so it does not submit a surrounding form unless type="submit" is passed. ([`src/components/Button/Button.tsx:55`](https://github.com/ktdm-than/horizon-ds/blob/d1860feaaa47e0af02a0d0b0f0ac52cba9a7aca2/src/components/Button/Button.tsx#L55))
+- The disabled prop or state="disabled" sets the native disabled attribute, which removes it from the tab order and blocks clicks. ([`src/components/Button/Button.tsx:60`](https://github.com/ktdm-than/horizon-ds/blob/d1860feaaa47e0af02a0d0b0f0ac52cba9a7aca2/src/components/Button/Button.tsx#L60))
+- Remaining props, including aria-\* attributes, are spread onto the &lt;button&gt;. ([`src/components/Button/Button.tsx:63`](https://github.com/ktdm-than/horizon-ds/blob/d1860feaaa47e0af02a0d0b0f0ac52cba9a7aca2/src/components/Button/Button.tsx#L63))
+- The accessible name is the label text from children (default "Button"), rendered in a &lt;span&gt;. ([`src/components/Button/Button.tsx:71`](https://github.com/ktdm-than/horizon-ds/blob/d1860feaaa47e0af02a0d0b0f0ac52cba9a7aca2/src/components/Button/Button.tsx#L71))
+- Leading and trailing icons are Material Symbols ligatures in a &lt;span&gt; with aria-hidden="true", so they are not announced. ([`src/components/Button/Button.tsx:40`](https://github.com/ktdm-than/horizon-ds/blob/d1860feaaa47e0af02a0d0b0f0ac52cba9a7aca2/src/components/Button/Button.tsx#L40))
+- Keyboard focus (:focus-visible) removes the browser outline and shows focus only as a background colour (fill) or border colour (outline) change. ([`src/components/Button/Button.css:93`](https://github.com/ktdm-than/horizon-ds/blob/d1860feaaa47e0af02a0d0b0f0ac52cba9a7aca2/src/components/Button/Button.css#L93))
+- There is no loading or pressed state and no aria-busy or aria-pressed handling. ([`src/components/Button/Button.tsx:8`](https://github.com/ktdm-than/horizon-ds/blob/d1860feaaa47e0af02a0d0b0f0ac52cba9a7aca2/src/components/Button/Button.tsx#L8))
+
+## Composition
+
+<Aside type="caution" title="Composes is empty on the board">
+The registry's `Composes` column for Button is empty.
+</Aside>
+## What this version promises
+
+The package is `0.1.0` in `package.json` at `d1860fe`. From [`VERSIONING.md`](https://github.com/ktdm-than/horizon-ds/blob/d1860feaaa47e0af02a0d0b0f0ac52cba9a7aca2/VERSIONING.md):
+
+The package is `0.x`. While it is:
+
+- **Minor** (`0.1.0` → `0.2.0`) for any addition, and for any change that would be major after
+  1.0.0. A breaking change in a minor bump is listed under Changed or Removed in the changelog,
+  with what to change in consumer code.
+- **Patch** (`0.2.0` → `0.2.1`) only for fixes, as defined above.
+
+Going to **1.0.0** is a human decision, not one a release run makes.
+
+This component's props, its exported types, the semantic tokens it uses and the stylesheet entry points are the public API that promise covers. Class names inside the markup (`hds-*`) are not.
+
+</TabItem>
+<TabItem label="Examples">
+
+## The common case
+
+From the README at `d1860fe`:
+
+```tsx
+import { Button, Card } from '@morethanthings/horizon-ds';
+
+export function Listing() {
+  return (
+    <Card image={{ src: '/casa.jpg', alt: 'Casa do Bairro' }} text={{ title: 'Casa do Bairro' }}>
+      <Button shape="outline" showLeadingIcon={false} showTrailingIcon={false}>
+        View
+      </Button>
+    </Card>
+  );
+}
+```
+
+## Stories
+
+Every story that is not a variant-matrix row, rendered live from [Storybook](https://horizon-8po5n4k19-tangible7.vercel.app) in light and dark. If a frame stays blank, see [Embedding](/help/embedding/).
+
+### Button / showLeadingIcon=false
+
+<div class="hds-pair">
+<iframe src="https://horizon-8po5n4k19-tangible7.vercel.app/iframe.html?id=components-button--no-leading-icon&viewMode=story&globals=theme:light" title="Button / showLeadingIcon=false (light)" loading="lazy" style="width:100%;height:260px;border:1px solid var(--sl-color-hairline);border-radius:var(--borderradius-sm)"></iframe>
+<iframe src="https://horizon-8po5n4k19-tangible7.vercel.app/iframe.html?id=components-button--no-leading-icon&viewMode=story&globals=theme:dark" title="Button / showLeadingIcon=false (dark)" loading="lazy" style="width:100%;height:260px;border:1px solid var(--sl-color-hairline);border-radius:var(--borderradius-sm)"></iframe>
+</div>
+
+<small>[Open in Storybook](https://horizon-8po5n4k19-tangible7.vercel.app/?path=/story/components-button--no-leading-icon)</small>
+
+### Button / showTrailingIcon=false
+
+<div class="hds-pair">
+<iframe src="https://horizon-8po5n4k19-tangible7.vercel.app/iframe.html?id=components-button--no-trailing-icon&viewMode=story&globals=theme:light" title="Button / showTrailingIcon=false (light)" loading="lazy" style="width:100%;height:260px;border:1px solid var(--sl-color-hairline);border-radius:var(--borderradius-sm)"></iframe>
+<iframe src="https://horizon-8po5n4k19-tangible7.vercel.app/iframe.html?id=components-button--no-trailing-icon&viewMode=story&globals=theme:dark" title="Button / showTrailingIcon=false (dark)" loading="lazy" style="width:100%;height:260px;border:1px solid var(--sl-color-hairline);border-radius:var(--borderradius-sm)"></iframe>
+</div>
+
+<small>[Open in Storybook](https://horizon-8po5n4k19-tangible7.vercel.app/?path=/story/components-button--no-trailing-icon)</small>
+
+### Button / showLeadingIcon=false, showTrailingIcon=false
+
+<div class="hds-pair">
+<iframe src="https://horizon-8po5n4k19-tangible7.vercel.app/iframe.html?id=components-button--label-only&viewMode=story&globals=theme:light" title="Button / showLeadingIcon=false, showTrailingIcon=false (light)" loading="lazy" style="width:100%;height:260px;border:1px solid var(--sl-color-hairline);border-radius:var(--borderradius-sm)"></iframe>
+<iframe src="https://horizon-8po5n4k19-tangible7.vercel.app/iframe.html?id=components-button--label-only&viewMode=story&globals=theme:dark" title="Button / showLeadingIcon=false, showTrailingIcon=false (dark)" loading="lazy" style="width:100%;height:260px;border:1px solid var(--sl-color-hairline);border-radius:var(--borderradius-sm)"></iframe>
+</div>
+
+<small>[Open in Storybook](https://horizon-8po5n4k19-tangible7.vercel.app/?path=/story/components-button--label-only)</small>
+
+### Button / interactive (hover, focus, click, disabled)
+
+<div class="hds-pair">
+<iframe src="https://horizon-8po5n4k19-tangible7.vercel.app/iframe.html?id=components-button--interactive&viewMode=story&globals=theme:light" title="Button / interactive (hover, focus, click, disabled) (light)" loading="lazy" style="width:100%;height:260px;border:1px solid var(--sl-color-hairline);border-radius:var(--borderradius-sm)"></iframe>
+<iframe src="https://horizon-8po5n4k19-tangible7.vercel.app/iframe.html?id=components-button--interactive&viewMode=story&globals=theme:dark" title="Button / interactive (hover, focus, click, disabled) (dark)" loading="lazy" style="width:100%;height:260px;border:1px solid var(--sl-color-hairline);border-radius:var(--borderradius-sm)"></iframe>
+</div>
+
+<small>[Open in Storybook](https://horizon-8po5n4k19-tangible7.vercel.app/?path=/story/components-button--interactive)</small>
+
+</TabItem>
+<TabItem label="Code">
+
+## Import
+
+```tsx
+import { Button } from '@morethanthings/horizon-ds';
+```
+
+Load the styles once, at your app root (README):
+
+```ts
+import '@morethanthings/horizon-ds/tokens.css';
+import '@morethanthings/horizon-ds/fonts.css';
+import '@morethanthings/horizon-ds/styles.css';
+```
+
+## Props
+
+### Button
+
+| Prop | Type | Default | Description |
+|---|---|---|---|
+| `state` | `ButtonState` | `'default'` | Figma `state`. Pins a look for documentation and testing. Real pointer hover, keyboard focus (`:focus-visible`) and the native `disabled` attribute apply the same looks on their own, so leave this at `default` in product code. `disabled` here also disables the button natively. |
+| `shape` | `ButtonShape` | `'fill'` | Figma `shape`: `fill` (primary background) or `outline` (stroked, transparent background). |
+| `showLeadingIcon` | `boolean` | `true` | Figma `showLeadingIcon`. Shows the icon before the label. Figma default: true. |
+| `showTrailingIcon` | `boolean` | `true` | Figma `showTrailingIcon`. Shows the icon after the label. Figma default: true. |
+| `leadingIcon` | `string` | `'add'` | Code only (Figma has no instance-swap property for it): Material Symbols name of the leading icon. Default `add`, the Material equivalent of Figma's "+" glyph. |
+| `trailingIcon` | `string` | `'add'` | Code only, as `leadingIcon`: Material Symbols name of the trailing icon. Default `add`. |
+| `children` | `ReactNode` | `'Button'` | The label. Figma models it as the text layer "Button", not as a component property. |
+
+Also takes every native `<button>` attribute (`onClick`, `type`, `disabled`, `aria-*`, …). Source: [`src/components/Button/Button.tsx`](https://github.com/ktdm-than/horizon-ds/blob/d1860feaaa47e0af02a0d0b0f0ac52cba9a7aca2/src/components/Button/Button.tsx#L11).
+
+## Types
+
+| Type | Values |
+|---|---|
+| `ButtonState` | `'default' \| 'hover' \| 'focus' \| 'disabled'` |
+| `ButtonShape` | `'fill' \| 'outline'` |
+
+## Tokens it needs
+
+From the intent files' `required_tokens`, with values from `build/css/` built at `d1860fe`. Dark is the `[data-theme="dark"]` value; English and Burmese are the typography modes.
+
+| Token | Light | Dark | Burmese |
+|---|---|---|---|
+| `--spacing-sm` | `8px` | *same as light* | *same as light* |
+| `--spacing-xl` | `24px` | *same as light* | *same as light* |
+| `--borderwidth-sm` | `1px` | *same as light* | *same as light* |
+| `--borderradius-sm` | `8px` | *same as light* | *same as light* |
+| `--action-button1` | `600 16px/24px Inter` | *same as light* | `600 16px/28px 'Noto Sans Myanmar'` |
+| `--fontsize-xl` | `20px` | *same as light* | `20px` |
+| `--lineheight-sm` | `20px` | *same as light* | `24px` |
+| `--color-bg-primary-idle` | `#0b64f4` | `#0b64f4` | *same as light* |
+| `--color-text-inverse` | `#fefefe` | `#fefefe` | *same as light* |
+| `--color-border-brand-light` | `#8fb8fa` | `#8fb8fa` | *same as light* |
+| `--color-bg-primary-hovered` | `#3c83f6` | `#3c83f6` | *same as light* |
+| `--color-bg-primary-focused` | `#3c83f6` | `#3c83f6` | *same as light* |
+| `--color-border-primary` | `#a1a7b2` | `#a1a7b2` | *same as light* |
+| `--color-text-primary` | `#3f444d` | `#3f444d` | *same as light* |
+| `--color-border-inverse` | `#1a1d20` | `#1a1d20` | *same as light* |
+| `--color-border-brand-bold` | `#3c83f6` | `#3c83f6` | *same as light* |
+| `--color-text-disabled` | `#8f96a3` | `#8f96a3` | *same as light* |
+| `--color-bg-disabled` | `#bfc3ca` | `#bfc3ca` | *same as light* |
+
+<Aside type="caution" title="Dark values equal light">
+11 of the colour tokens above have the same value in dark as in light at `d1860fe`. That is what the token build ships; it is a design gap to close in Figma, not here.
+</Aside>
+## The full API, in Storybook
+
+<iframe src="https://horizon-8po5n4k19-tangible7.vercel.app/?path=/story/components-button--default-fill" title="Button in Storybook" loading="lazy" style="width:100%;height:520px;border:1px solid var(--sl-color-hairline);border-radius:var(--borderradius-sm)"></iframe>
+
+<small>Storybook's own controls and props panel. If it stays blank, see [Embedding](/help/embedding/).</small>
+
+</TabItem>
+<TabItem label="Design">
+
+## The Figma node
+
+<iframe src="https://www.figma.com/embed?embed_host=horizon-docs&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2Fl87TswOf2FHCxsYmK8XhHJ%2FHorizon-Stays-.-Web-.-Component-.-V1.0-.-Draft%3Fnode-id%3D280-276%26t%3D1EQtnjFi1qLgMlGt-1" title="Button in Figma" loading="lazy" style="width:100%;height:480px;border:1px solid var(--sl-color-hairline);border-radius:var(--borderradius-sm)"></iframe>
+
+<small>The Figma file is shared with the team only; outside viewers see a sign-in prompt. [Open node 280:276](https://www.figma.com/design/l87TswOf2FHCxsYmK8XhHJ/Horizon-Stays-.-Web-.-Component-.-V1.0-.-Draft?node-id=280-276&t=1EQtnjFi1qLgMlGt-1).</small>
+
+![Button in Figma, read 2026-11-20](/figma/button-280-276.png)
+
+## The variant matrix
+
+### Button <small>(Figma 280:276)</small>
+
+| Figma variant | Node | Story |
+|---|---|---|
+| state=default, shape=fill | 280:256 | [`components-button--default-fill`](https://horizon-8po5n4k19-tangible7.vercel.app/?path=/story/components-button--default-fill) |
+| state=hover, shape=fill | 280:277 | [`components-button--hover-fill`](https://horizon-8po5n4k19-tangible7.vercel.app/?path=/story/components-button--hover-fill) |
+| state=focus, shape=fill | 280:285 | [`components-button--focus-fill`](https://horizon-8po5n4k19-tangible7.vercel.app/?path=/story/components-button--focus-fill) |
+| state=disabled, shape=fill | 280:292 | [`components-button--disabled-fill`](https://horizon-8po5n4k19-tangible7.vercel.app/?path=/story/components-button--disabled-fill) |
+| state=default, shape=outline | 280:333 | [`components-button--default-outline`](https://horizon-8po5n4k19-tangible7.vercel.app/?path=/story/components-button--default-outline) |
+| state=hover, shape=outline | 280:339 | [`components-button--hover-outline`](https://horizon-8po5n4k19-tangible7.vercel.app/?path=/story/components-button--hover-outline) |
+| state=focus, shape=outline | 280:347 | [`components-button--focus-outline`](https://horizon-8po5n4k19-tangible7.vercel.app/?path=/story/components-button--focus-outline) |
+| state=disabled, shape=outline | 280:353 | [`components-button--disabled-outline`](https://horizon-8po5n4k19-tangible7.vercel.app/?path=/story/components-button--disabled-outline) |
+
+## Both themes
+
+<div class="hds-pair">
+<iframe src="https://horizon-8po5n4k19-tangible7.vercel.app/iframe.html?id=components-button--default-fill&viewMode=story&globals=theme:light" title="Button / state=default, shape=fill (light)" loading="lazy" style="width:100%;height:260px;border:1px solid var(--sl-color-hairline);border-radius:var(--borderradius-sm)"></iframe>
+<iframe src="https://horizon-8po5n4k19-tangible7.vercel.app/iframe.html?id=components-button--default-fill&viewMode=story&globals=theme:dark" title="Button / state=default, shape=fill (dark)" loading="lazy" style="width:100%;height:260px;border:1px solid var(--sl-color-hairline);border-radius:var(--borderradius-sm)"></iframe>
+</div>
+
+<small>`components-button--default-fill`, light then dark.</small>
+
+## What Figma never bound
+
+| Node | What | Value | Note |
+|---|---|---|---|
+| 280:256 | Height | `42px` | Fixed height with no variable bound. Padding, gap, radius, colours and type on the same node are bound. |
+
+<small>Read live from Figma 2026-11-20.</small>
+
+## Recorded design gaps
+
+From [`docs/intent-gaps.md`](https://github.com/ktdm-than/horizon-ds/blob/d1860feaaa47e0af02a0d0b0f0ac52cba9a7aca2/docs/intent-gaps.md):
+
+| Component | Empty field(s) | Missing source |
+|---|---|---|
+| Button | `variant_intent.*.purpose` (state, shape, showLeadingIcon, showTrailingIcon) | The Usage frame (315:1428) names the variants only collectively ("Buttons come in different variants (such as filled or outlined) and interactive states (default, hover, focus, disabled)…"; Best Practice: "Use distinct styles (such as fill vs. outline) to distinguish between primary and secondary actions."). It never says which value is for what, so no per-value purpose was transposed. A designer should state what `fill` and `outline` (and each state, and the icon toggles) are for. |
+| Button | `placement`, `pairs_with` | Every Button story renders Button alone (or beside other Buttons, in Interactive). No story places it in another component. |
+
+From the build report [`docs/button-build-report.md`](https://github.com/ktdm-than/horizon-ds/blob/d1860feaaa47e0af02a0d0b0f0ac52cba9a7aca2/docs/button-build-report.md):
+
+| # | What | Figma | What the code does |
+|---|---|---|---|
+| G1 | Height | fixed 42, no token | derived from bound tokens: line-height 24 + 2 × `spacing/sm` + 2 × `borderWidth/sm` = 42. Fill carries a transparent stroke so both shapes match |
+| G2 | Icon size | **Resolved 2026-11-20.** Figma's LeadingIcon/TrailingIcon hold a Material Symbols Rounded `add` glyph: font size bound to `fontSize/xl`, line height to `lineHeight/sm`, padding `spacing/none` | `--fontsize-xl` and `--lineheight-sm`. `lineheight-sm` is 24px in Burmese, so the glyph sits about 2px low there (owner's choice) |
+| G3 | Icon colour tokens | icon strokes bound to `color/border/brand/light`, `color/border/inverse`, `color/border/primary` | used exactly as bound. Design may want the `color/icon/*` family instead |
+| G4 | Icon stroke weight | **Resolved 2026-11-20.** The Figma vector was replaced by the Material Symbols glyph, so there's no separate stroke weight | Material Symbols `add` at its default weight, same as Figma |
+| G5 | Pressed and loading states | not in the component set | not styled. No `loading` prop |
+| G6 | Icon glyph swap | no instance-swap property; always "+" | `leadingIcon` / `trailingIcon` props (code only, default `add`) so consumers can pick a Material Symbol |
+
+</TabItem>
+<TabItem label="Changelog">
+
+Every commit that touched `src/components/Button/` (the component and its parts) up to `d1860fe`, newest first. Released in = the first `v*` tag that contains the commit.
+
+| Date | Commit | Subject | Released in |
+|---|---|---|---|
+| 2026-11-20 | [`b3aebb2`](https://github.com/ktdm-than/horizon-ds/commit/b3aebb241d388e8b764d4f3c8aaeb12e2f0d057d) | docs(button): re-point a11y sources and add lineheight-sm to intent | 0.1.0 |
+| 2026-11-20 | [`72fe325`](https://github.com/ktdm-than/horizon-ds/commit/72fe325ad683cae4ef0bf93c5c249358c35b26c5) | fix(button): take the icon line height from --lineheight-sm | 0.1.0 |
+| 2026-11-20 | [`b4d50e9`](https://github.com/ktdm-than/horizon-ds/commit/b4d50e91ef3b12e1ed0e52c95f671cde0d42e4a5) | docs(button): mark icon size gap resolved after Figma switch to Material Symbols | 0.1.0 |
+| 2026-11-20 | [`7e123c1`](https://github.com/ktdm-than/horizon-ds/commit/7e123c1f8d1f8be5f053fc9d5faf5f2609b9c9f7) | docs(button): drop defaul typo notes after Figma rename | 0.1.0 |
+| 2026-11-20 | [`cc3377e`](https://github.com/ktdm-than/horizon-ds/commit/cc3377ef0349bb6c2f16cfa90925074f31c79705) | fix(button): put icon line-height on a font token | 0.1.0 |
+| 2026-11-20 | [`091ed8a`](https://github.com/ktdm-than/horizon-ds/commit/091ed8a1134736e8f5c742e257d0934b182a333d) | docs(button,card): add best practice to intent | 0.1.0 |
+| 2026-11-18 | [`40e2c39`](https://github.com/ktdm-than/horizon-ds/commit/40e2c39e9f44fce2c90dc28fb36327dfda6b8079) | docs(button,card): refresh intent from the new Figma usage frames | 0.1.0 |
+| 2026-11-18 | [`0d86c67`](https://github.com/ktdm-than/horizon-ds/commit/0d86c67576f5ac848ae49ea4138239a9165443d4) | docs(button,card): write intent | 0.1.0 |
+| 2026-11-17 | [`5c8b539`](https://github.com/ktdm-than/horizon-ds/commit/5c8b539a3fa4b88b01ebea95cab3467be1d66ede) | Package | 0.1.0 |
+| 2026-10-25 | [`59e8717`](https://github.com/ktdm-than/horizon-ds/commit/59e871710ce7e0091ae82ac175436b5ed96de21f) | feat(button): rebuild Button from Figma Btn 280:276 | 0.1.0 |
+| 2026-10-25 | [`14af562`](https://github.com/ktdm-than/horizon-ds/commit/14af562f7943875dfb35914fa53cf0ce52dc2b58) | feat(button): add Button from Figma Btn 268:245 | 0.1.0 |
+
+</TabItem>
+</Tabs>
+
+---
+
+<small>Generated by `docs-site/scripts/generate.mjs` from [`d1860fe`](https://github.com/ktdm-than/horizon-ds/commit/d1860feaaa47e0af02a0d0b0f0ac52cba9a7aca2) (2026-11-20), `data/board.json` and `data/figma.json` read 2026-11-20. Do not edit this page by hand.</small>

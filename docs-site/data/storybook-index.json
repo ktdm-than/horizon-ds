@@ -1,0 +1,789 @@
+{
+ "fetchedAt": "2026-11-20",
+ "fetchedFrom": [
+  "https://horizon-8po5n4k19-tangible7.vercel.app/index.json",
+  "https://horizon-hxmbwpzyg-tangible7.vercel.app/index.json"
+ ],
+ "note": "Both Production Storybook deployments in the registry served this same index.json (etag f993c5d09d2ce2f75952c557dd407d8e).",
+ "v": 5,
+ "entries": {
+  "tokens-core-colours--palette": {
+   "type": "story",
+   "subtype": "story",
+   "id": "tokens-core-colours--palette",
+   "name": "Palette",
+   "title": "Tokens/Core Colours",
+   "importPath": "./stories/Colours.stories.js",
+   "tags": [
+    "dev",
+    "test",
+    "manifest"
+   ],
+   "exportName": "Palette"
+  },
+  "tokens-semantic-colours--background": {
+   "type": "story",
+   "subtype": "story",
+   "id": "tokens-semantic-colours--background",
+   "name": "Background",
+   "title": "Tokens/Semantic Colours",
+   "importPath": "./stories/SemanticColours.stories.js",
+   "tags": [
+    "dev",
+    "test",
+    "manifest"
+   ],
+   "exportName": "Background"
+  },
+  "tokens-semantic-colours--text": {
+   "type": "story",
+   "subtype": "story",
+   "id": "tokens-semantic-colours--text",
+   "name": "Text",
+   "title": "Tokens/Semantic Colours",
+   "importPath": "./stories/SemanticColours.stories.js",
+   "tags": [
+    "dev",
+    "test",
+    "manifest"
+   ],
+   "exportName": "Text"
+  },
+  "tokens-semantic-colours--icon": {
+   "type": "story",
+   "subtype": "story",
+   "id": "tokens-semantic-colours--icon",
+   "name": "Icon",
+   "title": "Tokens/Semantic Colours",
+   "importPath": "./stories/SemanticColours.stories.js",
+   "tags": [
+    "dev",
+    "test",
+    "manifest"
+   ],
+   "exportName": "Icon"
+  },
+  "tokens-semantic-colours--border": {
+   "type": "story",
+   "subtype": "story",
+   "id": "tokens-semantic-colours--border",
+   "name": "Border",
+   "title": "Tokens/Semantic Colours",
+   "importPath": "./stories/SemanticColours.stories.js",
+   "tags": [
+    "dev",
+    "test",
+    "manifest"
+   ],
+   "exportName": "Border"
+  },
+  "tokens-semantic-colours--overlay": {
+   "type": "story",
+   "subtype": "story",
+   "id": "tokens-semantic-colours--overlay",
+   "name": "Overlay",
+   "title": "Tokens/Semantic Colours",
+   "importPath": "./stories/SemanticColours.stories.js",
+   "tags": [
+    "dev",
+    "test",
+    "manifest"
+   ],
+   "exportName": "Overlay"
+  },
+  "tokens-typography--text-styles": {
+   "type": "story",
+   "subtype": "story",
+   "id": "tokens-typography--text-styles",
+   "name": "Text styles",
+   "title": "Tokens/Typography",
+   "importPath": "./stories/Typography.stories.js",
+   "tags": [
+    "dev",
+    "test",
+    "manifest"
+   ],
+   "exportName": "TextStyles"
+  },
+  "tokens-typography--font-sizes": {
+   "type": "story",
+   "subtype": "story",
+   "id": "tokens-typography--font-sizes",
+   "name": "Font Sizes",
+   "title": "Tokens/Typography",
+   "importPath": "./stories/Typography.stories.js",
+   "tags": [
+    "dev",
+    "test",
+    "manifest"
+   ],
+   "exportName": "FontSizes"
+  },
+  "tokens-typography--line-heights": {
+   "type": "story",
+   "subtype": "story",
+   "id": "tokens-typography--line-heights",
+   "name": "Line Heights",
+   "title": "Tokens/Typography",
+   "importPath": "./stories/Typography.stories.js",
+   "tags": [
+    "dev",
+    "test",
+    "manifest"
+   ],
+   "exportName": "LineHeights"
+  },
+  "tokens-typography--font-weights": {
+   "type": "story",
+   "subtype": "story",
+   "id": "tokens-typography--font-weights",
+   "name": "Font Weights",
+   "title": "Tokens/Typography",
+   "importPath": "./stories/Typography.stories.js",
+   "tags": [
+    "dev",
+    "test",
+    "manifest"
+   ],
+   "exportName": "FontWeights"
+  },
+  "tokens-typography--font-families": {
+   "type": "story",
+   "subtype": "story",
+   "id": "tokens-typography--font-families",
+   "name": "Font Families",
+   "title": "Tokens/Typography",
+   "importPath": "./stories/Typography.stories.js",
+   "tags": [
+    "dev",
+    "test",
+    "manifest"
+   ],
+   "exportName": "FontFamilies"
+  },
+  "tokens-typography--other": {
+   "type": "story",
+   "subtype": "story",
+   "id": "tokens-typography--other",
+   "name": "Other",
+   "title": "Tokens/Typography",
+   "importPath": "./stories/Typography.stories.js",
+   "tags": [
+    "dev",
+    "test",
+    "manifest"
+   ],
+   "exportName": "Other"
+  },
+  "tokens-spacing--scale": {
+   "type": "story",
+   "subtype": "story",
+   "id": "tokens-spacing--scale",
+   "name": "Scale",
+   "title": "Tokens/Spacing",
+   "importPath": "./stories/Spacing.stories.js",
+   "tags": [
+    "dev",
+    "test",
+    "manifest"
+   ],
+   "exportName": "Scale"
+  },
+  "tokens-border--radius": {
+   "type": "story",
+   "subtype": "story",
+   "id": "tokens-border--radius",
+   "name": "Radius",
+   "title": "Tokens/Border",
+   "importPath": "./stories/Border.stories.js",
+   "tags": [
+    "dev",
+    "test",
+    "manifest"
+   ],
+   "exportName": "Radius"
+  },
+  "tokens-border--width": {
+   "type": "story",
+   "subtype": "story",
+   "id": "tokens-border--width",
+   "name": "Width",
+   "title": "Tokens/Border",
+   "importPath": "./stories/Border.stories.js",
+   "tags": [
+    "dev",
+    "test",
+    "manifest"
+   ],
+   "exportName": "Width"
+  },
+  "tokens-elevation--levels": {
+   "type": "story",
+   "subtype": "story",
+   "id": "tokens-elevation--levels",
+   "name": "Levels",
+   "title": "Tokens/Elevation",
+   "importPath": "./stories/Elevation.stories.js",
+   "tags": [
+    "dev",
+    "test",
+    "manifest"
+   ],
+   "exportName": "Levels"
+  },
+  "tokens-gradient--gradients": {
+   "type": "story",
+   "subtype": "story",
+   "id": "tokens-gradient--gradients",
+   "name": "Gradients",
+   "title": "Tokens/Gradient",
+   "importPath": "./stories/Gradient.stories.js",
+   "tags": [
+    "dev",
+    "test",
+    "manifest"
+   ],
+   "exportName": "Gradients"
+  },
+  "tokens-all-tokens--table": {
+   "type": "story",
+   "subtype": "story",
+   "id": "tokens-all-tokens--table",
+   "name": "Table",
+   "title": "Tokens/All Tokens",
+   "importPath": "./stories/AllTokens.stories.js",
+   "tags": [
+    "dev",
+    "test",
+    "manifest"
+   ],
+   "exportName": "Table"
+  },
+  "components-button--default-fill": {
+   "type": "story",
+   "subtype": "story",
+   "id": "components-button--default-fill",
+   "name": "Button / state=default, shape=fill",
+   "title": "Components/Button",
+   "importPath": "./src/components/Button/Button.stories.tsx",
+   "componentPath": "./src/components/Button/Button.tsx",
+   "tags": [
+    "dev",
+    "test",
+    "manifest"
+   ],
+   "exportName": "DefaultFill"
+  },
+  "components-button--hover-fill": {
+   "type": "story",
+   "subtype": "story",
+   "id": "components-button--hover-fill",
+   "name": "Button / state=hover, shape=fill",
+   "title": "Components/Button",
+   "importPath": "./src/components/Button/Button.stories.tsx",
+   "componentPath": "./src/components/Button/Button.tsx",
+   "tags": [
+    "dev",
+    "test",
+    "manifest"
+   ],
+   "exportName": "HoverFill"
+  },
+  "components-button--focus-fill": {
+   "type": "story",
+   "subtype": "story",
+   "id": "components-button--focus-fill",
+   "name": "Button / state=focus, shape=fill",
+   "title": "Components/Button",
+   "importPath": "./src/components/Button/Button.stories.tsx",
+   "componentPath": "./src/components/Button/Button.tsx",
+   "tags": [
+    "dev",
+    "test",
+    "manifest"
+   ],
+   "exportName": "FocusFill"
+  },
+  "components-button--disabled-fill": {
+   "type": "story",
+   "subtype": "story",
+   "id": "components-button--disabled-fill",
+   "name": "Button / state=disabled, shape=fill",
+   "title": "Components/Button",
+   "importPath": "./src/components/Button/Button.stories.tsx",
+   "componentPath": "./src/components/Button/Button.tsx",
+   "tags": [
+    "dev",
+    "test",
+    "manifest"
+   ],
+   "exportName": "DisabledFill"
+  },
+  "components-button--default-outline": {
+   "type": "story",
+   "subtype": "story",
+   "id": "components-button--default-outline",
+   "name": "Button / state=default, shape=outline",
+   "title": "Components/Button",
+   "importPath": "./src/components/Button/Button.stories.tsx",
+   "componentPath": "./src/components/Button/Button.tsx",
+   "tags": [
+    "dev",
+    "test",
+    "manifest"
+   ],
+   "exportName": "DefaultOutline"
+  },
+  "components-button--hover-outline": {
+   "type": "story",
+   "subtype": "story",
+   "id": "components-button--hover-outline",
+   "name": "Button / state=hover, shape=outline",
+   "title": "Components/Button",
+   "importPath": "./src/components/Button/Button.stories.tsx",
+   "componentPath": "./src/components/Button/Button.tsx",
+   "tags": [
+    "dev",
+    "test",
+    "manifest"
+   ],
+   "exportName": "HoverOutline"
+  },
+  "components-button--focus-outline": {
+   "type": "story",
+   "subtype": "story",
+   "id": "components-button--focus-outline",
+   "name": "Button / state=focus, shape=outline",
+   "title": "Components/Button",
+   "importPath": "./src/components/Button/Button.stories.tsx",
+   "componentPath": "./src/components/Button/Button.tsx",
+   "tags": [
+    "dev",
+    "test",
+    "manifest"
+   ],
+   "exportName": "FocusOutline"
+  },
+  "components-button--disabled-outline": {
+   "type": "story",
+   "subtype": "story",
+   "id": "components-button--disabled-outline",
+   "name": "Button / state=disabled, shape=outline",
+   "title": "Components/Button",
+   "importPath": "./src/components/Button/Button.stories.tsx",
+   "componentPath": "./src/components/Button/Button.tsx",
+   "tags": [
+    "dev",
+    "test",
+    "manifest"
+   ],
+   "exportName": "DisabledOutline"
+  },
+  "components-button--no-leading-icon": {
+   "type": "story",
+   "subtype": "story",
+   "id": "components-button--no-leading-icon",
+   "name": "Button / showLeadingIcon=false",
+   "title": "Components/Button",
+   "importPath": "./src/components/Button/Button.stories.tsx",
+   "componentPath": "./src/components/Button/Button.tsx",
+   "tags": [
+    "dev",
+    "test",
+    "manifest"
+   ],
+   "exportName": "NoLeadingIcon"
+  },
+  "components-button--no-trailing-icon": {
+   "type": "story",
+   "subtype": "story",
+   "id": "components-button--no-trailing-icon",
+   "name": "Button / showTrailingIcon=false",
+   "title": "Components/Button",
+   "importPath": "./src/components/Button/Button.stories.tsx",
+   "componentPath": "./src/components/Button/Button.tsx",
+   "tags": [
+    "dev",
+    "test",
+    "manifest"
+   ],
+   "exportName": "NoTrailingIcon"
+  },
+  "components-button--label-only": {
+   "type": "story",
+   "subtype": "story",
+   "id": "components-button--label-only",
+   "name": "Button / showLeadingIcon=false, showTrailingIcon=false",
+   "title": "Components/Button",
+   "importPath": "./src/components/Button/Button.stories.tsx",
+   "componentPath": "./src/components/Button/Button.tsx",
+   "tags": [
+    "dev",
+    "test",
+    "manifest"
+   ],
+   "exportName": "LabelOnly"
+  },
+  "components-button--interactive": {
+   "type": "story",
+   "subtype": "story",
+   "id": "components-button--interactive",
+   "name": "Button / interactive (hover, focus, click, disabled)",
+   "title": "Components/Button",
+   "importPath": "./src/components/Button/Button.stories.tsx",
+   "componentPath": "./src/components/Button/Button.tsx",
+   "tags": [
+    "dev",
+    "test",
+    "manifest",
+    "play-fn"
+   ],
+   "exportName": "Interactive"
+  },
+  "components-card-card--card-default": {
+   "type": "story",
+   "subtype": "story",
+   "id": "components-card-card--card-default",
+   "name": "Card / showContentSlot=true",
+   "title": "Components/Card/Card",
+   "importPath": "./src/components/Card/Card.stories.tsx",
+   "componentPath": "./src/components/Card/Card.tsx",
+   "tags": [
+    "dev",
+    "test",
+    "manifest"
+   ],
+   "exportName": "CardDefault"
+  },
+  "components-card-card--card-no-slot": {
+   "type": "story",
+   "subtype": "story",
+   "id": "components-card-card--card-no-slot",
+   "name": "Card / showContentSlot=false",
+   "title": "Components/Card/Card",
+   "importPath": "./src/components/Card/Card.stories.tsx",
+   "componentPath": "./src/components/Card/Card.tsx",
+   "tags": [
+    "dev",
+    "test",
+    "manifest"
+   ],
+   "exportName": "CardNoSlot"
+  },
+  "components-card-cardcontainer--container-idle": {
+   "type": "story",
+   "subtype": "story",
+   "id": "components-card-cardcontainer--container-idle",
+   "name": "CardContainer / state=idle",
+   "title": "Components/Card/CardContainer",
+   "importPath": "./src/components/Card/CardContainer.stories.tsx",
+   "componentPath": "./src/components/Card/CardContainer.tsx",
+   "tags": [
+    "dev",
+    "test",
+    "manifest"
+   ],
+   "exportName": "ContainerIdle"
+  },
+  "components-card-cardcontainer--container-hover": {
+   "type": "story",
+   "subtype": "story",
+   "id": "components-card-cardcontainer--container-hover",
+   "name": "CardContainer / state=hover",
+   "title": "Components/Card/CardContainer",
+   "importPath": "./src/components/Card/CardContainer.stories.tsx",
+   "componentPath": "./src/components/Card/CardContainer.tsx",
+   "tags": [
+    "dev",
+    "test",
+    "manifest"
+   ],
+   "exportName": "ContainerHover"
+  },
+  "components-card-cardimage--image-11-idle": {
+   "type": "story",
+   "subtype": "story",
+   "id": "components-card-cardimage--image-11-idle",
+   "name": "CardImage / ratio=1:1, state=idle",
+   "title": "Components/Card/CardImage",
+   "importPath": "./src/components/Card/CardImage.stories.tsx",
+   "componentPath": "./src/components/Card/CardImage.tsx",
+   "tags": [
+    "dev",
+    "test",
+    "manifest"
+   ],
+   "exportName": "Image11Idle"
+  },
+  "components-card-cardimage--image-11-hover": {
+   "type": "story",
+   "subtype": "story",
+   "id": "components-card-cardimage--image-11-hover",
+   "name": "CardImage / ratio=1:1, state=hover",
+   "title": "Components/Card/CardImage",
+   "importPath": "./src/components/Card/CardImage.stories.tsx",
+   "componentPath": "./src/components/Card/CardImage.tsx",
+   "tags": [
+    "dev",
+    "test",
+    "manifest"
+   ],
+   "exportName": "Image11Hover"
+  },
+  "components-card-cardimage--image-43-idle": {
+   "type": "story",
+   "subtype": "story",
+   "id": "components-card-cardimage--image-43-idle",
+   "name": "CardImage / ratio=4:3, state=idle",
+   "title": "Components/Card/CardImage",
+   "importPath": "./src/components/Card/CardImage.stories.tsx",
+   "componentPath": "./src/components/Card/CardImage.tsx",
+   "tags": [
+    "dev",
+    "test",
+    "manifest"
+   ],
+   "exportName": "Image43Idle"
+  },
+  "components-card-cardimage--image-43-hover": {
+   "type": "story",
+   "subtype": "story",
+   "id": "components-card-cardimage--image-43-hover",
+   "name": "CardImage / ratio=4:3, state=hover",
+   "title": "Components/Card/CardImage",
+   "importPath": "./src/components/Card/CardImage.stories.tsx",
+   "componentPath": "./src/components/Card/CardImage.tsx",
+   "tags": [
+    "dev",
+    "test",
+    "manifest"
+   ],
+   "exportName": "Image43Hover"
+  },
+  "components-card-cardimage--image-no-icon-btn": {
+   "type": "story",
+   "subtype": "story",
+   "id": "components-card-cardimage--image-no-icon-btn",
+   "name": "CardImage / showIconBtn=false",
+   "title": "Components/Card/CardImage",
+   "importPath": "./src/components/Card/CardImage.stories.tsx",
+   "componentPath": "./src/components/Card/CardImage.tsx",
+   "tags": [
+    "dev",
+    "test",
+    "manifest"
+   ],
+   "exportName": "ImageNoIconBtn"
+  },
+  "components-card-cardlayout--layout-horizontal": {
+   "type": "story",
+   "subtype": "story",
+   "id": "components-card-cardlayout--layout-horizontal",
+   "name": "CardLayout / orientation=horizontal",
+   "title": "Components/Card/CardLayout",
+   "importPath": "./src/components/Card/CardLayout.stories.tsx",
+   "componentPath": "./src/components/Card/CardLayout.tsx",
+   "tags": [
+    "dev",
+    "test",
+    "manifest"
+   ],
+   "exportName": "LayoutHorizontal"
+  },
+  "components-card-cardlayout--layout-vertical": {
+   "type": "story",
+   "subtype": "story",
+   "id": "components-card-cardlayout--layout-vertical",
+   "name": "CardLayout / orientation=vertical",
+   "title": "Components/Card/CardLayout",
+   "importPath": "./src/components/Card/CardLayout.stories.tsx",
+   "componentPath": "./src/components/Card/CardLayout.tsx",
+   "tags": [
+    "dev",
+    "test",
+    "manifest"
+   ],
+   "exportName": "LayoutVertical"
+  },
+  "components-card-cardlayout--layout-horizontal-no-slot": {
+   "type": "story",
+   "subtype": "story",
+   "id": "components-card-cardlayout--layout-horizontal-no-slot",
+   "name": "CardLayout / horizontal, showContentSlot=false",
+   "title": "Components/Card/CardLayout",
+   "importPath": "./src/components/Card/CardLayout.stories.tsx",
+   "componentPath": "./src/components/Card/CardLayout.tsx",
+   "tags": [
+    "dev",
+    "test",
+    "manifest"
+   ],
+   "exportName": "LayoutHorizontalNoSlot"
+  },
+  "components-card-cardlayout--layout-vertical-no-slot": {
+   "type": "story",
+   "subtype": "story",
+   "id": "components-card-cardlayout--layout-vertical-no-slot",
+   "name": "CardLayout / vertical, showContentSlot=false",
+   "title": "Components/Card/CardLayout",
+   "importPath": "./src/components/Card/CardLayout.stories.tsx",
+   "componentPath": "./src/components/Card/CardLayout.tsx",
+   "tags": [
+    "dev",
+    "test",
+    "manifest"
+   ],
+   "exportName": "LayoutVerticalNoSlot"
+  },
+  "components-card-cardtext--text-default": {
+   "type": "story",
+   "subtype": "story",
+   "id": "components-card-cardtext--text-default",
+   "name": "CardText / all on",
+   "title": "Components/Card/CardText",
+   "importPath": "./src/components/Card/CardText.stories.tsx",
+   "componentPath": "./src/components/Card/CardText.tsx",
+   "tags": [
+    "dev",
+    "test",
+    "manifest"
+   ],
+   "exportName": "TextDefault"
+  },
+  "components-card-cardtext--text-no-metadata": {
+   "type": "story",
+   "subtype": "story",
+   "id": "components-card-cardtext--text-no-metadata",
+   "name": "CardText / showMetadata=false",
+   "title": "Components/Card/CardText",
+   "importPath": "./src/components/Card/CardText.stories.tsx",
+   "componentPath": "./src/components/Card/CardText.tsx",
+   "tags": [
+    "dev",
+    "test",
+    "manifest"
+   ],
+   "exportName": "TextNoMetadata"
+  },
+  "components-card-cardtext--text-no-review": {
+   "type": "story",
+   "subtype": "story",
+   "id": "components-card-cardtext--text-no-review",
+   "name": "CardText / showReview=false",
+   "title": "Components/Card/CardText",
+   "importPath": "./src/components/Card/CardText.stories.tsx",
+   "componentPath": "./src/components/Card/CardText.tsx",
+   "tags": [
+    "dev",
+    "test",
+    "manifest"
+   ],
+   "exportName": "TextNoReview"
+  },
+  "components-card-cardtext--text-no-price": {
+   "type": "story",
+   "subtype": "story",
+   "id": "components-card-cardtext--text-no-price",
+   "name": "CardText / showPrice=false",
+   "title": "Components/Card/CardText",
+   "importPath": "./src/components/Card/CardText.stories.tsx",
+   "componentPath": "./src/components/Card/CardText.tsx",
+   "tags": [
+    "dev",
+    "test",
+    "manifest"
+   ],
+   "exportName": "TextNoPrice"
+  },
+  "components-card-cardtext--text-no-review-no-price": {
+   "type": "story",
+   "subtype": "story",
+   "id": "components-card-cardtext--text-no-review-no-price",
+   "name": "CardText / showReview=false, showPrice=false",
+   "title": "Components/Card/CardText",
+   "importPath": "./src/components/Card/CardText.stories.tsx",
+   "componentPath": "./src/components/Card/CardText.tsx",
+   "tags": [
+    "dev",
+    "test",
+    "manifest"
+   ],
+   "exportName": "TextNoReviewNoPrice"
+  },
+  "components-card-cardtext--text-no-metadata-no-review": {
+   "type": "story",
+   "subtype": "story",
+   "id": "components-card-cardtext--text-no-metadata-no-review",
+   "name": "CardText / showMetadata=false, showReview=false",
+   "title": "Components/Card/CardText",
+   "importPath": "./src/components/Card/CardText.stories.tsx",
+   "componentPath": "./src/components/Card/CardText.tsx",
+   "tags": [
+    "dev",
+    "test",
+    "manifest"
+   ],
+   "exportName": "TextNoMetadataNoReview"
+  },
+  "components-card-cardtext--text-no-metadata-no-price": {
+   "type": "story",
+   "subtype": "story",
+   "id": "components-card-cardtext--text-no-metadata-no-price",
+   "name": "CardText / showMetadata=false, showPrice=false",
+   "title": "Components/Card/CardText",
+   "importPath": "./src/components/Card/CardText.stories.tsx",
+   "componentPath": "./src/components/Card/CardText.tsx",
+   "tags": [
+    "dev",
+    "test",
+    "manifest"
+   ],
+   "exportName": "TextNoMetadataNoPrice"
+  },
+  "components-card-cardtext--text-all-off": {
+   "type": "story",
+   "subtype": "story",
+   "id": "components-card-cardtext--text-all-off",
+   "name": "CardText / all off",
+   "title": "Components/Card/CardText",
+   "importPath": "./src/components/Card/CardText.stories.tsx",
+   "componentPath": "./src/components/Card/CardText.tsx",
+   "tags": [
+    "dev",
+    "test",
+    "manifest"
+   ],
+   "exportName": "TextAllOff"
+  },
+  "components-iconbtn--idle": {
+   "type": "story",
+   "subtype": "story",
+   "id": "components-iconbtn--idle",
+   "name": "IconBtn / state=idle",
+   "title": "Components/IconBtn",
+   "importPath": "./src/components/IconBtn/IconBtn.stories.tsx",
+   "componentPath": "./src/components/IconBtn/IconBtn.tsx",
+   "tags": [
+    "dev",
+    "test",
+    "manifest"
+   ],
+   "exportName": "Idle"
+  },
+  "components-iconbtn--hover": {
+   "type": "story",
+   "subtype": "story",
+   "id": "components-iconbtn--hover",
+   "name": "IconBtn / state=hover",
+   "title": "Components/IconBtn",
+   "importPath": "./src/components/IconBtn/IconBtn.stories.tsx",
+   "componentPath": "./src/components/IconBtn/IconBtn.tsx",
+   "tags": [
+    "dev",
+    "test",
+    "manifest"
+   ],
+   "exportName": "Hover"
+  }
+ }
+}
