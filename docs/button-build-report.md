@@ -28,7 +28,7 @@ Plus every native `<button>` attribute (`onClick`, `type`, `disabled`, `aria-*`,
 
 | state | shape | Node | Figma W×H | Rendered W×H |
 |---|---|---|---|---|
-| default (`defaul` in Figma) | fill | 280:256 | 156×42 | 156.9×42 |
+| default | fill | 280:256 | 156×42 | 156.9×42 |
 | hover | fill | 280:277 | 156×42 | 156.9×42 |
 | focus | fill | 280:285 | 156×42 | 156.9×42 |
 | disabled | fill | 280:292 | 156×42 | 156.9×42 |
@@ -63,6 +63,6 @@ read from the rendered stories and match the bound tokens in every row.
 
 | Figma | Code | Why |
 |---|---|---|
-| `state=defaul` (fill variants) | `default` | Typo in Figma; outline variants already say `default`. Figma should rename `defaul` → `default` |
+| `state=defaul` (fill variants) | `default` | **Resolved 2026-11-20.** Renamed in Figma to `state=default`; Figma and code now match. |
 | `state` | `state` | Kept. Note the 268:245 set used `state` for fill/outline; 280:276 moved that to `shape` |
 | (none) | `leadingIcon`, `trailingIcon` | Code-only props. Suggest Figma add instance-swap properties with these names |

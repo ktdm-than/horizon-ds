@@ -1,7 +1,7 @@
 // Figma: https://www.figma.com/design/l87TswOf2FHCxsYmK8XhHJ/Horizon-Stays-.-Web-.-Component-.-V1.0-.-Draft?node-id=280-276
 // fileKey l87TswOf2FHCxsYmK8XhHJ · component set "Btn" 280:276
 // Matrix (4 x 2): state (default, hover, focus, disabled) x shape (fill, outline)
-//   fill:    default 280:256 (Figma spells it "defaul") · hover 280:277 · focus 280:285 · disabled 280:292
+//   fill:    default 280:256 · hover 280:277 · focus 280:285 · disabled 280:292
 //   outline: default 280:333 · hover 280:339 · focus 280:347 · disabled 280:353
 // Booleans: showLeadingIcon, showTrailingIcon (both default true) — covered by the icon stories.
 // Labels match the Figma text layer "Button". The `state` stories pin each look; the Interactive
