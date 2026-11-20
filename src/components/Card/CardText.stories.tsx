@@ -33,3 +33,21 @@ export const TextDefault: Story = { name: 'CardText / all on' };
 export const TextNoMetadata: Story = { name: 'CardText / showMetadata=false', args: { showMetadata: false } };
 export const TextNoReview: Story = { name: 'CardText / showReview=false', args: { showReview: false } };
 export const TextNoPrice: Story = { name: 'CardText / showPrice=false', args: { showPrice: false } };
+export const TextNoReviewNoPrice: Story = {
+  name: 'CardText / showReview=false, showPrice=false',
+  args: { showReview: false, showPrice: false },
+};
+// With showMetadata off, Review and Price are hidden whatever their value, as in Figma.
+// These three complete the 8 Figma combinations.
+export const TextNoMetadataNoReview: Story = {
+  name: 'CardText / showMetadata=false, showReview=false',
+  args: { showMetadata: false, showReview: false },
+};
+export const TextNoMetadataNoPrice: Story = {
+  name: 'CardText / showMetadata=false, showPrice=false',
+  args: { showMetadata: false, showPrice: false },
+};
+export const TextAllOff: Story = {
+  name: 'CardText / all off',
+  args: { showMetadata: false, showReview: false, showPrice: false },
+};
