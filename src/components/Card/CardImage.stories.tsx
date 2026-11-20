@@ -1,6 +1,6 @@
 // Figma: https://www.figma.com/design/l87TswOf2FHCxsYmK8XhHJ/Horizon-Stays-.-Web-.-Component-.-V1.0-.-Draft?node-id=227-333
 // fileKey l87TswOf2FHCxsYmK8XhHJ · section 227:333 · CardImage 163:56 (nested in Card 218:143)
-// Frame widths are story fixtures matching the Figma frames: 192 for 1:1, 256 for 4:3.
+// Stories carry no fixed frame size: no size token exists for it. The image fills its parent.
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { CardImage, type CardImageProps } from './CardImage';
 
@@ -13,14 +13,6 @@ const meta: Meta<typeof CardImage> = {
   title: 'Components/Card/CardImage',
   component: CardImage,
   parameters: { layout: 'padded' },
-  decorators: [
-    // context.args are already mapped, so this sees the Figma value.
-    (Story, { args }) => (
-      <div style={{ width: args.ratio === '4:3' ? 256 : 192 }}>
-        <Story />
-      </div>
-    ),
-  ],
   argTypes: {
     ratio: { control: { type: 'inline-radio', labels: RATIO }, options: Object.keys(RATIO), mapping: RATIO },
     state: { control: 'inline-radio', options: ['idle', 'hover'] },

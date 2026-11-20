@@ -19,7 +19,7 @@ export type CardProps = {
   showContentSlot?: boolean;
   /** Props for the nested CardImage. Its ratio is fixed at 1:1, as in Figma. */
   image?: CardLayoutImageProps;
-  /** Props for the nested CardText (Metadata, Review, Price and the text). */
+  /** Props for the nested CardText (showMetadata, showReview, showPrice and the text). */
   text?: CardTextProps;
 };
 
