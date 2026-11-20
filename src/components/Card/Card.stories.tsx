@@ -5,7 +5,7 @@
 // CardText.stories.tsx (162:27); IconBtn 163:74 is in src/components/IconBtn/.
 //
 // Card properties in Figma: showContentSlot (boolean) and ContentSlot (slot → children).
-// The 534 frame width is a story fixture matching the Figma frame; the Card fills its parent.
+// The Card fills its parent. Stories carry no fixed frame size: no size token exists for it.
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { Card } from './Card';
 
@@ -13,17 +13,16 @@ const meta: Meta<typeof Card> = {
   title: 'Components/Card/Card',
   component: Card,
   parameters: { layout: 'padded' },
-  decorators: [(Story) => <div style={{ width: 534 }}><Story /></div>],
   argTypes: {
     showContentSlot: { control: 'boolean' },
     image: { control: 'object', description: 'Props for the nested CardImage: state, showIconBtn, src, alt, iconBtn. Ratio is fixed at 1:1.' },
-    text: { control: 'object', description: 'Props for the nested CardText (Metadata, Review, Price and the text fields).' },
+    text: { control: 'object', description: 'Props for the nested CardText (showMetadata, showReview, showPrice and the text fields).' },
     children: { control: false, description: 'Figma slot `ContentSlot`.' },
   },
   args: {
     showContentSlot: true,
     image: { showIconBtn: true },
-    text: { Metadata: true, Review: true, Price: true },
+    text: { showMetadata: true, showReview: true, showPrice: true },
   },
 };
 export default meta;

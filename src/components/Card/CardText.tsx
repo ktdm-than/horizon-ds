@@ -1,14 +1,14 @@
-// CardText — Figma component 162:27 (booleans: Metadata, Review, Price)
+// CardText — Figma component 162:27 (booleans: showMetadata, showReview, showPrice)
 // Section: https://www.figma.com/design/l87TswOf2FHCxsYmK8XhHJ/Horizon-Stays-.-Web-.-Component-.-V1.0-.-Draft?node-id=227-333
-// Prop names match the Figma property names exactly, including their capitals (see docs/card-build-report.md, N1).
+// Prop names match the Figma property names exactly (renamed in Figma per docs/card-build-report.md, N1).
 
 export type CardTextProps = {
-  /** Figma `Metadata`. Shows the Review + Price block. */
-  Metadata?: boolean;
-  /** Figma `Review`. Only applies while `Metadata` is on, as in Figma. */
-  Review?: boolean;
-  /** Figma `Price`. Only applies while `Metadata` is on, as in Figma. */
-  Price?: boolean;
+  /** Figma `showMetadata`. Shows the review and price block. */
+  showMetadata?: boolean;
+  /** Figma `showReview`. Only applies while `showMetadata` is on, as in Figma. */
+  showReview?: boolean;
+  /** Figma `showPrice`. Only applies while `showMetadata` is on, as in Figma. */
+  showPrice?: boolean;
   title?: string;
   subtitle?: string;
   rating?: string;
@@ -18,9 +18,9 @@ export type CardTextProps = {
 };
 
 export function CardText({
-  Metadata = true,
-  Review = true,
-  Price = true,
+  showMetadata = true,
+  showReview = true,
+  showPrice = true,
   title = 'Casa do Bairro',
   subtitle = 'Alfama, Lisbon · 1.2 km from centre',
   rating = '4.7',
@@ -34,15 +34,15 @@ export function CardText({
         <p className="hds-card-text__title">{title}</p>
         <p className="hds-card-text__subtitle">{subtitle}</p>
       </div>
-      {Metadata && (
+      {showMetadata && (
         <div className="hds-card-text__metadata">
-          {Review && (
+          {showReview && (
             <div className="hds-card-text__row">
               <p className="hds-card-text__rating">{rating}</p>
               <p className="hds-card-text__meta">{reviews}</p>
             </div>
           )}
-          {Price && (
+          {showPrice && (
             <div className="hds-card-text__row">
               <p className="hds-card-text__price">{amount}</p>
               <p className="hds-card-text__meta">{unit}</p>

@@ -1,6 +1,6 @@
 // Figma: https://www.figma.com/design/l87TswOf2FHCxsYmK8XhHJ/Horizon-Stays-.-Web-.-Component-.-V1.0-.-Draft?node-id=227-333
 // fileKey l87TswOf2FHCxsYmK8XhHJ · section 227:333 · CardLayout 166:221 (nested in Card 218:143)
-// Frame widths are story fixtures matching the Figma frames: 453 horizontal, 302 vertical.
+// Stories carry no fixed frame size: no size token exists for it.
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { CardLayout } from './CardLayout';
 
@@ -8,13 +8,6 @@ const meta: Meta<typeof CardLayout> = {
   title: 'Components/Card/CardLayout',
   component: CardLayout,
   parameters: { layout: 'padded' },
-  decorators: [
-    (Story, { args }) => (
-      <div style={{ width: args.orientation === 'vertical' ? 302 : 453 }}>
-        <Story />
-      </div>
-    ),
-  ],
   argTypes: {
     orientation: { control: 'inline-radio', options: ['horizontal', 'vertical'] },
     showContentSlot: { control: 'boolean' },
