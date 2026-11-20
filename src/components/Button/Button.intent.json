@@ -28,6 +28,16 @@
       "use_instead": null
     }
   ],
+  "best_practice": [
+    "Adjust button placement and hierarchy so the primary call-to-action remains the main focus on the screen.",
+    "When designing forms or dialogs, consistently align primary actions (e.g., \"Save\" or \"Submit\") and secondary actions (e.g., \"Cancel\") following platform conventions.",
+    "Use distinct styles (such as fill vs. outline) to distinguish between primary and secondary actions.",
+    "Ensure buttons provide clear visual feedback across all states (hover, focus, active, and disabled).",
+    "Keep button text concise and action-oriented, typically starting with a strong verb.",
+    "Ensure touch targets on mobile devices are large enough to be easily tapped (minimum recommended size).",
+    "Support keyboard navigation with clear focus rings around buttons.",
+    "Maintain consistent spacing around buttons to prevent accidental clicks, especially on dense layouts or mobile screens."
+  ],
   "variant_intent": {
     "state": {
       "default": {

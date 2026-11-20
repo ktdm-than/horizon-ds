@@ -4,6 +4,7 @@
   "commit": "14a76fd989ada6ae165c757ee13adf8535ba7dde",
   "use_when": [],
   "dont_use_when": [],
+  "best_practice": [],
   "variant_intent": {
     "state": {
       "idle": {
