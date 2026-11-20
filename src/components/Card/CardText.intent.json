@@ -6,7 +6,7 @@
   "dont_use_when": [],
   "best_practice": [],
   "variant_intent": {
-    "Metadata": {
+    "showMetadata": {
       "true": {
         "purpose": ""
       },
@@ -14,7 +14,7 @@
         "purpose": ""
       }
     },
-    "Review": {
+    "showReview": {
       "true": {
         "purpose": ""
       },
@@ -22,7 +22,7 @@
         "purpose": ""
       }
     },
-    "Price": {
+    "showPrice": {
       "true": {
         "purpose": ""
       },
@@ -77,7 +77,7 @@
       "source": "src/components/Card/CardText.tsx:35"
     },
     {
-      "fact": "Review and Price render only while Metadata is true.",
+      "fact": "showReview and showPrice render only while showMetadata is true.",
       "source": "src/components/Card/CardText.tsx:37"
     },
     {

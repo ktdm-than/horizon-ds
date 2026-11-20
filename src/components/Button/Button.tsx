@@ -13,7 +13,6 @@ export type ButtonProps = Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'childre
    * Figma `state`. Pins a look for documentation and testing. Real pointer hover, keyboard
    * focus (`:focus-visible`) and the native `disabled` attribute apply the same looks on their own,
    * so leave this at `default` in product code. `disabled` here also disables the button natively.
-   * Figma spells the fill variant's default `defaul` (typo); the code uses `default` (docs/button-build-report.md).
    */
   state?: ButtonState;
   /** Figma `shape`: `fill` (primary background) or `outline` (stroked, transparent background). */

@@ -5,7 +5,7 @@ import { CardText } from './CardText';
 const render = (el: React.ReactElement) => renderToStaticMarkup(el);
 
 describe('CardText', () => {
-  it('renders the Figma defaults: Metadata, Review and Price all on', () => {
+  it('renders the Figma defaults: showMetadata, showReview and showPrice all on', () => {
     const html = render(<CardText />);
     expect(html).toContain('>Casa do Bairro</p>');
     expect(html).toContain('>Alfama, Lisbon · 1.2 km from centre</p>');
@@ -16,14 +16,14 @@ describe('CardText', () => {
     expect(html).toContain('>per night</p>');
   });
 
-  for (const Metadata of [true, false]) {
-    for (const Review of [true, false]) {
-      for (const Price of [true, false]) {
-        it(`Metadata=${Metadata} Review=${Review} Price=${Price}`, () => {
-          const html = render(<CardText Metadata={Metadata} Review={Review} Price={Price} />);
-          expect(html.includes('hds-card-text__metadata')).toBe(Metadata);
-          expect(html.includes('hds-card-text__rating')).toBe(Metadata && Review);
-          expect(html.includes('hds-card-text__price')).toBe(Metadata && Price);
+  for (const showMetadata of [true, false]) {
+    for (const showReview of [true, false]) {
+      for (const showPrice of [true, false]) {
+        it(`showMetadata=${showMetadata} showReview=${showReview} showPrice=${showPrice}`, () => {
+          const html = render(<CardText showMetadata={showMetadata} showReview={showReview} showPrice={showPrice} />);
+          expect(html.includes('hds-card-text__metadata')).toBe(showMetadata);
+          expect(html.includes('hds-card-text__rating')).toBe(showMetadata && showReview);
+          expect(html.includes('hds-card-text__price')).toBe(showMetadata && showPrice);
           expect(html).toContain('hds-card-text__title');
         });
       }

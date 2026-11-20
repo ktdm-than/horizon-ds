@@ -30,7 +30,7 @@ describe('CardLayout', () => {
 
   it('fixes the nested image ratio at 1:1 and passes other image and text props', () => {
     const image = { ratio: '4:3', state: 'hover', src: '/a.jpg' } as unknown as CardLayoutImageProps;
-    const html = render(<CardLayout image={image} text={{ title: 'Other', Price: false }} />);
+    const html = render(<CardLayout image={image} text={{ title: 'Other', showPrice: false }} />);
     expect(html).toContain('data-ratio="1:1" data-state="hover"');
     expect(html).toContain('src="/a.jpg"');
     expect(html).toContain('>Other</p>');
