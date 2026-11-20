@@ -1,7 +1,7 @@
 {
   "component": "Button",
   "figma": "https://www.figma.com/design/l87TswOf2FHCxsYmK8XhHJ/Horizon-Stays-.-Web-.-Component-.-V1.0-.-Draft?node-id=280-276",
-  "commit": "14a76fd989ada6ae165c757ee13adf8535ba7dde",
+  "commit": "72fe325ad683cae4ef0bf93c5c249358c35b26c5",
   "use_when": [
     "Use a button to trigger actions, events, or main workflows (such as submitting forms, confirming choices, or proceeding to the next step).",
     "Buttons should be easy to locate, scan, and understand as actionable items.",
@@ -87,6 +87,7 @@
     "borderradius-sm",
     "action-button1",
     "fontsize-xl",
+    "lineheight-sm",
     "color-bg-primary-idle",
     "color-text-inverse",
     "color-border-brand-light",
@@ -102,27 +103,27 @@
   "a11y": [
     {
       "fact": "Renders a native <button> element, so Enter and Space activate it and it is in the tab order.",
-      "source": "src/components/Button/Button.tsx:63"
+      "source": "src/components/Button/Button.tsx:62"
     },
     {
       "fact": "type defaults to \"button\", so it does not submit a surrounding form unless type=\"submit\" is passed.",
-      "source": "src/components/Button/Button.tsx:56"
+      "source": "src/components/Button/Button.tsx:55"
     },
     {
       "fact": "The disabled prop or state=\"disabled\" sets the native disabled attribute, which removes it from the tab order and blocks clicks.",
-      "source": "src/components/Button/Button.tsx:61"
+      "source": "src/components/Button/Button.tsx:60"
     },
     {
       "fact": "Remaining props, including aria-* attributes, are spread onto the <button>.",
-      "source": "src/components/Button/Button.tsx:64"
+      "source": "src/components/Button/Button.tsx:63"
     },
     {
       "fact": "The accessible name is the label text from children (default \"Button\"), rendered in a <span>.",
-      "source": "src/components/Button/Button.tsx:72"
+      "source": "src/components/Button/Button.tsx:71"
     },
     {
       "fact": "Leading and trailing icons are Material Symbols ligatures in a <span> with aria-hidden=\"true\", so they are not announced.",
-      "source": "src/components/Button/Button.tsx:41"
+      "source": "src/components/Button/Button.tsx:40"
     },
     {
       "fact": "Keyboard focus (:focus-visible) removes the browser outline and shows focus only as a background colour (fill) or border colour (outline) change.",
