@@ -13,7 +13,7 @@ Engineer self-check only. This is not QA and not approval.
 | # | Figma now says | Code before | Code now |
 |---|---|---|---|
 | C1 | Card 218:143 has its own properties `showContentSlot` (boolean, default true) and `ContentSlot` (slot) | Card had no properties | `showContentSlot` and `children` on Card, passed to the nested CardLayout |
-| C2 | CardText's booleans are named `Metadata`, `Review`, `Price` | `metadata`, `review`, `price` | `Metadata`, `Review`, `Price` (exact Figma names; see N1) |
+| C2 | CardText's booleans are named `Metadata`, `Review`, `Price` | `metadata`, `review`, `price` | `showMetadata`, `showReview`, `showPrice` (Figma renamed 2026-11-20; see N1) |
 | C3 | CardContainer `containerSlot` is a vertical auto layout, gap `spacing/lg`, padding `spacing/none` | plain block | flex column, `gap: var(--spacing-lg)`, `padding: var(--spacing-none)` |
 | C4 | — | Storybook docgen threw on Card's indexed-access prop type | named type `CardLayoutImageProps`; console clean |
 
@@ -74,7 +74,7 @@ IconBtn has no row in the Components table, so Card's `Composes` cannot link it.
 
 | # | Figma | Code | Why |
 |---|---|---|---|
-| N1 | `Metadata`, `Review`, `Price` (CardText) | same, capitalised | Kept exact per CLAUDE.md. Every other boolean in this file is camelCase (`showIconBtn`, `showContentSlot`), and React props are conventionally camelCase. **Suggest renaming in Figma to `metadata`, `review`, `price`** (or `showMetadata`, `showReview`, `showPrice`), then the code follows |
+| N1 | `showMetadata`, `showReview`, `showPrice` (CardText) | same | **Resolved 2026-11-20.** Renamed in Figma from `Metadata`, `Review`, `Price` to match the other camelCase booleans (`showIconBtn`, `showContentSlot`); the code follows. |
 | — | slot `containerSlot` (CardContainer) | `children` | React's slot convention |
 | — | slot `ContentSlot` (Card, CardLayout) | `children` | React's slot convention |
 | — | — | `image`, `text` on Card / CardLayout | passes props to the nested instances. Not a Figma property. `image.ratio` is fixed at `1:1`, as in Figma |
