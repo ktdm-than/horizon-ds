@@ -18,8 +18,8 @@
  * DESIGN GAPS (reported in docs/button-build-report.md, not invented):
  *   G1 height 42 is fixed and unbound. It follows here from bound tokens: line-height (24) +
  *      2 x spacing/sm + 2 x borderWidth/sm. Fill carries a transparent stroke so both shapes match.
- *   G2 the 20x20 icon frame is unbound. PROVISIONAL: the glyph is sized by the equal-valued
- *      --fontsize-xl (20px), as IconBtn does, until design binds an icon-size token.
+ *   G2 resolved 2026-11-20: Figma's icon is now Material Symbols Rounded `add`, font size and
+ *      line height bound to fontSize/xl, so --fontsize-xl here is the bound token.
  *   G3 icons are bound to border tokens (color/border/*), not color/icon/*. Used as bound.
  *   G4 no pressed or loading state in the set; none is styled.
  */
@@ -46,7 +46,7 @@
   display: block;
   flex: none;
   font-size: var(--fontsize-xl);
-  line-height: 1;
+  line-height: var(--fontsize-xl);
   inline-size: 1em;
   block-size: 1em;
   overflow: hidden;
