@@ -46,7 +46,7 @@
   display: block;
   flex: none;
   font-size: var(--fontsize-xl);
-  line-height: 1;
+  line-height: var(--fontsize-xl);
   inline-size: 1em;
   block-size: 1em;
   overflow: hidden;
