@@ -46,7 +46,7 @@ read from the rendered stories and match the bound tokens in every row.
 | # | What | Figma | What the code does |
 |---|---|---|---|
 | G1 | Height | fixed 42, no token | derived from bound tokens: line-height 24 + 2 × `spacing/sm` + 2 × `borderWidth/sm` = 42. Fill carries a transparent stroke so both shapes match |
-| G2 | Icon size | **Resolved 2026-11-20.** Figma's LeadingIcon/TrailingIcon now hold a Material Symbols Rounded `add` glyph, font size and line height bound to `fontSize/xl`, padding `spacing/none` | `--fontsize-xl`, now the bound token |
+| G2 | Icon size | **Resolved 2026-11-20.** Figma's LeadingIcon/TrailingIcon hold a Material Symbols Rounded `add` glyph: font size bound to `fontSize/xl`, line height to `lineHeight/sm`, padding `spacing/none` | `--fontsize-xl` and `--lineheight-sm`. `lineheight-sm` is 24px in Burmese, so the glyph sits about 2px low there (owner's choice) |
 | G3 | Icon colour tokens | icon strokes bound to `color/border/brand/light`, `color/border/inverse`, `color/border/primary` | used exactly as bound. Design may want the `color/icon/*` family instead |
 | G4 | Icon stroke weight | **Resolved 2026-11-20.** The Figma vector was replaced by the Material Symbols glyph, so there's no separate stroke weight | Material Symbols `add` at its default weight, same as Figma |
 | G5 | Pressed and loading states | not in the component set | not styled. No `loading` prop |
